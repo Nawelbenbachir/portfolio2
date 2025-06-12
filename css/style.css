@@ -981,7 +981,7 @@ textarea {
   bottom: 0;
   left: 50%;
   width: 4px;
-  background: #303030;
+  background: #080808;
   transform: translateX(-50%);
   z-index: 1;
 }
