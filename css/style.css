@@ -42,10 +42,13 @@ body {
   overflow-y: scroll;
   font-family: 'Source Sans Pro', sans-serif; }
 
-  .section-hidden {
+section {
+    transition: all 0.8s ease-out; 
+}
+.section-hidden {
   opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  transform: translateY(50px);
+  /* transition: all 0.8s ease-out; */
 }
 
 .section-visible {
@@ -73,14 +76,32 @@ button {
 textarea {
   resize: none; }
 
+/* Nouveau style pour le nom avec dégradé */
 .heading-primary {
-  font-size: 8rem;
-  text-transform: uppercase;
-  letter-spacing: 3px;
-  text-align: center; }
-  @media only screen and (max-width: 37.5em) {
+    font-size: 8rem;
+    /* text-transform: uppercase; */
+    letter-spacing: 3px;
+    text-align: center;
+    font-weight: 800; /* Assurez-vous que la police est assez épaisse pour voir le dégradé */
+    
+    /* PROPRIÉTÉS CLÉS POUR LE DÉGRADÉ SUR TEXTE */
+    
+    /*  Définir le dégradé comme arrière-plan */
+    background-image: linear-gradient(90deg, #A80048, #D51066, #ff87b7);
+    
+    /*  Cacher l'arrière-plan */
+    -webkit-background-clip: text;
+    background-clip: text;
+    
+    /*  Rendre le texte transparent pour que le dégradé soit visible */
+    color: transparent; 
+}
+
+@media only screen and (max-width: 37.5em) {
     .heading-primary {
-      font-size: 4.5rem; } }
+        font-size: 4.5rem; 
+    }
+}
 
 .heading-sec__mb-bg {
   margin-bottom: 11rem; }
@@ -104,17 +125,17 @@ textarea {
   margin-bottom: 3.5rem;
   position: relative; }
   .heading-sec__main--lt {
-    color: #0c0000; }
+    color:#333333; }
     .heading-sec__main--lt::after {
       content: '';
-      background: #27BDBE !important; }
+      background: #D51066 !important; }
   .heading-sec__main::after {
     content: '';
     position: absolute;
     top: calc(100% + 1.5rem);
     height: 5px;
     width: 3rem;
-    background: #27BDBE;
+    background: #D51066;
     left: 50%;
     transform: translateX(-50%);
     border-radius: 5px; }
@@ -135,7 +156,7 @@ textarea {
     .heading-sec__sub {
       font-size: 1.8rem; } }
   .heading-sec__sub--lt {
-    color: #040000; }
+    color: #444444; }
 .heading-sec__sub-veille{
 
   color: #040000;
@@ -158,7 +179,9 @@ textarea {
   max-width: 120rem;
   margin: auto;
   width: 92%; }
-
+#parcours .main-container {
+    max-width: 2100px; 
+}
 .btn {
   background: #fff;
   color: #333;
@@ -166,11 +189,32 @@ textarea {
   letter-spacing: 2px;
   /* display: inline-block; */
   font-weight: 700;
-  border-radius: 5px;
+  border-radius: 50px;
   box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.15);
-  transition: transform .3s; }
+  transition: transform 0.3s ease-out, box-shadow 0.3s;
+  position: relative;
+  margin-top:0;
+ }
   .btn:hover {
-    transform: translateY(-3px); }
+    transform: translateZ(50px) scale(1.02); 
+    
+    /* Pour s'assurer qu'il a une position 3D par défaut */
+    transform-style: preserve-3d;
+    
+   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    z-index: 9999 !important; 
+    
+    /* Garder la transition si elle n'est pas déjà sur .btn */
+    /* transition: transform 0.3s ease-out, box-shadow 0.3s; */
+  }
+  .home-hero .btn:hover {
+    /* Utiliser transform: none; pour annuler l'effet et le réappliquer après */
+    /* Cela peut forcer le navigateur à recréer le contexte d'empilement */
+    transform: translateY(-7px) scale(1.02) !important; 
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25); 
+    /* Rajoutez un z-index élevé */
+    z-index: 9999 !important; 
+}
   .btn--bg {
     padding: 1.5rem 8rem;
     font-size: 2rem; }
@@ -178,14 +222,20 @@ textarea {
     padding: 1.5rem 5rem;
     font-size: 1.6rem; }
   .btn--theme {
-    background: #27BDBE;
+    background: #D51066;
     color: #fff; }
   .btn--theme-inv {
-    color: #27BDBE;
+    color: #D51066;
     background: #fff;
-    border: 2px solid #27BDBE;
+    border: 2px solid #D51066;
     box-shadow: none;
-    padding: calc(1.5rem - 2px) calc(5rem - 2px); }
+    padding: 1.5rem 5rem; } 
+  .btn--theme-inv:hover {
+    background: #D51066; /* Couleur de fond rose (#D51066) */
+    color: #fff;        /* Couleur du texte blanc */
+    border: 2px solid #D51066; /* La bordure devient invisible contre le fond */
+    /* Garder l'effet de soulèvement général (transform) qui est sur .btn:hover */
+}
 
 .sec-pad {
   padding: 12rem 0; }
@@ -216,13 +266,29 @@ textarea {
   display: none; }
 
 .home-hero {
+  /* Augmentation légère du contraste du dégradé */
+  /* background: linear-gradient(135deg, #eeeeee, #ffffff);  */
+  /* background:  #e3e3e3; */
+background: #f7f7f7;
+  background-size: 200%; 
+  
+  /* Ajout des deux versions de l'animation pour la compatibilité */
+  -webkit-animation: subtleShift 20s ease infinite alternate; 
+  animation: subtleShift 20s ease infinite alternate;
+  
+
+  /* ANCIENNES PROPRIÉTÉS CONSERVÉES */
   color: #080000;
-  background: linear-gradient(to right, rgba(178, 171, 149, 0.727), rgba(216, 220, 218, 0.8)), url(../../assets/svg/common-bg.svg);
-  background-position: center;
+  /* background-position: center; -> Retiré car l'animation le gère */
   height: 100vh;
   min-height: 80rem;
-  max-height: 120rem;
-  position: relative; }
+  /* max-height: 120rem; */
+  position: relative;
+  padding-top: 8rem; 
+  display: flex;
+  align-items: center; /* Centre verticalement */
+  justify-content: center;
+}
   @media only screen and (max-width: 37.5em) {
     .home-hero {
       height: unset;
@@ -259,12 +325,16 @@ textarea {
   .home-hero__social-icon {
     width: 100%; }
   .home-hero__content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    position: relative; 
+    z-index: 10;
+    /* top: 50%; */
+    /* left: 50%; */
+    /* transform: translate(-50%, -50%); */
     max-width: 90rem;
-    width: 92%; }
+    width: 92%;
+    margin: auto;
+    perspective: 1000px;
+    padding: 3rem 0;}
     @media only screen and (max-width: 37.5em) {
       .home-hero__content {
         padding: 19rem 0 13rem 0;
@@ -274,9 +344,66 @@ textarea {
   .home-hero__info {
     margin: 3rem auto 0 auto;
     max-width: 80rem; }
-  .home-hero__cta {
-    margin-top: 5rem;
-    text-align: center; }
+  .home-hero__cta { 
+     margin-top: 5rem;
+     text-align: center;
+     position: relative;
+     z-index:20;
+ /* NOUVEAU : Ajout de Flexbox pour espacer les deux boutons */
+   display: flex; /* <-- APPLIQUÉ sur le conteneur (le parent) */
+   justify-content: center;
+   gap: 2rem; /* Espace entre les boutons */
+    /* Assurez-vous que les boutons ne s'étirent pas à l'intérieur */
+    align-items: center;
+}
+
+
+
+@media only screen and (max-width: 37.5em) {
+    .home-hero__cta {
+        flex-direction: column; /* Empile les boutons sur mobile */
+        gap: 1.5rem;
+    }
+}
+    .home-hero__greeting {
+    font-size: 3rem; /* Une taille visible mais plus petite que le titre */
+    color: #444444; /* Couleur très foncée */
+    text-align: center;
+    margin-bottom: 1rem; /* Espace au-dessus du titre principal */
+    font-weight: 400; /* Plus léger que le titre */
+}
+
+@media only screen and (max-width: 37.5em) {
+    .home-hero__greeting {
+        font-size: 2rem;
+    }
+}
+.home-hero__intro-text {
+    /* Surcharge le 5rem du .text-primary pour le rendre lisible */
+    font-size: 2.8rem; 
+    
+    /* On ajuste la couleur pour qu'elle contraste bien avec l'arrière-plan */
+    color: #444444;; 
+    
+    /* Épaisseur de la police plus légère pour un corps de texte */
+    font-weight: 500; 
+    
+    max-width: 65rem; /* Réduit la largeur pour une lecture confortable */
+    margin: 3rem auto; /* Centre et ajoute de l'espace */
+}
+
+@media only screen and (max-width: 56.25em) { /* Tablette */
+    .home-hero__intro-text {
+        font-size: 2.4rem;
+        max-width: 80%;
+    }
+}
+
+@media only screen and (max-width: 37.5em) { /* Téléphone */
+    .home-hero__intro-text {
+        font-size: 1.8rem;
+    }
+}
 
 /* Entreprise  */
     .entreprise-description {
@@ -490,20 +617,26 @@ textarea {
         .projects__row-content-desc {
           font-size: 1.7rem; } }
 
-.contact {
-  background: linear-gradient(to right, rgba(178, 171, 149, 0.727), rgba(216, 220, 218, 0.8)), url(../../assets/svg/common-bg.svg);
-  background-size: cover;
-  background-position: center; }
+
+  .contact {
+    /* Fond simple pour voir les bulles (similaire à home-hero) */
+    background: #f7f7f7; 
+    
+    /* Assurez-vous que la section couvre au moins un écran si le contenu est court */
+    min-height: 100vh;
+    
+    /* Le 'position: relative' est crucial pour positionner les bulles (enfants absolus) */
+    position: relative; 
+    
+    /* S'assurer que le contenu du formulaire a un z-index plus haut */
+    z-index: 1; 
+  }
+
+  /* Ajustement pour le conteneur du formulaire pour le placer au-dessus des bulles */
   .contact__form-container {
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    background: white;
-    padding: 4rem;
-    margin-top: 6rem;
-    max-width: 80rem;
-    text-align: right;
-    width: 95%;
-    border-radius: 5px;
-    margin: 5rem auto 0 auto; }
+      position: relative;
+      z-index: 2; /* Plus haut que les bulles (z-index: 0) */
+  }
     @media only screen and (max-width: 37.5em) {
       .contact__form-container {
         padding: 3rem; } }
@@ -572,7 +705,7 @@ textarea {
 
 .project-cs-hero {
   color: #080808;
-  background: linear-gradient(to right,  #27BDBE, rgba(47, 230, 203, 0.8)), url(../../assets/jpeg/bg-portfolio2.webp);
+  background: linear-gradient(to right,  #D51066, rgba(230, 47, 132, 0.8)), url(../../assets/jpeg/bg-portfolio2.webp);
   background-size: cover;
   background-position: center;
   position: relative; }
@@ -674,6 +807,17 @@ textarea {
         .project-details__links-btn:last-child {
           margin: 0; } }
 
+/* Animation de départ (Hero) */
+.hero-start-animation {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.hero-start-animation.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
 .header {
   position: fixed;
   width: 100%;
@@ -681,6 +825,20 @@ textarea {
   background: #000;
   background: #fff;
   box-shadow: 0 10px 100px rgba(0, 0, 0, 0.1); }
+    /* Styles pour le bloc entier (Nom + Prénom) */
+  .header__logo {
+    font-size: 2.8rem; 
+    font-weight: 900; 
+    letter-spacing: 2px; 
+    color: #333; /* Couleur sombre par défaut */
+    text-transform: uppercase;
+  }
+
+  /* Styles pour le prénom seulement */
+  .header__logo-name {
+    color: #D51066; /* La couleur de votre thème pour l'accentuation */
+    /* Vous pouvez ajouter d'autres styles ici si vous le souhaitez */
+  }
   .header__content {
     display: flex;
     align-items: center;
@@ -696,14 +854,14 @@ textarea {
     color: #333;
     transition: color .3s; }
     .header__logo-container:hover {
-      color: #27BDBE; }
+      color: #D51066; }
   .header__logo-img-cont {
     width: 5rem;
     height: 5rem;
     border-radius: 50px;
     overflow: hidden;
     margin-right: 1.5rem;
-    background: #27BDBE; }
+    background: #D51066; }
     @media only screen and (max-width: 56.25em) {
       .header__logo-img-cont {
         width: 4.5rem;
@@ -735,7 +893,7 @@ textarea {
     font-weight: 700;
     transition: color .3s; }
     .header__link:hover {
-      color: #27BDBE; }
+      color: #D51066; }
     @media only screen and (max-width: 56.25em) {
       .header__link {
         padding: 3rem 1.8rem;
@@ -782,7 +940,7 @@ textarea {
     letter-spacing: 2px;
     transition: color .3s; }
     .header__sm-menu-link a:hover {
-      color: #27BDBE; }
+      color: #D51066; }
   .header__sm-menu-link:first-child a {
     border-top: 1px solid #eee; }
   .header__sm-menu-link-last {
@@ -917,168 +1075,313 @@ textarea {
     opacity: 0;
     top: 27px; } }
 
-/* Timeline */
-.timeline {
-  position: relative;
-  width: 100%;
-  margin:0;
-  padding:40px  0;
-  
-}
- /* Conteneur des deux timelines côte à côte */
+/* ============================================== */
+/* === 1. Structure Flexbox (Double Colonne) === */
+/* ============================================== */
+
+/* Conteneur des deux timelines côte à côte */
 .timelines-wrapper {
+  width: 100%; 
+  max-width: 100%;
   display: flex;
-  flex-wrap: nowrap;
-  gap: 20px;
-  margin-top: 30px;
-  
+  flex-wrap: wrap;       /* Permet de passer à la ligne sur mobile */
+  gap: 1rem;             /* Espacement entre Pro et Scolaire */
+  margin-top: 5rem;
+  justify-content: space-between; 
 }
 
-
-
-@media (max-width: 800px) {
-  .timelines-wrapper {
-    flex-wrap: wrap;
-  }
-  .timeline-block {
-    flex: 1 1 100%;
-    max-width: 100%;
-  }
-}
-/* Styles communs */
- /*chaque bloc de timeline*/
+/* Styles communs pour chaque bloc de timeline (Pro et Scolaire) */
 .timeline-block {
+  flex: 1 1 49%;         /* Chaque bloc prend 45% de la largeur du wrapper */
+  min-width: 300px;
   padding: 20px;
-  background-color: #f9f5f5;
+  background-color: #fafafa; /* Couleur de fond pour le bloc */
   border-radius: 10px;
- 
   max-width: none;
 }
 
-/* Bloc scolaire : un peu plus large */
-.timeline-block.scolaire {
-  flex: 2 1 0;  /* prend plus de place */
-  min-width: 400px;
- 
+@media (max-width: 800px) {
+  .timeline-block {
+    flex: 1 1 100%;       
+    max-width: 100%;
+  }
 }
 
-/* Bloc professionnel : un peu moins large */
-.timeline-block.pro {
-  flex: 1 1 0;
-  min-width: 300px;
- 
-}
-/* Optionnel : centrer les titres */
 .timeline-block .about__content-title {
   text-align: center;
 }
 
-/* Ligne centrale */
+/* Conteneur de la timeline (à l'intérieur du bloc) */
+.timeline {
+  position: relative;
+  width: 100%;
+  margin: 0;
+  padding: 40px 0;
+}
+
+
+/* ============================================== */
+/* === 2. Ligne Centrale et Éléments === */
+/* ============================================== */
+
+/* Ligne centrale (positionnée au milieu de chaque colonne) */
 .timeline::after {
   content: "";
   position: absolute;
   top: 0;
   bottom: 0;
-  left: 50%;
+  left: 50%; /* Ligne au centre de la colonne (50%) */
+  transform: translateX(-50%); /* Décalage pour centrer la ligne */
   width: 4px;
-  background: #080808;
-  transform: translateX(-50%);
+  background: #D51066;
   z-index: 1;
 }
 
-/* Élément de la timeline */
+/* Style de chaque élément (Bloc d'expérience ou de formation) */
 .element {
   position: relative;
-  width: 45%;
+  width: 49%; /* La moitié de la colonne, ajustée pour laisser l'espace au centre */
   padding: 20px 30px;
-  background: linear-gradient(135deg, #090000, #0e0000);
-  color: #fdfdfd;
-  border-radius: 15px;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
-  margin: 40px 0;
-  opacity: 0;
-  animation: fadeInUp 0.8s ease forwards;
-  border-left: 5px solid #06000030; /* bande subtile à gauche */
-  transition: transform 0.3s ease;
-  animation: fadeInUp 0.8s ease forwards;
-  opacity: 0;
+  background: #fff;
+  color: #333; 
+  border :none;
+  /* border: 1px solid #eee; */
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  margin-top: 20px;
+  margin-bottom: 20px;
+  z-index: 5; 
+  
+  /* Transition pour l'animation d'apparition */
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+/* Améliorer la lisibilité du texte dans le bloc */
+.element p, .element ul {
+    font-size: 1.5rem; /* Augmenter légèrement la taille de la police */
+    line-height: 1.6;  /* Améliorer l'espacement entre les lignes */
+    color: #333;      /* S'assurer que le texte est bien sombre */
 }
 
-.element:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(255, 255, 255, 0.1);
-  transform: scale(1.2);
+/* Rendre les titres dans les blocs plus visibles (Optionnel) */
+.element p:first-child {
+    font-weight: bold;
+    color: #000;
+    margin-bottom: 0.3rem;
+}
+/* Alignement des éléments à GAUCHE de la ligne centrale */
+.element.gauche {
+  margin-right: auto; /* Pousse l'élément à gauche */
+  margin-left: 0; 
 }
 
-/* Titre */
-.timeline-block h3{
-  font-size:3em;
-}
-
-/* Texte du contenu */
-.element p {
-  margin: 0;
-  line-height: 1.5;
-  color: #dddddd;
-  font-size: 2em;
-}
-
-.element li{
-  font-size:1.5em;
-}
-
-
-/* Gauche */
-.gauche {
-  margin-right:auto;
-}
-
-/* Droite */
-.droite {
-  margin-left:auto;
+/* Alignement des éléments à DROITE de la ligne centrale */
+.element.droite {
+  margin-left: auto; /* Pousse l'élément à droite */
+  margin-right: 0;
 }
 
 
-
-.list-timeline li{
-    margin : 5px;
-    padding: 5px;
-}  
+/* ============================================== */
+/* === 3. Icônes sur la Ligne Centrale === */
+/* ============================================== */
 
 .timeline-icon {
-    position: absolute;
-    top: 10px;
-    font-size: 20px;
-    color: #040000;
-    background-color: #090000;
-    border: 4px solid #ffffff;
-    border-radius: 50%;
-    padding: 5px;
-    box-shadow: 0 0 10px rgba(255,255,255,0.3);
-    z-index: 10;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: absolute !important;
+  z-index: 10;
+  top: 50%;
+   transform: translateY(-50%);
+
+ /* Style des points : Blanc avec bordure rose */
+   background-color: #fff; 
+   color: #D51066;  
+   width: 32px !important; 
+   height: 32px !important;
+   border: 4px solid #D51066; 
+   border-radius: 50%; 
+    /* Conserver Flexbox pour centrer l'icône interne */
+   display: flex !important; 
+   align-items: center !important; 
+   justify-content: center !important;
+ /* Correction de la taille du point interne (fa-solid fa-circle) */
+   font-size: 0.9rem !important;
 }
 
-.gauche .timeline-icon {
-    right: -80px;
+/* Positionnement de l'icône pour les éléments GAUCHE (Alignement sur la ligne centrale) */
+.element.gauche .timeline-icon {
+    right: -48px !important; 
+    left: auto !important;
 }
 
-.droite .timeline-icon {
-    left: -84px;
+/* Positionnement de l'icône pour les éléments DROITE (Alignement sur la ligne centrale) */
+.element.droite .timeline-icon {
+
+    left: -48px !important;  
+    right: auto !important;
 }
 
-.timeline-icon:hover {
-    transform: scale(1.2);
-    box-shadow: 0 0 15px rgba(255,255,255,0.6);
-}
 
-@keyframes fadeInUp {
-  0% {
+/* ============================================== */
+/* === 4. Styles d'Animation (Déclencheur JS) === */
+/* ============================================== */
+
+/* Masquer les éléments (position de DÉPART) tant que le parent est caché (section-hidden) */
+.section-hidden .timeline .element {
     opacity: 0;
-    transform: translateY(30px);
-  }
-  100% {
+    transform: translateY(20px); 
+}
+
+/* Révéler les éléments (position d'ARRIVÉE) lorsque le JavaScript ajoute la classe section-visible */
+.section-visible .timeline .element {
     opacity: 1;
-    transform: translateY(0);
-  }
+    transform: translateY(0); 
+}
+/* État initial pour le bloc Professionnel (Gauche) */
+.section-hidden .timeline-block:nth-child(1) {
+    opacity: 0;
+    transform: translateX(-50px); /* Décalé de 50px vers la gauche */
+}
+
+/* État initial pour le bloc Scolaire (Droite) */
+.section-hidden .timeline-block:nth-child(2) {
+    opacity: 0;
+    transform: translateX(50px); /* Décalé de 50px vers la droite */
+}
+.section-visible .timeline-block {
+    opacity: 1 !important; /* Apparition */
+    transform: translateX(0) !important; /* Retour à la position normale */
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out; /* La transition elle-même */
+}
+
+/*  Ajout d'un décalage temporel (Staggering) */
+.section-visible .timeline-block:nth-child(2) {
+    /* Le bloc de droite commence sa transition 0.2s après celui de gauche */
+    transition-delay: 0.2s; 
+}
+/* 1. Conteneur des bulles */
+.circles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden; /* Cache les bulles lorsqu'elles dépassent les bords */
+    z-index: 0; /* Assurez-vous qu'elles restent derrière le contenu */
+}
+
+/* 2. Style de chaque bulle (li) */
+.circles li {
+    position: absolute;
+    display: block;
+    list-style: none;
+    
+    /* Couleur : utilisez le rose de votre thème */
+    background: rgba(213, 16, 102, 0.15); /* Rose avec une transparence légère */
+    
+    /* Animation: L'effet de flottement */
+    animation: animate 25s linear infinite; 
+    bottom: -150px; /* Commence hors de l'écran */
+}
+.circles li:nth-child(1){
+    left: 25%;
+    width: 80px;
+    height: 80px;
+    animation-delay: 0s;
+    animation-duration: 15s;
+}
+
+.circles li:nth-child(2){
+    left: 10%;
+    width: 20px;
+    height: 20px;
+    animation-delay: 2s;
+    animation-duration: 12s;
+}
+
+.circles li:nth-child(3){
+    left: 70%;
+    width: 20px;
+    height: 20px;
+    animation-delay: 4s;
+    animation-duration: 24s;
+}
+
+.circles li:nth-child(4){
+    left: 40%;
+    width: 60px;
+    height: 60px;
+    animation-delay: 0s;
+    animation-duration: 18s;
+}
+
+.circles li:nth-child(5){
+    left: 65%;
+    width: 20px;
+    height: 20px;
+    animation-delay: 0s;
+    animation-duration: 10s;
+}
+
+.circles li:nth-child(6){
+    left: 75%;
+    width: 110px;
+    height: 110px;
+    animation-delay: 3s;
+    animation-duration: 30s;
+}
+
+.circles li:nth-child(7){
+    left: 35%;
+    width: 150px;
+    height: 150px;
+    animation-delay: 7s;
+    animation-duration: 17s;
+}
+
+.circles li:nth-child(8){
+    left: 50%;
+    width: 25px;
+    height: 25px;
+    animation-delay: 15s;
+    animation-duration: 20s;
+}
+
+.circles li:nth-child(9){
+    left: 20%;
+    width: 15px;
+    height: 15px;
+    animation-delay: 2s;
+    animation-duration: 35s;
+}
+
+.circles li:nth-child(10){
+    left: 85%;
+    width: 150px;
+    height: 150px;
+    animation-delay: 0s;
+    animation-duration: 11s;
+}
+@keyframes animate {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+        border-radius: 0;
+    }
+    100% {
+        transform: translateY(-1000px) rotate(720deg); /* Monte jusqu'à -1000px */
+        opacity: 0; /* Disparaît en haut */
+        border-radius: 50%; /* Devient un cercle */
+    }
+}
+/* Ajoutez les préfixes si l'animation ne fonctionne pas sur certains navigateurs */
+@-webkit-keyframes animate {
+    0% {
+        -webkit-transform: translateY(0) rotate(0deg);
+        opacity: 1;
+        border-radius: 0;
+    }
+    100% {
+        -webkit-transform: translateY(-1000px) rotate(720deg);
+        opacity: 0;
+        border-radius: 50%;
+    }
 }
