@@ -1073,46 +1073,172 @@ background: #f7f7f7;
       .main-footer__lower {
         padding: 3.5rem 0; } }
 
+/* =======================================================
+   4. MISE EN PAGE des GROUPES de COMPÉTENCES
+   ======================================================= */
 
+/* Conteneur global pour espacer les groupes */
+.skills__groups-container {
+    display: flex;
+    flex-direction: column; 
+    gap: 40px;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+/* Titres des groupes (Gère leur propre apparition) */
+.skills__group-title {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #333;
+    text-align: left;
+    margin-bottom: 20px;
+    padding-left: 10px;
+    position: relative;
+    opacity: 0;
+    transform: translateY(10px); 
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out; 
+}
+
+.skills__group-title::after {
+    content: '';
+    position: absolute;
+    bottom: -5px; 
+    left: 10px; 
+    height: 3px;
+    width: 60px; 
+    background: #D51066;
+    border-radius: 5px;
+}
+
+/* Grille des compétences */
 .about__content-skills {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 2rem;
-  padding: 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 15px; 
+    padding: 0;
+    max-width: 1000px; 
+    margin: 0 auto;
 }
 
+/* -------------------------------------------------------
+   CARTE DE COMPÉTENCE (.skills__skill)
+   ------------------------------------------------------- */
 .skills__skill {
-  flex: 1 1 calc(30% - 1rem);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 120px;
-  height: 130px;
-  padding: 1rem;
-  background: rgba(153, 153, 153, 0.1);
-  border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: #333;
-  transition: transform 0.2s, background-color 0.2s;
-  text-align: center;
+    height: 120px;
+    background: #fff;
+    border: 3px solid transparent; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.5s ease-out;
+    /* 🛑 CORRECTION : COMBINER LES DEUX TYPES DE TRANSITION */
+    /* transition: transform 0.1s ease-out,    
+                border-color 0.1s ease-out,  
+                box-shadow 0.1s ease-out,     
+                opacity 0.5s ease-out;        Lent pour l'apparition au défilement (Scroll Reveal) */
 }
 
-.skills__skill:hover {
-  transform: translateY(-5px);
-  background-color: rgba(100, 100, 100, 0.15);
+/* -------------------------------------------------------
+   ÉLÉMENTS INTERNES (Texte et Image)
+   ------------------------------------------------------- */
+.skills__skill span {
+    margin-top: 0.5rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #333;
+    transition: color 0.1s ease-out; 
 }
 
 .skills__skill img {
-  max-width: 80px;
-  max-height: 80px;
-  margin-bottom: 0.5rem;
-  object-fit: contain;
+    max-width: 40px;
+    max-height: 40px;
+    margin-bottom: 0.5rem;
+    object-fit: contain;
+    filter: grayscale(100%);
+    transition: filter 0.1s ease-in-out; 
 }
 
+/* -------------------------------------------------------
+   EFFET DE SURVOL (:hover)
+   ------------------------------------------------------- */
+.skills__skill:hover {
+    transition-delay: 0s;
+    transform: translateY(-5px)!important; 
+    border-color: #D51066; 
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15); 
+}
+
+.skills__skill:hover span {
+    color: #D51066; 
+}
+
+.skills__skill:hover img {
+    filter: none; 
+}
+
+/* -------------------------------------------------------
+   ANIMATION D'APPARITION (Scroll Reveal)
+   ------------------------------------------------------- */
+
+/* 1. États initiaux (Masqués) */
+.section-hidden .skills__group,
+.section-hidden .skills__group-title,
+.section-hidden .skills__skill {
+    opacity: 0;
+    transform: translateY(30px); /* Un glissement visible */
+}
+
+/* 2. États visibles */
+.section-visible .skills__group,
+.section-visible .skills__group-title,
+.section-visible .skills__skill {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Délais pour le Staggering (Les groupes et titres ont déjà leurs transitions) */
+/* C'est ce qui rend l'effet de vague */
+.section-visible .skills__group { transition-delay: 0.2s; } 
+.section-visible .skills__group:nth-child(2) { transition-delay: 0.5s; } 
+.section-visible .skills__group:nth-child(3) { transition-delay: 0.8s; } 
+
+.section-visible .skills__group .skills__group-title {
+    transition-delay: 0.4s; 
+}
+
+.section-visible .skills__skill:nth-child(1) { transition-delay: 0.1s; } 
+
+/* Langages (Groupe 1: Délai de base 0.2s) */
+.section-visible .skills__group:nth-child(1) .skills__skill:nth-child(1) { transition-delay: calc(0.2s + 0.10s); }
+.section-visible .skills__group:nth-child(1) .skills__skill:nth-child(2) { transition-delay: calc(0.2s + 0.15s); }
+.section-visible .skills__group:nth-child(1) .skills__skill:nth-child(3) { transition-delay: calc(0.2s + 0.20s); }
+.section-visible .skills__group:nth-child(1) .skills__skill:nth-child(4) { transition-delay: calc(0.2s + 0.25s); }
+.section-visible .skills__group:nth-child(1) .skills__skill:nth-child(5) { transition-delay: calc(0.2s + 0.30s); }
+.section-visible .skills__group:nth-child(1) .skills__skill:nth-child(6) { transition-delay: calc(0.2s + 0.35s); }
+.section-visible .skills__group:nth-child(1) .skills__skill:nth-child(7) { transition-delay: calc(0.2s + 0.40s); }
+.section-visible .skills__group:nth-child(1) .skills__skill:nth-child(8) { transition-delay: calc(0.2s + 0.45s); }
+
+
+/* Bases de Données (Groupe 2: Délai de base 0.5s) */
+.section-visible .skills__group:nth-child(2) .skills__skill:nth-child(1) { transition-delay: calc(0.5s + 0.10s); }
+.section-visible .skills__group:nth-child(2) .skills__skill:nth-child(2) { transition-delay: calc(0.5s + 0.15s); }
+.section-visible .skills__group:nth-child(2) .skills__skill:nth-child(3) { transition-delay: calc(0.5s + 0.20s); }
+.section-visible .skills__group:nth-child(2) .skills__skill:nth-child(4) { transition-delay: calc(0.5s + 0.25s); }
+.section-visible .skills__group:nth-child(2) .skills__skill:nth-child(5) { transition-delay: calc(0.5s + 0.30s); }
+.section-visible .skills__group:nth-child(2) .skills__skill:nth-child(6) { transition-delay: calc(0.5s + 0.35s); }
+.section-visible .skills__group:nth-child(2) .skills__skill:nth-child(7) { transition-delay: calc(0.5s + 0.40s); }
+.section-visible .skills__group:nth-child(2) .skills__skill:nth-child(8) { transition-delay: calc(0.5s + 0.45s); }
+
+
+/* Frameworks (Groupe 3: Délai de base 0.8s) */
+.section-visible .skills__group:nth-child(3) .skills__skill:nth-child(1) { transition-delay: calc(0.8s + 0.10s); }
+.section-visible .skills__group:nth-child(3) .skills__skill:nth-child(2) { transition-delay: calc(0.8s + 0.15s); }
 .project-details__tools-used .skills {
   display: flex;
   flex-wrap: wrap;

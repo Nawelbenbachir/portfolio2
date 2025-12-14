@@ -125,3 +125,23 @@ for (let i = 0; i < headerSmallMenuLinks.length; i++) {
         }
     });
 }
+document.addEventListener('DOMContentLoaded', () => {
+    const skillCards = document.querySelectorAll('.skills__skill');
+    console.log("Nombre de cartes de compétence trouvées pour le JS Hover:", skillCards.length);
+    skillCards.forEach(card => {
+        // 1. Détecte l'entrée de la souris (Gère le hover ON)
+        card.addEventListener('mouseenter', () => {
+            // Ajoute la classe instantanément
+            card.classList.add('is-hovering');
+            console.log("Mouse ENTER: Classe ajoutée.");
+        });
+
+        // 2. Détecte la sortie de la souris (Gère le hover OFF)
+        card.addEventListener('mouseleave', () => {
+            // 🛑 SOLUTION DE DÉSYNCHRONISATION : 
+            // On retire la classe *immédiatement* pour annuler le fond/ombre.
+            card.classList.remove('is-hovering');
+            console.log("Mouse LEAVE: Classe retirée.");
+        });
+    });
+});
