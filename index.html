@@ -128,7 +128,7 @@
         
         <div class="home-hero__cta">
             <a href="#contact" class="btn btn--theme btn--bg hero-start-animation" style="transition-delay: 0.8s;">Contactez-moi</a>
-            <a href="assets/cv2025.pdf" class="btn btn--theme-inv btn--med hero-start-animation" style="transition-delay: 1.0s;">Mon CV</a>
+            <a href="assets/CV2024.pdf" class="btn btn--theme-inv btn--med hero-start-animation" style="transition-delay: 1.0s;">Mon CV</a>
         </div>
         
       </div>
@@ -364,75 +364,29 @@
           </span>
         </h2>
 
-        <div class="projects__content">
-          <div class="projects__row">
-            <div class="projects__row-img-cont">
-              <img
-                src="./assets/png/projetchat.png"
-                alt="screen projet chat"
-                class="projects__row-img"
-                loading="lazy"
-              />
-            </div>
-            <div class="projects__row-content">
-              <h3 class="projects__row-content-title">Chat</h3>
-              <p class="projects__row-content-desc">Création d'un chat en ligne type Discord 
-              </p>
-              <a
-                href="chat.html"
-                class="btn btn--med btn--theme dynamicBgClr"
-                target="_blank"
-                >En savoir +</a
-              >
-            </div>
+       
+            <div class="projects__grid-container">
+    
+          <div class="project__card">
+              <div class="project__card-media">
+                  <img src="./assets/png/webgestionlogo.png" alt="WebGestion Logo" class="project__card-img" />
+              </div>
+              <h3 class="project__card-title">WebGestion</h3>
+              <p class="project__card-desc">Application web de facturation et gestion, développée avec Laravel.</p>
+              <a href="webgestion.html" class="btn btn--small btn--theme">Détails</a>
           </div>
-          <div class="projects__row">
-            <div class="projects__row-img-cont">
-              <img
-                src="./assets/jpeg/project-mockup-example.jpeg"
-                alt="Software Screenshot"
-                class="projects__row-img"
-                loading="lazy"
-              />
-            </div>
-            <div class="projects__row-content">
-              <h3 class="projects__row-content-title">WinGestion</h3>
-              <p class="projects__row-content-desc">
-                Création d'un logiciel de facturation pour les artisans, particuliers et petites entreprises. 
-              </p>
-              <a
-                href="wingestion.html"
-                class="btn btn--med btn--theme dynamicBgClr"
-                target="_blank"
-                >En savoir + </a
-              >
-            </div>
+            
+            
+          <div class="project__card">
+              <div class="project__card-media">
+                  <img src="./assets/png/wingestionlogo.png" alt="Wingestion Logo" class="project__card-img" />
+              </div>
+              <h3 class="project__card-title">WinGestion</h3>
+              <p class="project__card-desc">Logiciel de facturation, développé avec WinDev</p>
+              <a href="wingestion.html" class="btn btn--small btn--theme">Détails</a>
           </div>
-          <!-- <div class="projects__row">
-            <div class="projects__row-img-cont">
-              <img
-                src="./assets/jpeg/project-mockup-example.jpeg"
-                alt="Software Screenshot"
-                class="projects__row-img"
-                loading="lazy"
-              />
-            </div>
-            <div class="projects__row-content">
-              <h3 class="projects__row-content-title">Project 3</h3>
-              <p class="projects__row-content-desc">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic
-                facilis tempora, explicabo quae quod deserunt eius sapiente
-                praesentium.
-              </p>
-              <a
-                href="./project-3.html"
-                class="btn btn--med btn--theme dynamicBgClr"
-                target="_blank"
-                >Case Study</a
-              >
-            </div>
-          </div> -->
-           <!-- Bouton contact -->
+          </div>
+          
           
       
         </div>
@@ -442,57 +396,60 @@
      
        </section>
        <section id="veille" class="about sec-pad section-hidden">
-  <div class="main-container">
-    <h2 class="heading heading-sec heading-sec__mb-med">
-      <span class="heading-sec__main">Veille technologique</span>
-      <span class="heading-sec__sub">
-        Analyse des évolutions de WinDev 25 et de leur impact sur le développement du logiciel WinGestion.
-      </span>
-    </h2>
-    <div class="entreprise-description">
-      <h3 class="about__content-title">Contexte de la veille</h3>
+    <div class="main-container">
+        <h2 class="heading heading-sec heading-sec__mb-med">
+            <span class="heading-sec__main">Veille Technologique</span>
+            <span class="heading-sec__sub">
+                Analyse des évolutions de WinDev 25 et de leur impact sur le développement du logiciel WinGestion.
+            </span>
+        </h2>
         
-      <span class="heading-sec__sub-veille">
-        
-          Dans le cadre du développement de <strong>WinGestion</strong>, un logiciel de facturation pour artisans et petites entreprises, j'ai effectué une veille technologique sur <strong>WinDev 25</strong>, l'environnement de développement utilisé pour ce projet. Cette veille avait pour but d’explorer les fonctionnalités récentes de WinDev afin de les exploiter au mieux dans le cadre de la réforme de la facturation électronique prévue en 2026.
-      </span>
+        <div class="about__content">
+            
+            <div class="about__content-main">
+                
+                <h3 class="about__content-title">Contexte de la veille</h3>
+                <p class="about__content-details">
+                    Dans le cadre du développement de <strong>WinGestion</strong>, un logiciel de facturation pour artisans et petites entreprises, j'ai effectué une veille technologique sur <strong>WinDev 25</strong>, l'environnement de développement utilisé pour ce projet. Cette veille avait pour but d’explorer les fonctionnalités récentes de WinDev afin de les exploiter au mieux dans le cadre de la réforme de la facturation électronique prévue en 2026.
+                </p>
 
-        <h3 class="about__content-title">Apports de WinDev 25</h3>
-        <ul class="heading-sec__sub-veille">
-          <li> --Génération améliorée de PDF et états (factures, devis...)</li>
-          <li> - Sécurité renforcée avec HFSQL client/serveur (cryptage, injection SQL impossible)</li>
-          <li> - Outils de débogage et test améliorés pour un développement plus rapide</li>
-        </ul>
+                <h3 class="about__content-title">Apports de WinDev 25</h3>
+                <ul class="project-details__list">
+                    <li>Génération améliorée de PDF et états (factures, devis...) pour une meilleure conformité des documents.</li>
+                    <li>Sécurité renforcée avec HFSQL client/serveur (cryptage des données, protection contre l'injection SQL).</li>
+                    <li>Outils de débogage et de test améliorés** pour garantir la qualité et un développement plus rapide.</li>
+                </ul>
 
-       <h3 class="about__content-title">Nouveautés avec l'IA générative</h3>
-       
-        <span class="heading-sec__sub-veille">
-          WinDev 25 intègre désormais un <strong>assistant intelligent basé sur l’IA générative</strong> dans l’éditeur de code. Cette fonctionnalité permet :
-        </span>
-        <ul class="heading-sec__sub-veille">
-          <li> - La <strong>suggestion de code automatique</strong> adaptée au contexte du projet et qui s'améliore au cours du temps.</li>
-          <li> - La <strong>génération de fonctions</strong> ou procédures à partir de simples descriptions en langage naturel.</li>
-          <li> -  Un <strong>gain de temps</strong> significatif pour les tâches récurrentes ou complexes.</li>
-          <li> - Une aide à la <strong>documentation automatique</strong> du code.</li>
-        </ul>
-        <span class="heading-sec__sub-veille">
-          Cette innovation permet d'accélérer le développement de certaines fonctionnalités dans WinGestion (comme les impressions, les contrôles de cohérence ou les traitements conditionnels) tout en assurant une meilleure maintenabilité du code.
-        </span>
+                <h3 class="about__content-title">Nouveautés avec l'IA générative</h3>
+                <p class="about__content-details">
+                    WinDev 25 intègre désormais un <strong>assistant intelligent basé sur l’IA générative</strong> dans l’éditeur de code. Cette fonctionnalité permet :
+                </p>
+                <ul class="project-details__list">
+                    <li>La suggestion de code automatique adaptée au contexte du projet et qui s'améliore au cours du temps.</li>
+                    <li>La génération de fonctions ou procédures à partir de simples descriptions en langage naturel.</li>
+                    <li>Un gain de temps significatif pour les tâches récurrentes ou complexes.</li>
+                    <li>Une aide à la documentation automatique du code.</li>
+                </ul>
+                <p class="about__content-details">
+                    Cette innovation permet d'accélérer le développement de certaines fonctionnalités dans WinGestion (comme les impressions, les contrôles de cohérence ou les traitements conditionnels) tout en assurant une meilleure maintenabilité du code.
+                </p>
 
-        <h3 class="about__content-title">Conclusion</h3>
-        <span class="heading-sec__sub-veille">
-          Grâce à cette veille technologique, j’ai pu intégrer dans le projet WinGestion des pratiques modernes, optimiser le développement, anticiper les évolutions légales à venir, et profiter des nouveaux outils de productivité de WinDev 25.
-        </span>
-      </div>
-       <h3 class="about__content-title">Outils</h3>
-      <div class="skills">
-          <div class="about__content-skills">
-              <div class="skills__skill"><img src="assets/png/logo-pcsoft.png"><span>Documentation WINDEV</span></div>
-              <div class="skills__skill"><img src="assets/png/feedly-logo.png"><span>Feedly</span></div>
+                <h3 class="about__content-title">Conclusion</h3>
+                <p class="about__content-details">
+                    Grâce à cette veille technologique, j’ai pu intégrer dans le projet WinGestion des pratiques modernes, optimiser le développement, anticiper les évolutions légales à venir, et profiter des nouveaux outils de productivité de WinDev 25.
+                </p>
+            </div>
+            
+            <div class="project-details__tools-used">
+                <h3 class="about__content-title">Outils de Veille</h3>
+                <div class="skills">
+                    <div class="skills__skill"><img src="assets/png/WinDevLogo.png" alt="Logo PCSoft"><span>Documentation WINDEV</span></div>
+                    <div class="skills__skill"><img src="assets/svg/feedly.svg" alt="Logo Feedly"><span>Feedly</span></div>
+                </div>
+            </div>
+            
+        </div>
     </div>
-      </div>
-     
-
 </section>
 
       
