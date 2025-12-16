@@ -198,7 +198,8 @@ textarea {
 .main-container {
   max-width: 120rem;
   margin: auto;
-  width: 92%; }
+  width: 100%;
+   }
 #parcours .main-container {
     max-width: 2100px; 
 }
