@@ -16,7 +16,6 @@ function openModal(imageSrc, captionText) {
     captionText.innerHTML = captionText;
 
     // 2. CORRECTION CRUCIALE : Forcer le modal à se positionner au début du viewport
-    // On met son défilement intérieur à zéro si jamais il y en a un
     modal.scrollTop = 0; 
 
     // Et on vérifie que le BODY n'est pas décalé (même si ça ne devrait pas être nécessaire)
@@ -108,10 +107,32 @@ document.addEventListener("DOMContentLoaded", () => {
         threshold: 0.15,
     });
 
+    // 🛑 LOGIQUE CORRIGÉE : Révéler immédiatement si la section est déjà à l'écran
     allSections.forEach(function (section) {
-        sectionObserver.observe(section);
+        // Vérifie si la section est dans le viewport (sa position Y est inférieure à la hauteur de la fenêtre)
+        if (section.getBoundingClientRect().top < window.innerHeight) {
+            
+            // Révèle immédiatement (même logique que revealSection sans unobserve)
+            section.classList.remove('section-hidden');
+            section.classList.add('section-visible');
+            
+            // Si c'est la section #veille, on lance sa logique enfant immédiatement.
+            if (section.id === 'veille') {
+                const visualContainer = section.querySelector('.about__visual-container');
+                if (visualContainer) {
+                    // Simule l'effet du revealSection pour l'Observer enfant de la veille
+                    visualContainer.classList.remove('section-hidden-visual'); 
+                    visualContainer.classList.add('section-visible-visual');
+                }
+            }
+            
+        } else {
+            // Sinon, on lance l'observation habituelle.
+            sectionObserver.observe(section);
+        }
     });
-
+    // ----------------------------------------------------
+    
     // ----------------------------------------------------
     // LOGIQUE DE HOVER DES CARTES DE COMPÉTENCE (déjà en place)
     // ----------------------------------------------------
@@ -124,8 +145,8 @@ document.addEventListener("DOMContentLoaded", () => {
             card.classList.remove('is-hovering');
         });
     });
-const formElements = document.querySelectorAll('.section-hidden-contact');
-    
+    const formElements = document.querySelectorAll('.section-hidden-contact');
+        
     const revealForm = function (entries, observer) {
         entries.forEach(entry => {
             if (entry.isIntersecting) {

@@ -212,7 +212,7 @@ textarea {
     margin-right: auto;
 }
 /* Ciblage spécifique du main-container dans la section Veille */
-#veille .main-container.section-hidden {
+/* #veille .main-container.section-hidden {
     opacity: 0;
     transform: translateY(8vh);
     transition: opacity 0.8s ease-out, transform 0.8s ease-out;
@@ -221,7 +221,7 @@ textarea {
 #veille .main-container.section-visible {
     opacity: 1;
     transform: translateY(0);
-}
+} */
 .btn {
   background: #fff;
   color: #333;
@@ -552,7 +552,71 @@ background: #f7f7f7;
     margin-bottom: 10px; /* Ajout d'un espacement entre les paragraphes si nécessaire */
 }
 
+/* --- Style Spécifique pour le Bloc EDI Centré --- */
+.entreprise__edi-bandeau {
+    /* Assure que l'élément prend 100% de la largeur du .main-container */
+    width: 100%;
+    margin: 40px 0; /* Ajoute de l'espace au-dessus et en dessous */
+}
 
+.entreprise__edi-content {
+    /* Hérite du style du .entreprise__content (ombre, padding) */
+    /* On s'assure qu'il n'y a pas de flexbox ici si ce n'est pas nécessaire */
+    max-width: 100%; /* S'assure que le contenu remplisse son parent .main-container */
+}
+
+/* Ajustement de la taille de la police pour ce bloc */
+.edi-details {
+    font-size: 1.5rem; /* Plus lisible qu'un 1.5rem géant pour un texte dense */
+    line-height: 1.7;
+    margin-top: 15px;
+}
+/* Masquer et décaler le premier bandeau (APICOMTAT) */
+/* Cible: 1er enfant (.entreprise__item-bandeau) */
+.section-hidden .entreprise__item-bandeau:nth-child(1) {
+    opacity: 0;
+    transform: translateX(-100px);
+}
+
+/* Masquer le bloc EDI (MAINTENANT 2e ENFANT) */
+/* Cible: 2e enfant (.entreprise__edi-bandeau) */
+.section-hidden .entreprise__edi-bandeau {
+    opacity: 0;
+    /* On change le sélecteur, mais l'effet de glissement vers le haut reste approprié */
+    transform: translateY(-20px); 
+}
+
+/* Masquer et décaler le troisième bandeau (EUROCAP) */
+/* Cible: 3e enfant (.entreprise__item-bandeau) */
+.section-hidden .entreprise__item-bandeau:nth-child(3) { /* <--- CORRECTION ICI : était :nth-child(2) */
+    opacity: 0;
+    transform: translateX(100px);
+}
+
+
+/* --- État Final (Visible) --- */
+
+/* Apparition du bloc EDI (2e enfant) */
+/* Cible: 2e enfant (.entreprise__edi-bandeau) */
+.section-visible .entreprise__edi-bandeau {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    transition-delay: 0.1s; /* Apparaît après le 1er bandeau */
+}
+
+/* Apparition du bandeau EUROCAP (3e enfant) */
+/* Cible: 3e enfant (.entreprise__item-bandeau) */
+.section-visible .entreprise__item-bandeau:nth-child(3) { /* <--- CORRECTION ICI : était :nth-child(2) */
+    transition-delay: 0.3s; /* Nouveau délai pour apparaître après EDI (0.1s) */
+}
+/* Optionnel : Titre pour le bloc EDI */
+.heading-sec__sub-title {
+    font-size: 1.5rem;
+    color: var(--color-primary-dark); /* Utilisez la couleur de votre choix */
+    margin-bottom: 10px;
+    font-weight: 700;
+}
 /* Logos internes */
 .section-banner__img-content {
   max-height: 80px; /* Logos un peu plus grands */
@@ -693,6 +757,30 @@ background: #f7f7f7;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
     gap: 30px; 
     padding: 40px 0;
+}
+/* --- Style pour la nouvelle section Ressources --- */
+.project-details__resources {
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+    padding-top: 2rem;
+    padding-bottom: 5rem;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;  
+}
+
+.project-details__resources-cta {
+    display: flex; /* Aligner les boutons côte à côte */
+    gap: 20px; /* Espace entre les boutons */
+    margin-top: 20px;
+    flex-wrap: wrap; /* Pour le responsive */
+}
+
+/* Assurer que les boutons sont bien visibles */
+.project-details__resources-cta .btn {
+    padding: 12px 25px;
+    text-transform: uppercase;
+    font-size: 1.4rem;
+    font-weight: 700;
 }
 /* -------------------------------------------------------
    CARTE DE PROJET INDIVIDUELLE
@@ -1028,7 +1116,8 @@ background: #f7f7f7;
 .project-details__gallery {
     display: grid;
     /* Crée une grille de 3 ou 4 colonnes, ajustables */
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
+    /* grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); */
     gap: 20px; /* Espace entre les vignettes */
     margin-top: 30px;
 }
