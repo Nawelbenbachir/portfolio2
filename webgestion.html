@@ -109,60 +109,30 @@
           </p>
         </div>
         <div class="project-cs-hero__cta">
-          <a href="URL_GITHUB_WEBGestion" class="btn btn--theme-inv" target="_blank">Code Source</a>
+          <a href="https://github.com/Nawelbenbachir/WebGestion" class="btn btn--theme-inv" target="_blank">Code Source</a>
         </div>
       </div>
       
-      <div class="circles">
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-      </div>
+      <div class="circles project-assets">
+        <li style="--i:10; --delay:0s;"><img src="./assets/png/facture (1).png" alt="Facture" class="asset-logo"></li>
+        <li style="--i:10; --delay:1s;"><img src="./assets/png/factureflotte.png" alt="Facture" class="asset-logo"></li>
+          <li style="--i:10; --delay:2s;"><img src="./assets/png/factureflotte.png" alt="Facture" class="asset-logo"></li>
+        <li style="--i:10; --delay:3s;"><img src="./assets/png/parametres.png" alt="Parametre" class="asset-logo"></li>
+        
+        <li style="--i:10; --delay:4s;"><img src="./assets/png/cube.png" alt="SProduit" class="asset-logo"></li>
+        <li style="--i:10; --delay:5s;"><img src="./assets/png/facture (1).png" alt="Facture" class="asset-logo"></li>
+        
+        <li style="--i:10; --delay:6s;"><img src="./assets/png/parametres.png" alt="Parametre" class="asset-logo"></li>
+        
+        <li style="--i:10; --delay:7s;"><img src="./assets/png/cube.png" alt="SProduit" class="asset-logo"></li>
+        <li style="--i:10; --delay:8s;"><img src="./assets/png/facture (1).png" alt="Facture" class="asset-logo"></li>
+    </div>
     </section>
 
-       <section class="project-details">
+       <section class="project-details section-hidden">
     <div class="main-container">
         <div class="project-details__content">
-
-            <div class="project-details__gallery-cont">
-                <h3 class="project-details__content-title">Aperçu du Logiciel WebGestion</h3>
-                <div class="project-details__gallery">
-
-                    <figure class="gallery__item">
-                        <img src="./assets/png/accueilwebgestion.png" alt="Tableau de bord de l'application" class="gallery__img" onclick="openModal('./assets/png/accueilwebgestion.png', 'Tableau de bord de l\'application : Vue des indicateurs clés (CA, factures en cours).')">
-                        <figcaption class="gallery__caption">Tableau de Bord : Indicateurs Clés</figcaption>
-                    </figure>
-
-                    <figure class="gallery__item">
-                        <img src="./assets/png/clientwebgestion.png" alt="Gestion de la liste des clients" class="gallery__img" onclick="openModal('./assets/png/clientwebgestion.png', 'Liste des clients avec options de recherche et modification rapide.')">
-                        <figcaption class="gallery__caption">Gestion des Clients</figcaption>
-                    </figure>
-                    <figure class="gallery__item">
-                        <img src="./assets/png/produitwebgestion.png" alt="Gestion de la liste des produits" class="gallery__img" onclick="openModal('./assets/png/produitwebgestion.png', 'Liste des produits avec options de recherche et modification rapide.')">
-                        <figcaption class="gallery__caption">Gestion des Produits</figcaption>
-                    </figure>
-
-                    <figure class="gallery__item">
-                        <img src="./assets/png/facturewebgestion.png" alt="Formulaire de création de facture" class="gallery__img" onclick="openModal('./assets/png/facturewebgestion.png', 'Formulaire de création de documents (facture, devis) avec sélection des produits.')">
-                        <figcaption class="gallery__caption">Édition de Facture/Devis</figcaption>
-                    </figure>
-                    
-                    <figure class="gallery__item">
-                        <img src="./assets/png/parametrewebgestion.png" alt="Page de paramétrage du compte utilisateur" class="gallery__img" onclick="openModal('./assets/png/parametrewebgestion.png', 'Page des paramètres pour la personnalisation des modèles de documents et informations légales.')">
-                        <figcaption class="gallery__caption">Paramètres et Personnalisation</figcaption>
-                    </figure>
-                    
-                    </div>
-            </div>
-            
-            <div id="imageModal" class="modal" onclick="closeModal()">
+            <div id="myModal" class="modal" onclick="closeModal()">
                 <span class="modal__close">&times;</span>
                 <img class="modal__content" id="modalImage">
                 <div id="caption" class="modal__caption"></div>
@@ -204,7 +174,35 @@
                 </div>
             </div>
             
-            <div class="project-details__content-main"> 
+             <div class="project-details__gallery-cont">
+                <h3 class="project-details__content-title">Aperçu du Logiciel WebGestion</h3>
+                <div class="project-details__gallery">
+
+                    <figure class="gallery__item">
+                        <img src="./assets/png/accueilwebgestion.png" alt="Tableau de bord de l'application" class="gallery__img" onclick="openModal('./assets/png/accueilwebgestion.png', 'Tableau de bord de l\'application : Vue des indicateurs clés (CA, factures en cours).')">
+                        <figcaption class="gallery__caption">Tableau de Bord : Indicateurs Clés</figcaption>
+                    </figure>
+
+                    <figure class="gallery__item">
+                        <img src="./assets/png/clientwebgestion.png" alt="Gestion de la liste des clients" class="gallery__img" onclick="openModal('./assets/png/clientwebgestion.png', 'Liste des clients avec options de recherche et modification rapide.')">
+                        <figcaption class="gallery__caption">Gestion des Clients</figcaption>
+                    </figure>
+                    <figure class="gallery__item">
+                        <img src="./assets/png/produitwebgestion.png" alt="Gestion de la liste des produits" class="gallery__img" onclick="openModal('./assets/png/produitwebgestion.png', 'Liste des produits avec options de recherche et modification rapide.')">
+                        <figcaption class="gallery__caption">Gestion des Produits</figcaption>
+                    </figure>
+
+                    <figure class="gallery__item">
+                        <img src="./assets/png/facturewebgestion.png" alt="Formulaire de création de facture" class="gallery__img" onclick="openModal('./assets/png/facturewebgestion.png', 'Formulaire de création de documents (facture, devis) avec sélection des produits.')">
+                        <figcaption class="gallery__caption">Édition de Facture/Devis</figcaption>
+                    </figure>
+                    
+                    <figure class="gallery__item">
+                        <img src="./assets/png/parametrewebgestion.png" alt="Page de paramétrage du compte utilisateur" class="gallery__img" onclick="openModal('./assets/png/parametrewebgestion.png', 'Page des paramètres pour la personnalisation des modèles de documents et informations légales.')">
+                        <figcaption class="gallery__caption">Paramètres et Personnalisation</figcaption>
+                    </figure>
+                    
+                    </div>
             </div>
 
         </div>
@@ -214,21 +212,6 @@
     </div>
 </section>
 
-<script>
-    const modal = document.getElementById('imageModal');
-    const modalImg = document.getElementById('modalImage');
-    const captionText = document.getElementById('caption');
-
-    function openModal(src, description) {
-        modal.style.display = "block";
-        modalImg.src = src;
-        captionText.innerHTML = description;
-    }
-
-    function closeModal() {
-        modal.style.display = "none";
-    }
-</script>
 
     <footer class="main-footer">
       <div class="main-container">

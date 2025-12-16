@@ -1,147 +1,243 @@
+// =======================================================
+// 1. DÉCLARATION DES FONCTIONS MODALES ET VISUELLES GLOBALES
+// =======================================================
 
+var modal = document.getElementById("myModal");
+var modalImg = document.getElementById("modalImage");
+var captionText = document.getElementById("caption");
+
+function openModal(imageSrc, captionText) {
+    
+    // 1. Ouvrir le modal
+    modal.classList.add("is-open");
+    document.body.classList.add("modal-open");
+    
+    modalImg.src = imageSrc;
+    captionText.innerHTML = captionText;
+
+    // 2. CORRECTION CRUCIALE : Forcer le modal à se positionner au début du viewport
+    // On met son défilement intérieur à zéro si jamais il y en a un
+    modal.scrollTop = 0; 
+
+    // Et on vérifie que le BODY n'est pas décalé (même si ça ne devrait pas être nécessaire)
+    document.body.style.top = "0"; 
+}
+
+
+function closeModal() {
+    document.body.classList.remove("modal-open");
+    modal.classList.remove("is-open");
+    
+    // Si nous avons utilisé la correction body.style.top, il faut la réinitialiser au body
+    // document.body.style.top = "";
+}
+// Fermer si l'utilisateur clique sur le fond sombre du modal
+window.onclick = function(event) {
+    const modal = document.getElementById("myModal");
+    if (event.target === modal) {
+        closeModal();
+    }
+}
+
+// --- Fonction de Révélation Spécifique (Captures/Outils) ---
+// Cette fonction est appelée par l'Observer secondaire.
+const revealVisual = function (entries, observer) {
+    const [entry] = entries;
+    if (!entry.isIntersecting) return;
+
+    // Déclenche la transition CSS (supprime l'état masqué)
+    entry.target.classList.remove('section-hidden-visual');
+    entry.target.classList.add('section-visible-visual');
+
+    observer.unobserve(entry.target);
+};
+
+
+// =======================================================
+// 2. LOGIQUE PRINCIPALE AU CHARGEMENT DU DOCUMENT
+// =======================================================
 document.addEventListener("DOMContentLoaded", () => {
-
-  const hiddenSections = document.querySelectorAll('.section-hidden');
-
-  console.log("Sections trouvées :", hiddenSections.length);
-
-  const observer = new IntersectionObserver((entries, observer) => {
-
-    entries.forEach(entry => {
-
-      console.log("Observer déclenché :", entry.target); 
-
-      if (entry.isIntersecting) {
-
-        entry.target.classList.add('section-visible');
-
-        entry.target.classList.remove('section-hidden');
-
-        observer.unobserve(entry.target);
-
-      }
-
+    
+    // --- Animation du Hero (Déjà en place) ---
+    const heroElements = document.querySelectorAll('.hero-start-animation');
+    heroElements.forEach(el => {
+        el.classList.add('visible');
     });
 
-  }, {
+    // ----------------------------------------------------
+    // LOGIQUE DE L'OBSERVER PRINCIPAL (Révélation des Sections)
+    // ----------------------------------------------------
+    const allSections = document.querySelectorAll('.section-hidden');
+    
+    // Modifie la fonction principale pour lancer l'Observer enfant après révélation
+    const revealSection = function (entries, observer) {
+        const [entry] = entries;
+        if (!entry.isIntersecting) return;
+        
+        // 1. Révélation de la section parente
+        entry.target.classList.remove('section-hidden');
+        entry.target.classList.add('section-visible');
+        
+        observer.unobserve(entry.target);
 
-    threshold: 0.1
+        // 2. LOGIQUE DE L'OBSERVER ENFANT (Pour la section #veille uniquement)
+        if (entry.target.id === 'veille') {
+            const visualContainer = entry.target.querySelector('.about__visual-container');
+            
+            if (visualContainer) {
+                // Applique l'état caché APRES que le parent est révélé.
+                // Le navigateur voit cet élément passer de "invisible par le parent" à 
+                // "visible mais maintenant masqué par section-hidden-visual".
+                visualContainer.classList.add('section-hidden-visual'); 
+                
+                const visualObserver = new IntersectionObserver(revealVisual, {
+                    root: null,
+                    threshold: 0.05, // Déclenchement dès que possible
+                });
+                
+                // Lance l'observation avec un petit délai pour que le CSS initial soit appliqué
+                setTimeout(() => {
+                    visualObserver.observe(visualContainer);
+                }, 100); 
+            }
+        }
+    };
 
-  });
-  const heroElements = document.querySelectorAll('.hero-start-animation');
-      
-      // Ajoute la classe 'visible' à tous les éléments pour lancer l'animation CSS
-      heroElements.forEach(el => {
-          el.classList.add('visible');
-      });
+    const sectionObserver = new IntersectionObserver(revealSection, {
+        root: null,
+        threshold: 0.15,
+    });
+
+    allSections.forEach(function (section) {
+        sectionObserver.observe(section);
+    });
+
+    // ----------------------------------------------------
+    // LOGIQUE DE HOVER DES CARTES DE COMPÉTENCE (déjà en place)
+    // ----------------------------------------------------
+    const skillCards = document.querySelectorAll('.skills__skill');
+    skillCards.forEach(card => {
+        card.addEventListener('mouseenter', () => {
+            card.classList.add('is-hovering');
+        });
+        card.addEventListener('mouseleave', () => {
+            card.classList.remove('is-hovering');
+        });
+    });
+const formElements = document.querySelectorAll('.section-hidden-contact');
+    
+    const revealForm = function (entries, observer) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Pour chaque élément, on retire la classe cachée
+                entry.target.classList.remove('section-hidden-contact');
+                entry.target.classList.add('section-visible-contact');
+                observer.unobserve(entry.target);
+            }
+        });
+    };
+
+    if (formElements.length > 0) {
+        const formObserver = new IntersectionObserver(revealForm, {
+            root: null,
+            // Déclencher lorsque 10% de l'élément est visible
+            threshold: 0.1, 
+        });
+        
+        // Observez chaque champ individuellement
+        formElements.forEach(element => {
+            formObserver.observe(element);
+        });
+    }
+    // ----------------------------------------------------
+    // LOGIQUE DE RETOUR DU FORMULAIRE (Affichage des messages de succès/erreur)
+    // ----------------------------------------------------
+    const urlParams = new URLSearchParams(window.location.search);
+    const successStatus = urlParams.get('success');
+
+    // Récupérer la section où afficher le message (nous l'ajouterons après)
+    const contactSection = document.getElementById('contact');
+    
+    if (successStatus === 'true' && contactSection) {
+        alert("🎉 Votre message a été envoyé avec succès !");
+        // Optionnel : Supprimer le paramètre de l'URL après affichage
+        history.replaceState(null, '', window.location.pathname); 
+    } else if (successStatus === 'false' && contactSection) {
+        alert("❌ Une erreur est survenue lors de l'envoi. Veuillez réessayer.");
+        history.replaceState(null, '', window.location.pathname);
+    } else if (successStatus === 'validation_error' && contactSection) {
+        alert("⚠️ Veuillez remplir tous les champs correctement.");
+        history.replaceState(null, '', window.location.pathname);
+    }
+}); 
 
 
-  hiddenSections.forEach(section => {
+// =======================================================
+// 3. LOGIQUE DE NAVIGATION
+// (Gérer les liens d'ancres et le menu Hamburger)
+// =======================================================
 
-    observer.observe(section);
-
-  });
-
-});
-// Sélectionne tous les liens A à l'intérieur de LI avec la classe header__link-wrapper
+// --- Navigation Desktop ---
 const headerDesktopLinks = document.querySelectorAll('.header__link-wrapper a');
-
 headerDesktopLinks.forEach(link => {
     link.addEventListener('click', (e) => {
-        
-        // On vérifie que c'est un lien d'ancre (commence par # et n'est pas juste #)
         const targetId = link.getAttribute('href');
         if (targetId && targetId.startsWith('#') && targetId.length > 1) {
-            
-            //  Empêche la navigation par défaut (qui cause le flash ou la redirection)
             e.preventDefault();
-            
-            const anchor = targetId.substring(1); // Retire le #
+            const anchor = targetId.substring(1); 
             const targetElement = document.getElementById(anchor);
             
             if (targetElement) {
-                //  Défile en douceur vers la cible
-                targetElement.scrollIntoView({
-                    behavior: 'smooth'
-                });
-                
-                //  Met à jour l'URL sans recharger
+                targetElement.scrollIntoView({ behavior: 'smooth' });
                 history.pushState(null, null, targetId);
             }
         }
     });
 });
+
+// --- Menu Mobile ---
 const hamMenuBtn = document.querySelector('.header__main-ham-menu-cont'); 
 const smallMenu = document.querySelector('.header__sm-menu'); 
 const headerHamMenuBtn = document.querySelector('.header__main-ham-menu'); 
 const headerHamMenuCloseBtn = document.querySelector('.header__main-ham-menu-close'); 
-
-// SÉLECTION DES LIENS DU MENU MOBILE (Nécessaire pour le défilement et la fermeture)
 const headerSmallMenuLinks = document.querySelectorAll('.header__sm-menu-links .header__sm-menu-link a');
-// ÉCOUTEUR DE CLIC SUR LE BOUTON HAMBURGER
-hamMenuBtn.addEventListener('click', () => {
-    // Inverse l'état d'affichage du menu mobile
-    if (smallMenu.classList.contains('header__sm-menu--active')) {
-        smallMenu.classList.remove('header__sm-menu--active');
-    } else {
-        smallMenu.classList.add('header__sm-menu--active');
-    }
 
-    // Inverse l'affichage des icônes (hamburger <-> fermeture X)
-    if (headerHamMenuBtn.classList.contains('d-none')) {
-        headerHamMenuBtn.classList.remove('d-none');
-        headerHamMenuCloseBtn.classList.add('d-none');
-    } else {
-        headerHamMenuBtn.classList.add('d-none');
-        headerHamMenuCloseBtn.classList.remove('d-none');
-    }
-});
-// LOGIQUE DE NAVIGATION DES LIENS DU MENU MOBILE
-for (let i = 0; i < headerSmallMenuLinks.length; i++) {
-    headerSmallMenuLinks[i].addEventListener('click', (e) => {
-        
-        // Empêche la navigation par défaut (pour stopper le flash)
+// Gérer l'ouverture/fermeture
+if (hamMenuBtn && smallMenu && headerHamMenuBtn && headerHamMenuCloseBtn) {
+    hamMenuBtn.addEventListener('click', () => {
+        smallMenu.classList.toggle('header__sm-menu--active');
+        headerHamMenuBtn.classList.toggle('d-none');
+        headerHamMenuCloseBtn.classList.toggle('d-none');
+    });
+}
+
+
+// Gérer le clic sur les liens du menu mobile
+headerSmallMenuLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
         e.preventDefault(); 
+        
+        // Fermeture du menu après clic
+        if (smallMenu) {
+            smallMenu.classList.remove('header__sm-menu--active');
+        }
+        if (headerHamMenuBtn && headerHamMenuCloseBtn) {
+            headerHamMenuBtn.classList.remove('d-none');
+            headerHamMenuCloseBtn.classList.add('d-none');
+        }
 
-        // Ferme le menu mobile
-        smallMenu.classList.remove('header__sm-menu--active');
-        headerHamMenuBtn.classList.remove('d-none');
-        headerHamMenuCloseBtn.classList.add('d-none');
-
-        // Récupère l'ancre et lance le défilement
-        let targetId = headerSmallMenuLinks[i].getAttribute('href');
+        let targetId = link.getAttribute('href');
         const anchor = targetId.includes('#') ? targetId.split('#').pop() : null;
 
         if (anchor) {
             const targetElement = document.getElementById(anchor);
             if (targetElement) {
-                targetElement.scrollIntoView({
-                    behavior: 'smooth'
-                });
+                targetElement.scrollIntoView({ behavior: 'smooth' });
                 history.pushState(null, null, '#' + anchor);
             }
         } else {
-            window.location.href = targetId;
+            // Gérer les liens non-ancre (ex: /contact.html ou lien externe)
+            window.location.href = targetId; 
         }
-    });
-}
-document.addEventListener('DOMContentLoaded', () => {
-    const skillCards = document.querySelectorAll('.skills__skill');
-    console.log("Nombre de cartes de compétence trouvées pour le JS Hover:", skillCards.length);
-    skillCards.forEach(card => {
-        // 1. Détecte l'entrée de la souris (Gère le hover ON)
-        card.addEventListener('mouseenter', () => {
-            // Ajoute la classe instantanément
-            card.classList.add('is-hovering');
-            console.log("Mouse ENTER: Classe ajoutée.");
-        });
-
-        // 2. Détecte la sortie de la souris (Gère le hover OFF)
-        card.addEventListener('mouseleave', () => {
-            // 🛑 SOLUTION DE DÉSYNCHRONISATION : 
-            // On retire la classe *immédiatement* pour annuler le fond/ombre.
-            card.classList.remove('is-hovering');
-            console.log("Mouse LEAVE: Classe retirée.");
-        });
     });
 });

@@ -13,7 +13,7 @@
  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
  <link
  href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700;900&display=swap"
-rel="stylesheet"
+ rel="stylesheet"
  />
  </head>
 <body>
@@ -101,148 +101,209 @@ rel="stylesheet"
  </header>
 
     <section class="project-cs-hero dynamicBg">
- <div class="project-cs-hero__content">
-<h1 class="heading-primary">WinGestion</h1>
- <div class="project-cs-hero__info">
- <p class="text-primary-profile">
-  Ce projet réalisé au cours de ma première année d'alternance a pour but de créer un logiciel de facturation pour les artisans, particuliers et petites entreprises. C’est un petit logiciel de facturation développé avec WINDEV permettant de gérer principalement les factures, devis, commandes et avoir des petites entreprises ou de particuliers à leur compte. Il dispose de multiples autres fonctionnalités disponibles en options.
-</p>
- </div>
-</div>
-<div class="circles">
-<li></li>
- <li></li>
- <li></li>
- <li></li>
-<li></li>
-<li></li>
-<li></li>
- <li></li>
-<li></li>
-<li></li>
-</div>
- </section>
-
-<section class="project-details">
-<div class="main-container">
- <div class="project-details__content">
-
-<div class="project-details__gallery-cont">
- <h3 class="project-details__content-title">Aperçu du Logiciel WinGestion</h3>
-<div class="project-details__gallery">
-
-                    <figure class="gallery__item">
- <img src="./assets/png/wingestion_accueil.png" alt="Capture d'écran de l'accueil WinGestion" class="gallery__img" onclick="openModal('./assets/png/wingestion_accueil.png', 'Écran d\'accueil du logiciel WinGestion.')">
- <figcaption class="gallery__caption">Accueil et Menu</figcaption>
- </figure>
-
-<figure class="gallery__item">
- <img src="./assets/png/facture.png" alt="Formulaire de création de facture WinGestion" class="gallery__img" onclick="openModal('./assets/png/facture.png', 'Liste et gestion des factures.')">
- <figcaption class="gallery__caption">Gestion des Factures</figcaption>
-</figure>
-                    
-                    <figure class="gallery__item">
- <img src="./assets/png/Produit (1).png" alt="Gestion des clients WinGestion" class="gallery__img" onclick="openModal('./assets/png/Produit (1).png', 'Liste et gestion des fiches produits.')">
-<figcaption class="gallery__caption">Gestion des Produits</figcaption>
-</figure>
-
- </div>
-</div>
- <div id="imageModal" class="modal" onclick="closeModal()">
- <span class="modal__close">&times;</span>
-<img class="modal__content" id="modalImage">
- <div id="caption" class="modal__caption"></div>
-</div>
- <div class="project-details__desc">
-<h3 class="project-details__content-title">Contexte et Objectifs</h3>
-<p class="project-details__desc-para">
-D'ici le 1er septembre 2026 à 2027, l'État va rendre obligatoire la dématérialisation des factures, rendant ainsi obligatoire pour toutes les entreprises l'utilisation d'une plateforme de dématérialisation reconnue par l'État.
- </p>
- <p class="project-details__desc-para">
-Il a été également posé que les documents (dont les factures) établis ou reçus sur support informatique doivent être conservés sous cette forme pendant un délai de 6 ans. Ce délai court à compter de la date à laquelle la facture a été établie. L'objectif de cette réforme est de lutter contre les fraudes à la TVA en simplifiant leur déclaration et ainsi diminuer la charge administrative des entreprises, les rendant plus compétitives.
-</p>
- <p class="project-details__desc-para">
- C'est donc pour préparer cette transition qu'il m'a été confié la mise en place d'un logiciel permettant aux particuliers et petites entreprise de gérer efficacement la mise en place de cette réforme.
- </p>
-
- <h3 class="project-details__content-title">Mise en place et Fonctionnalités</h3>
- <p class="project-details__desc-para">
-WinGestion est créé à partir d'un logiciel déjà existant appartenant à la structure Eurocap : WinFacture.
-Ce logiciel a été conçu avec WinDev pour un client particulier et est spécifique au domaine viticole. Il gère principalement l'émission de facture, d'avoir avec les règlements associés pour permettre une gestion comptable.
- </p>
-<p class="project-details__desc-para">
-À partir de ce projet, WinGestion doit permettre entre autres de cibler tout types de domaines et de gérer d'autres types de documents dont le client aurait éventuellement besoin tels que les devis, commande, bon de livraison ou facture d'acompte.
-L'ergonomie de WinDevisFacture a été en partie conservée tout en modifiant certains aspects nécessaires à la gestion des nouvelles options disponibles à l'utilisateur.
- </p>
-
-              <p class="project-details__desc-para">
-                  Exemples de fonctionnalités clés ajoutées :
-              </p>
-              <ul class="project-details__list">
-                  <li>Options de Tranches :** Possibilité d'ajouter des tranches pour les documents (spécifique au domaine du bâtiment).</li>
-                  <li>Gestion des Stocks :** Mise en place d'une gestion des stocks avec inventaire pour les produits enregistrés.</li>
-                  <li>Multiples Documents :** Gestion des devis, commandes, bons de livraison et factures d'acompte, en plus des factures et avoirs.</li>
-              </ul>
-          </div>
-
-             <div class="project-details__tools-used">
-              <h3 class="project-details__content-title">Outils & Technologies</h3>
-               <div class="skills">
-                <div class="skills__skill"><img src="assets/png/WinDevLogo.png"alt="Logo WinDev"><span>WINDEV</span></div>
-                <div class="skills__skill"><img src="assets/png/hfsql-350x100.png" alt="Logo HFSQL"><span>HFSQL</span></div>
+        <div class="project-cs-hero__content">
+            <h1 class="heading-primary">WinGestion</h1>
+            <div class="project-cs-hero__info">
+                <p class="text-primary-profile">
+                    Ce projet réalisé au cours de ma première année d'alternance a pour but de créer un logiciel de facturation pour les artisans, particuliers et petites entreprises. C’est un petit logiciel de facturation développé avec WINDEV permettant de gérer principalement les factures, devis, commandes et avoir des petites entreprises ou de particuliers à leur compte. Il dispose de multiples autres fonctionnalités disponibles en options.
+                </p>
             </div>
-           </div>
-         <div class="project-details__content-main">
-          </div>
-         </div>
-       </div>
-   </section>
+        </div>
+        <div class="circles project-assets">
+    <li style="--i:10; --delay:0s;"><img src="./assets/png/facture (1).png" alt="Facture" class="asset-logo"></li>
+     <li style="--i:10; --delay:1s;"><img src="./assets/png/factureflotte.png" alt="Facture" class="asset-logo"></li>
+       <li style="--i:10; --delay:2s;"><img src="./assets/png/factureflotte.png" alt="Facture" class="asset-logo"></li>
+    <li style="--i:10; --delay:3s;"><img src="./assets/png/parametres.png" alt="Parametre" class="asset-logo"></li>
+    
+    <li style="--i:10; --delay:4s;"><img src="./assets/png/cube.png" alt="SProduit" class="asset-logo"></li>
+    <li style="--i:10; --delay:5s;"><img src="./assets/png/facture (1).png" alt="Facture" class="asset-logo"></li>
+    
+    <li style="--i:10; --delay:6s;"><img src="./assets/png/parametres.png" alt="Parametre" class="asset-logo"></li>
+    
+    <li style="--i:10; --delay:7s;"><img src="./assets/png/cube.png" alt="SProduit" class="asset-logo"></li>
+     <li style="--i:10; --delay:8s;"><img src="./assets/png/facture (1).png" alt="Facture" class="asset-logo"></li>
+     
+    
 
-    <script>
-        const modal = document.getElementById('imageModal');
-        const modalImg = document.getElementById('modalImage');
-        const captionText = document.getElementById('caption');
+    </div>
+    </section>
 
-        function openModal(src, description) {
-            modal.style.display = "block";
-            modalImg.src = src;
-            captionText.innerHTML = description;
-        }
+<section class="project-details section-hidden">
+    <div class="main-container">
+        <div class="project-details__content">
 
-        function closeModal() {
-            modal.style.display = "none";
-        }
-    </script>
+            <div class="project-details__desc">
+                <h3 class="project-details__content-title">Contexte et Objectifs</h3>
+                <p class="project-details__desc-para">
+                    D'ici le 1er septembre 2026 à 2027, l'État va rendre obligatoire la dématérialisation des factures, rendant ainsi obligatoire pour toutes les entreprises l'utilisation d'une plateforme de dématérialisation reconnue par l'État.
+                </p>
+                <p class="project-details__desc-para">
+                    Il a été également posé que les documents (dont les factures) établis ou reçus sur support informatique doivent être conservés sous cette forme pendant un délai de 6 ans. Ce délai court à compter de la date à laquelle la facture a été établie. L'objectif de cette réforme est de lutter contre les fraudes à la TVA en simplifiant leur déclaration et ainsi diminuer la charge administrative des entreprises, les rendant plus compétitives.
+                </p>
+                <p class="project-details__desc-para">
+                    C'est donc pour préparer cette transition qu'il m'a été confié la mise en place d'un logiciel permettant aux particuliers et petites entreprise de gérer efficacement la mise en place de cette réforme.
+                </p>
+
+                <h3 class="project-details__content-title">Mise en place et Fonctionnalités</h3>
+                <p class="project-details__desc-para">
+                    WinGestion est créé à partir d'un logiciel déjà existant appartenant à la structure Eurocap : WinFacture.
+                    Ce logiciel a été conçu avec WinDev pour un client particulier et est spécifique au domaine viticole. Il gère principalement l'émission de facture, d'avoir avec les règlements associés pour permettre une gestion comptable.
+                </p>
+                <p class="project-details__desc-para">
+                    À partir de ce projet, WinGestion doit permettre entre autres de cibler tout types de domaines et de gérer d'autres types de documents dont le client aurait éventuellement besoin tels que les devis, commande, bon de livraison ou facture d'acompte.
+                    L'ergonomie de WinDevisFacture a été en partie conservée tout en modifiant certains aspects nécessaires à la gestion des nouvelles options disponibles à l'utilisateur.
+                </p>
+
+                <p class="project-details__desc-para">
+                    Exemples de fonctionnalités clés ajoutées :
+                </p>
+                <ul class="project-details__list">
+                    <li>Options de Tranches :Possibilité d'ajouter des tranches pour les documents (spécifique au domaine du bâtiment).</li>
+                    <li>Gestion des Stocks : Mise en place d'une gestion des stocks avec inventaire pour les produits enregistrés.</li>
+                    <li>Multiples Documents : Gestion des devis, commandes, bons de livraison et factures d'acompte, en plus des factures et avoirs.</li>
+                </ul>
+            </div>
+
+            <div class="project-details__tools-used">
+                <h3 class="project-details__content-title">Outils & Technologies</h3>
+                <div class="skills">
+                    <div class="skills__skill"><img src="assets/png/WinDevLogo.png"alt="Logo WinDev"><span>WINDEV</span></div>
+                    <div class="skills__skill"><img src="assets/png/hfsql-350x100.png" alt="Logo HFSQL"><span>HFSQL</span></div>
+                </div>
+            </div>
+            <div class="project-details__content-main">
+            </div>
+        </div>
+        
+        <div class="project-details__gallery-cont">
+            <h3 class="project-details__content-title">Aperçu du Logiciel WinGestion</h3>
+            <div class="project-details__gallery">
+
+                <figure class="gallery__item">
+                    <img src="./assets/png/OptionsDoc.png" alt="Capture d'écran des options disponible sur la liste des documents" class="gallery__img" onclick="openModal('./assets/png/OptionsDoc.png', 'Options disponible sur la liste des documents')">
+                    <figcaption class="gallery__caption">Options des documents </figcaption>
+                </figure>
+                <figure class="gallery__item">
+                    <img src="./assets/png/Chantier.png" alt="Capture d'écran de  la partie chantier" class="gallery__img" onclick="openModal('./assets/png/chantier.png', 'Liste et gestion des chantier.')">
+                    <figcaption class="gallery__caption">Chantier</figcaption>
+                </figure>
+                <figure class="gallery__item">
+                    <img src="./assets/png/facture.png" alt="Formulaire de création de facture WinGestion" class="gallery__img" onclick="openModal('./assets/png/facture.png', 'Liste et gestion des factures.')">
+                    <figcaption class="gallery__caption">Gestion des Factures</figcaption>
+                </figure>
+                <figure class="gallery__item">
+                    <img src="./assets/png/BL.png" alt="Liste des BL WinGestion" class="gallery__img" onclick="openModal('./assets/png/BL.png', 'Liste et gestion des BL (Bons de Livraison).')">
+                    <figcaption class="gallery__caption">Gestion des Bons de Livraison (BL)</figcaption>
+                </figure>
+                <figure class="gallery__item">
+                    <img src="./assets/png/Devis.png" alt="Formulaire de création de devis WinGestion" class="gallery__img" onclick="openModal('./assets/png/Devis.png', 'Liste et gestion des devis.')">
+                    <figcaption class="gallery__caption">Gestion des Devis</figcaption>
+                </figure>
+                
+                <figure class="gallery__item">
+                    <img src="./assets/png/EnteteDoc.png" alt="Capture d'écran des entete" class="gallery__img" onclick="openModal('./assets/png/EnteteDoc.png', 'Gestion des en tête des documents.')">
+                    <figcaption class="gallery__caption">En Tête des documents</figcaption>
+                </figure> 
+                <figure class="gallery__item">
+                    <img src="./assets/png/OptionsLigne.png" alt="Capture d'écran des options des lignes" class="gallery__img" onclick="openModal('./assets/png/OptionsLigne.png', 'Gestion des lignes des documents.')">
+                    <figcaption class="gallery__caption">Options sur les lignes des documents</figcaption>
+                </figure>          
+                <figure class="gallery__item">
+                    <img src="./assets/png/Produit (1).png" alt="Gestion des clients WinGestion" class="gallery__img" onclick="openModal('./assets/png/Produit (1).png', 'Liste et gestion des fiches produits.')">
+                    <figcaption class="gallery__caption">Gestion des Produits</figcaption>
+                </figure>
+                <figure class="gallery__item">
+                    <img src="./assets/png/AjoutProduit.png" alt="Ajout d'un produit" class="gallery__img" onclick="openModal('./assets/png/AjoutProduit.png', 'Formulaire pour ajouter des produits.')">
+                    <figcaption class="gallery__caption">Ajout des Produits</figcaption>
+                </figure>
+                <figure class="gallery__item">
+                    <img src="./assets/png/Stock.png" alt="Consulter le stock" class="gallery__img" onclick="openModal('./assets/png/Stock.png', 'Gestion du stock pour les produits.')">
+                    <figcaption class="gallery__caption">Stock des Produits</figcaption>
+                </figure>
+                <figure class="gallery__item">
+                    <img src="./assets/png/Stock2.png" alt="Valeur stock " class="gallery__img" onclick="openModal('./assets/png/Stock2.png', 'Valeur du stock par produit/catégorie')">
+                    <figcaption class="gallery__caption">Valeur du stock</figcaption>
+                </figure>
+                <figure class="gallery__item">
+                    <img src="./assets/png/Reg.png" alt="Consulter la liste des règlements" class="gallery__img" onclick="openModal('./assets/png/Reg.png', 'Liste et gestion des règlements.')">
+                    <figcaption class="gallery__caption">Gestion des règlements</figcaption>
+                </figure>
+                <figure class="gallery__item">
+                    <img src="./assets/png/CptaReg.png" alt="Liste des règlements a exporter " class="gallery__img" onclick="openModal('./assets/png/CptaReg.png', 'Liste des règlements à exporter en compta.')">
+                    <figcaption class="gallery__caption">Gestion Comptable règlements</figcaption>
+                </figure>
+                <figure class="gallery__item">
+                    <img src="./assets/png/CptaVente.png" alt="Liste des ventes a exporter " class="gallery__img" onclick="openModal('./assets/png/CptaVente.png', 'Liste des ventes à exporter en compta.')">
+                    <figcaption class="gallery__caption">Gestion Comptable ventes</figcaption>
+                </figure>
+                <figure class="gallery__item">
+                    <img src="./assets/png/Param1.png" alt="Paramètre société " class="gallery__img" onclick="openModal('./assets/png/Param1.png', 'Gestion des sociétés et de leur informations.')">
+                    <figcaption class="gallery__caption">Gestion paramètres de la société</figcaption>
+                </figure>
+                <figure class="gallery__item">
+                    <img src="./assets/png/Param2.png" alt="Paramètre société " class="gallery__img" onclick="openModal('./assets/png/Param2.png', 'Gestion des taux de TVA.')">
+                    <figcaption class="gallery__caption">Gestion des taux de TVA</figcaption>
+                </figure>
+                <figure class="gallery__item">
+                    <img src="./assets/png/Param3.png" alt="Paramètre société " class="gallery__img" onclick="openModal('./assets/png/Param3.png', 'Gestion des modes de règlement.')">
+                    <figcaption class="gallery__caption">Gestion des modes de règlement</figcaption>
+                </figure>
+                <figure class="gallery__item">
+                    <img src="./assets/png/Param4.png" alt="Paramètre société " class="gallery__img" onclick="openModal('./assets/png/Param4.png', 'Gestion des répertoires relatifs aux types de document et aux exports comptables.')">
+                    <figcaption class="gallery__caption">Gestion des répertoires</figcaption>
+                </figure>
+                <figure class="gallery__item">
+                    <img src="./assets/png/Param5.png" alt="Paramètre société " class="gallery__img" onclick="openModal('./assets/png/Param5.png', 'Gestion des options facultatives sécurisées.')">
+                    <figcaption class="gallery__caption">Gestion des options disponibles</figcaption>
+                </figure>
+                <figure class="gallery__item">
+                    <img src="./assets/png/Param6.png" alt="Paramètre société " class="gallery__img" onclick="openModal('./assets/png/Param6.png', 'Gestion des utilisateurs et de leurs droits.')">
+                    <figcaption class="gallery__caption">Gestion des utilisateurs</figcaption>
+                </figure>
+                <figure class="gallery__item">
+                    <img src="./assets/png/Param7.png" alt="Paramètre société " class="gallery__img" onclick="openModal('./assets/png/Param7.png', 'Gestion du format des documents et de leur numérotation.')">
+                    <figcaption class="gallery__caption">Formatage des documents</figcaption>
+                </figure>
+                <figure class="gallery__item">
+                    <img src="./assets/png/Stat.png" alt="Stat " class="gallery__img" onclick="openModal('./assets/png/Stat.png', 'Statistiques relatives aux données de la société.')">
+                    <figcaption class="gallery__caption">Statistiques</figcaption>
+                </figure>
+            </div>
+        </div>
+        
+        <div id="myModal" class="modal" onclick="closeModal()">
+            <span class="modal__close">&times;</span>
+            <div class="modal__wrapper">
+                <img class="modal__content" id="modalImage">
+                <div id="caption" class="modal__caption"></div>
+            </div>
+        </div>
+        </section>
+
     
 <footer class="main-footer">
-        <div class="main-container">
-            <div class="main-footer__upper">
-                <div class="main-footer__row main-footer__row-1">
-                    <h2 class="heading heading-sm main-footer__heading-sm">
-                        <span>Social</span>
-                    </h2>
-                    <div class="main-footer__social-cont">
-                        <a target="_blank" rel="noreferrer" href="https://github.com/Nawelbenbachir">
-                            <img
-                                class="main-footer__icon"
-                                src="./assets/png/github-ico.png"
-                                alt="icon"
-                            />
-                        </a>
-                    </div>
-                </div>
-                <div class="main-footer__row main-footer__row-2">
-                    <h4 class="heading heading-sm text-lt">Nawel Benbachir</h4>
+    <div class="main-container">
+        <div class="main-footer__upper">
+            <div class="main-footer__row main-footer__row-1">
+                <h2 class="heading heading-sm main-footer__heading-sm">
+                    <span>Social</span>
+                </h2>
+                <div class="main-footer__social-cont">
+                    <a target="_blank" rel="noreferrer" href="https://github.com/Nawelbenbachir">
+                        <img
+                            class="main-footer__icon"
+                            src="./assets/png/github-ico.png"
+                            alt="icon"
+                        />
+                    </a>
                 </div>
             </div>
-
-            <!-- <div class="main-footer__lower">
-                &copy; Copyright 2021. Made by
-                <a rel="noreferrer" target="_blank" href="https://rammaheshwari.com">Ram Maheshwari</a
-                >
+            <div class="main-footer__row main-footer__row-2">
+                <h4 class="heading heading-sm text-lt">Nawel Benbachir</h4>
             </div>
-        </div> -->
- </footer>
- <script src="./index.js"></script>
- </body>
+        </div>
+    </div>
+</footer>
+<script src="./index.js"></script>
+</body>
 </html>

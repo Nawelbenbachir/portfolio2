@@ -19,7 +19,10 @@ Inside media queries 1em is always 16px i.e 1em = 16px at every screen size only
   padding: 0;
   box-sizing: inherit;
   font-family: inherit; }
-
+:root {
+    --clr-theme: #D51066; 
+    
+}
 html {
   font-size: 62.5%;
   scroll-behavior: smooth; }
@@ -41,7 +44,11 @@ body {
   overflow-x: hidden;
   overflow-y: scroll;
   font-family: 'Source Sans Pro', sans-serif; }
-
+body, html {
+    transform: none !important;
+    filter: none !important;
+    perspective: none !important;
+}
 section {
     transition: all 0.8s ease-out; 
 }
@@ -50,7 +57,20 @@ section {
   transform: translateY(50px);
   /* transition: all 0.8s ease-out; */
 }
+/* État initial : Masqué et légèrement décalé vers le bas */
+.section-hidden-visual {
+    opacity: 0;
+    /* Décalage vertical léger (30px) */
+    transform: translateY(30px); 
+    /* Transition douce pour l'apparition */
+    transition: opacity 1s ease-out, transform 1s ease-out; 
+}
 
+/* État final : Visible et à sa position normale */
+.section-visible-visual {
+    opacity: 1;
+    transform: translateY(0);
+}
 .section-visible {
   opacity: 1;
   transform: translateY(0);
@@ -191,6 +211,17 @@ textarea {
     margin-left: auto;
     margin-right: auto;
 }
+/* Ciblage spécifique du main-container dans la section Veille */
+#veille .main-container.section-hidden {
+    opacity: 0;
+    transform: translateY(8vh);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+#veille .main-container.section-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
 .btn {
   background: #fff;
   color: #333;
@@ -200,15 +231,18 @@ textarea {
   font-weight: 700;
   border-radius: 50px;
   box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.15);
+  margin-top:0;
   transition: transform 0.3s ease-out, box-shadow 0.3s;
   position: relative;
-  margin-top:0;
+  will-change: transform; 
+  transform: translateZ(0);
  }
   .btn:hover {
-    transform: translateZ(50px) scale(1.02); 
+    /* transform: translateZ(50px) scale(1.02); 
     
-    /* Pour s'assurer qu'il a une position 3D par défaut */
-    transform-style: preserve-3d;
+    
+    transform-style: preserve-3d; */
+    transform: translateY(-5px) scale(1.02);
     
    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
     z-index: 9999 !important; 
@@ -559,8 +593,9 @@ background: #f7f7f7;
     .about__content-details {
     /* Taille de police standard pour le corps de texte. Ajustez selon votre design. */
     font-size: 1.8rem; 
-    line-height: 1.6; /* Améliore la lisibilité des longs textes */
-    color: var(--clr-dark-2); /* Utilisez la couleur de texte principale de votre thème */
+    line-height: 1.6; /* Améliore la lisibilité des longs textes */ 
+    color:gray;
+    /*color: var(--clr-dark-2);  Utilisez la couleur de texte principale de votre thème */
     margin-bottom: 2rem;
 }
     .about__content-details-para {
@@ -857,6 +892,40 @@ background: #f7f7f7;
       .contact__btn {
         width: 100%; } }
 
+/* ---------------------------------------------------- */
+/* Styles pour l'Animation de la Section Contact */
+/* ---------------------------------------------------- */
+
+/* État initial pour tous les champs et le bouton */
+.section-hidden-contact {
+    opacity: 0;
+    transform: translateX(-50px); 
+    /* Augmentation de la durée de la transition */
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out; 
+}
+
+/* État final : Visible et à sa position normale */
+.section-visible-contact {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Application des délais spécifiques (plus longs) */
+.contact__form-field:nth-child(1).section-hidden-contact {
+    transition-delay: 0s; 
+}
+
+.contact__form-field:nth-child(2).section-hidden-contact {
+    transition-delay: 0.2s; /* Augmenté */
+}
+
+.contact__form-field:nth-child(3).section-hidden-contact {
+    transition-delay: 0.4s; /* Augmenté */
+}
+
+.contact__btn.section-hidden-contact {
+    transition-delay: 0.6s; /* Augmenté */
+}
 .project-cs-hero {
   color: #080808;
    background: transparent; 
@@ -874,19 +943,26 @@ background: #f7f7f7;
     padding: 25rem 0 17rem 0;
     max-width: 90rem;
     width: 92%;
+    overflow: visible;
     margin: auto; }
     @media only screen and (max-width: 37.5em) {
       .project-cs-hero__content {
         padding: 19rem 0 13rem 0;
         margin: auto;
         position: static;
+        overflow: visible;
         transform: translate(0, 0); } }
   .project-cs-hero__info {
     margin: 3rem auto 0 auto;
     max-width: 80rem; }
   .project-cs-hero__cta {
+    position :relative ;
+    z-index:100;
     margin-top: 5rem;
-    text-align: center; }
+    text-align: center;
+    transform: translateZ(0); 
+    overflow: visible;
+   }
 
 .project-details__content {
   padding: 8rem 0;
@@ -898,6 +974,7 @@ background: #f7f7f7;
     margin-bottom: 3rem; }
     @media only screen and (max-width: 37.5em) {
       .project-details__content-title {
+
         font-size: 2.4rem; } }
 
 .project-details__showcase-img-cont {
@@ -922,11 +999,16 @@ background: #f7f7f7;
     box-shadow: none; 
 }
 .project-cs-hero__cta .btn--theme-inv:hover {
-    /* Léger effet de soulèvement */
-    /* transform: translateY(-3px); */
-    /* Ajout d'une ombre pour l'effet de profondeur */
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(213, 16, 102, 0.4);
+   background: #D51066;
+    color: #fff;
+    border: 2px solid #D51066; 
+
+    /* FORCER LE SOULÈVEMENT VISIBLE */
+    /* Utilisez des valeurs extrêmes pour le test : -10px de soulèvement et léger grossissement */
+    transform: translateY(-10px) scale(1.05); 
+    
+    /* Rendre l'ombre très visible pour le test */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
 .project-cs-hero__cta .btn--theme-inv:active {
@@ -940,7 +1022,7 @@ background: #f7f7f7;
 .project-details__gallery-cont {
     padding: 8rem 0; /* Espacement du conteneur principal */
     max-width: 90rem;
-    margin: auto;
+    /* margin: auto; */
 }
 
 .project-details__gallery {
@@ -986,45 +1068,78 @@ background: #f7f7f7;
 /* ---------------------------------------------------- */
 /* 3. Styles du Modal (Fenêtre Pop-up) */
 /* ---------------------------------------------------- */
+.modal.is-open {
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+}
+body.modal-open .section-visible {
+    transform: none !important; 
+}
+.modal-open {
+    overflow: hidden; /* Supprime la barre de défilement verticale */
+    height: 100vh; /* Définit la hauteur à 100% du viewport */
+}
 .modal {
-    display: none; /* Caché par défaut */
     position: fixed; 
-    z-index: 2000; /* Assure qu'il est au-dessus de tout */
-    padding-top: 60px; 
-    left: 0;
     top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    overflow: auto; 
-    background-color: rgba(0,0,0,0.9); /* Fond noir semi-transparent */
+    
+    /* Centrage parfait garanti par flexbox */
+    display: none; 
+    /* justify-content: center; 
+    align-items: center;  */
+    
+    z-index: 2000; /* Assurez-vous qu'il est au-dessus de tout */
+    background-color: rgba(0,0,0,0.9);
 }
-
+#modalImage {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; 
+}
 .modal__content {
-    margin: auto;
+   position:absolute; 
+    top: 50%; 
+    left: 50%;
+    transform: translate(-50%, -50%); 
+    max-width: 90vw; 
+    max-height: 80vh; 
+    margin: 0; 
     display: block;
-    width: 80%;
-    max-width: 1000px;
     animation-name: zoom;
     animation-duration: 0.6s;
 }
 
+.modal__wrapper {
+    /* Nouveau conteneur pour l'image et la légende, centré par le .modal parent */
+    display: flex;
+    flex-direction: column; /* Organise l'image au-dessus de la légende */
+    align-items: center;
+    max-width: 90%; /* Limite la largeur de l'ensemble du contenu */
+    max-height: 100%; /* Laisse le contenu s'étirer verticalement */
+}
+
 .modal__caption {
-    margin: auto;
+    margin: 10px auto 0 auto; /* Ajoute un petit espace au-dessus de la légende */
     display: block;
-    width: 80%;
-    max-width: 1000px;
+    width: 100%; /* Prend toute la largeur du wrapper */
+    max-width: 1000px; 
     text-align: center;
     color: #ccc;
     padding: 10px 0;
-    height: 150px; /* Espace pour la description */
+    /* Retirez la hauteur fixe si elle est trop grande et cause des problèmes de décalage */
+    height: auto; 
     font-size: 1.8rem;
 }
-
 /* Bouton de fermeture (x) */
 .modal__close {
-    position: absolute;
+  position: fixed !important; /* Force le positionnement par rapport à l'écran, même si le modal est perturbé */
     top: 15px;
     right: 35px;
+    z-index: 10000;
     color: #f1f1f1;
     font-size: 40px;
     font-weight: bold;
@@ -1037,7 +1152,30 @@ background: #f7f7f7;
     text-decoration: none;
     cursor: pointer;
 }
+@media (min-width: 768px) { /* Appliqué seulement sur les écrans de taille moyenne et grande */
+    .about__content {
+        display: flex; /* Active Flexbox */
+        flex-direction: column; /* Laisse le contenu principal en haut */
+        gap: 40px;
+    }
+    
+    /* Conteneur Flex pour aligner la Galerie et les Outils */
+    .about__visual-container {
+        display: flex;
+        flex-wrap: wrap; /* Permet de revenir à la ligne si l'écran est trop petit */
+        gap: 30px;
+        align-items: center; /* Aligner les deux blocs en haut */
+    }
 
+    /* La galerie prend environ 60-70% de l'espace */
+    /* .project-details__gallery-cont {
+        flex: 2; 
+        min-width: 400px;
+    } */
+}
+.project-details__tools-used .about__content-title {
+    text-align: center;
+}
 /* Animation d'ouverture */
 @keyframes zoom {
     from {transform: scale(0)} 
@@ -1091,15 +1229,21 @@ background: #f7f7f7;
     color: var(--clr-dark-2); /* Utilisez la variable de couleur sombre de votre thème */
     line-height: 1.5; /* Améliore la lisibilité du texte long */
 }
+@media (min-width: 768px) {
+    .project-details__gallery-cont {
+        flex: 2; 
+        max-width: 65%;
+    }
 .project-details__tools-used {
-    padding: 3rem 0; /* Ajoute de l'espace */
-    max-width: 100%;
-    margin: auto;
+    flex: 1;
+    max-width: 80%; 
+    min-width: 200px;
 }
   .project-details__tools-used-list {
     display: flex;
     flex-wrap: nowrap;
-    align-items: center; }
+     align-items:flex-start
+  }
   .project-details__tools-used-item {
     padding: 1rem 2rem;
     margin-bottom: 1.5rem;
@@ -1369,12 +1513,25 @@ background: #f7f7f7;
 /* -------------------------------------------------------
    CARTE DE COMPÉTENCE (.skills__skill)
    ------------------------------------------------------- */
+   /* Ciblage spécifique si la taille est trop petite dans la section Veille */
+#veille .skills__skill {
+    font-size: 1.8rem !important; /* Utilisation de !important pour s'assurer que le style est appliqué */
+}
+
+/* Si les images dans la boîte de compétence sont trop petites, réglez leur taille ici */
+#veille .skills__skill img {
+    height: 3rem; /* Exemple : 30px de hauteur pour les logos */
+    width: auto;
+}
 .skills__skill {
+    padding: 10px 15px; 
+    border: 1px solid #ddd;
+    border-radius: 8px;
     height: 120px;
     background: #fff;
-    border: 3px solid transparent; 
+    /* border: 3px solid transparent;  */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-    border-radius: 8px;
+    /* border-radius: 8px; */
     
     display: flex;
     flex-direction: column;
@@ -1480,10 +1637,11 @@ background: #f7f7f7;
 .section-visible .skills__group:nth-child(3) .skills__skill:nth-child(1) { transition-delay: calc(0.8s + 0.10s); }
 .section-visible .skills__group:nth-child(3) .skills__skill:nth-child(2) { transition-delay: calc(0.8s + 0.15s); }
 .project-details__tools-used .skills {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.5rem;
-  justify-content: space-between;
+    display: flex; /* Active Flexbox pour les compétences */
+    flex-wrap: wrap; /* Autorise le retour à la ligne */
+    justify-content: center; /* **C'est la clé : centre les logos horizontalement** */
+    gap: 15px; /* Ajoute un espace entre les logos */
+    margin-top: 15px;
 }
 .mouse {
   width: 25px;
@@ -1697,6 +1855,26 @@ background: #f7f7f7;
 .section-visible .timeline-block:nth-child(2) {
     /* Le bloc de droite commence sa transition 0.2s après celui de gauche */
     transition-delay: 0.2s; 
+}
+/* Style pour le conteneur des logos de projet  */
+.circles.project-assets li {
+    /* Annule la forme ronde des bulles */
+    border-radius: 0; 
+    border: none;
+    background: none; /* Supprime le fond de la bulle */
+    opacity: 0.8; /* Légèrement transparent */
+    padding: 0; /* Supprime le padding */
+}
+
+/* Style des images réelles à l'intérieur des li */
+.circles.project-assets .asset-logo {
+    display: block;
+    width: 100%; /* Prend toute la largeur du li parent */
+    height: auto; 
+    /* Définit une taille maximale si l'image est trop grande */
+    max-width: 80px; /* Ajustez la taille selon l'esthétique souhaitée */
+    max-height: 80px;
+    filter: invert(10%) sepia(90%) saturate(7000%) hue-rotate(315deg) brightness(80%) contrast(150%);
 }
 /* 1. Conteneur des bulles */
 .circles {
