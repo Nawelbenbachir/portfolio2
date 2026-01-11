@@ -180,14 +180,14 @@ document.addEventListener("DOMContentLoaded", () => {
     const contactSection = document.getElementById('contact');
     
     if (successStatus === 'true' && contactSection) {
-        alert("🎉 Votre message a été envoyé avec succès !");
+        alert("Votre message a été envoyé avec succès !");
         // Optionnel : Supprimer le paramètre de l'URL après affichage
         history.replaceState(null, '', window.location.pathname); 
     } else if (successStatus === 'false' && contactSection) {
-        alert("❌ Une erreur est survenue lors de l'envoi. Veuillez réessayer.");
+        alert(" Une erreur est survenue lors de l'envoi. Veuillez réessayer.");
         history.replaceState(null, '', window.location.pathname);
     } else if (successStatus === 'validation_error' && contactSection) {
-        alert("⚠️ Veuillez remplir tous les champs correctement.");
+        alert(" Veuillez remplir tous les champs correctement.");
         history.replaceState(null, '', window.location.pathname);
     }
 }); 

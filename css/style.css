@@ -12,6 +12,201 @@ $breakpoint arguement choices:
 
 Inside media queries 1em is always 16px i.e 1em = 16px at every screen size only inside media queries
 */
+/* =======================================================
+   CORRECTIF FINAL ULTIME - À METTRE TOUT EN BAS
+   ======================================================= */
+
+@media only screen and (max-width: 68.75em) { 
+    /* 1. On cible avec body et les deux classes pour être le plus lourd possible */
+    body .header__content .header__links {
+        display: none !important; /* CACHE LES LIENS DESKTOP */
+    }
+
+    /* 2. On affiche le bouton mobile */
+    body .header__content .header__main-ham-menu-cont {
+        display: block !important;
+    }
+
+    /* 3. On force l'alignement pour éviter l'empilement vertical */
+    body .header__content {
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        flex-wrap: nowrap !important;
+    }
+
+    /* 4. On s'assure que le logo ne prend pas trop de place */
+    body .header__logo {
+        font-size: 1.6rem !important;
+        white-space: nowrap !important;
+    }
+}
+/* --- CONFIGURATION NAVIGATION MOBILE (Placé au début) --- */
+@media only screen and (max-width: 65em) { 
+    /* 1. On cache les liens desktop */
+    .header__links {
+        display: none !important;
+    }
+
+    /* 2. On affiche le hamburger */
+    .header__main-ham-menu-cont {
+        display: block !important;
+    }
+
+    /* 3. Force le Header sur une ligne */
+    .header__content {
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: space-between !important;
+        flex-wrap: nowrap !important;
+        padding: 0 2rem !important;
+        height: 8rem !important; /* Hauteur identique à la version PC */
+    }
+
+    /* 4. RETOUR À LA POLICE D'ORIGINE */
+    .header__logo {
+        font-size: 1.8rem !important; /* Ajusté pour tenir sur mobile */
+        font-family: "Source Sans Pro", sans-serif !important;
+        font-weight: 900 !important;
+        text-transform: uppercase !important;
+        letter-spacing: 2px !important;
+        white-space: nowrap !important;
+        color: #333 !important;
+    }
+    .header__logo-name {
+        color: #D51066 !important;
+    }
+
+    /* 5. STYLE DU MENU DÉROULANT (Comme ta 3ème capture) */
+    .header__sm-menu {
+        display: none !important; 
+        position: absolute !important;
+        top: 8rem !important; /* Juste en dessous du header */
+        left: 0 !important;
+        width: 100% !important;
+        background: #fff !important;
+        z-index: 100 !important;
+        box-shadow: 0 10px 10px rgba(0,0,0,0.1) !important;
+    }
+
+    /* Affiche le menu quand actif */
+    .header__sm-menu--active {
+        display: block !important;
+    }
+
+    /* Style des liens dans le menu déroulant */
+    .header__sm-menu-link a {
+        display: block !important;
+        padding: 2.5rem 3rem !important;
+        text-align: right !important;
+        font-size: 1.6rem !important;
+        color: #333 !important;
+        text-transform: uppercase !important;
+        font-weight: 700 !important;
+        border-top: 1px solid #eee !important;
+        text-decoration: none !important;
+    }
+}
+
+/* --- 2. ÉTAT DESKTOP (PC) --- */
+@media only screen and (min-width: 65.01em) {
+    .header__links {
+        display: flex !important;
+    }
+    .header__main-ham-menu-cont {
+        display: none !important;
+    }
+    .header__sm-menu {
+        display: none !important;
+    }
+}
+
+/* 5. Sécurité pour le menu mobile s'il reste invisible */
+.header__sm-menu--active {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    max-height: 100vh !important;
+}
+/* =======================================================
+   VERSION FINALE PARCOURS : TRAIT + PUCES IDENTIQUES PC
+   ======================================================= */
+@media only screen and (max-width: 56.25em) {
+
+    /* 1. On force le conteneur de la ligne */
+    body #parcours .timeline {
+        position: relative !important;
+        display: block !important;
+        padding-left: 40px !important; /* Espace pour le trait */
+        margin-left: 10px !important;
+    }
+
+    /* 2. LE TRAIT ROSE (Timeline line) */
+    body #parcours .timeline::after {
+        content: "" !important;
+        position: absolute !important;
+        top: 0 !important;
+        bottom: 0 !important;
+        left: 20px !important; /* Aligné avec les puces */
+        width: 4px !important;
+        background-color: #D51066 !important;
+        z-index: 1 !important;
+        display: block !important;
+        transform: none !important;
+    }
+
+    /* 3. LES BLOCS DE TEXTE (.element) */
+    body #parcours .element {
+        width: 100% !important;
+        margin: 0 0 30px 0 !important; /* Plus besoin de grosse marge gauche */
+        padding: 20px !important;
+        position: relative !important;
+        background: #fff !important;
+        border-radius: 10px !important;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05) !important;
+        display: block !important;
+        left: 20px !important; /* Décale le bloc par rapport au trait */
+        width: calc(100% - 40px) !important;
+    }
+
+    /* 4. LES PUCES (Exactement comme sur PC) */
+    body #parcours .element i.timeline-icon {
+        position: absolute !important;
+        /* Calcul pour centrer la puce de 32px sur le trait à 20px */
+        /* Le trait est à -20px du bord du bloc .element */
+        left: -34px !important; 
+        top: 25px !important;
+        
+        width: 32px !important;
+        height: 32px !important;
+        min-width: 32px !important;
+        min-height: 32px !important;
+        
+        background-color: #fff !important;
+        border: 4px solid #D51066 !important;
+        border-radius: 50% !important;
+        color: #D51066 !important;
+        
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        z-index: 10 !important;
+        font-size: 0.9rem !important;
+        transform: none !important;
+    }
+
+    /* On s'assure que le petit point au centre est visible */
+    body #parcours .element i.timeline-icon::before {
+        content: "\f111" !important;
+        font-family: "Font Awesome 6 Free" !important;
+        font-weight: 900 !important;
+    }
+}
+
+
+
+
 *,
 *::after,
 *::before {
@@ -25,6 +220,7 @@ Inside media queries 1em is always 16px i.e 1em = 16px at every screen size only
 }
 html {
   font-size: 62.5%;
+  overflow-y: scroll;
   scroll-behavior: smooth; }
   @media only screen and (max-width: 75em) {
     html {
@@ -307,7 +503,7 @@ textarea {
       font-size: 2rem; } }
 
 .d-none {
-  display: none; }
+  display: none !important; }
 
 .home-hero {
   /* Augmentation légère du contraste du dégradé */
@@ -449,22 +645,31 @@ background: #f7f7f7;
     }
 }
 
-/* Entreprise  */
 .entreprise-description {
-    /* Maintient l'alignement à gauche et la largeur */
-    text-align: left; 
-    margin: 100px 100px 30px 550px;
-    max-width: 50%;
-    padding: 0 15px; /* Ajouter un peu de padding horizontal pour l'esthétique */
-    color: #555; /* Couleur de texte pour l'ensemble du bloc */
+    /* --- 1. CONFIGURATION MOBILE (Par défaut) --- */
+    width: 90%;
+    margin: 50px auto 30px auto; 
+    text-align: center; /* Centré sur mobile pour l'équilibre */
+    padding: 0 15px;
+    color: #555;
+    font-size: 1.8rem;
+    line-height: 1.6;
 }
 
-/* Cible le texte à l'intérieur pour l'agrandir */
-.entreprise-description {
-    font-size: 2rem; 
-    line-height: 2; 
-    font-weight: 400; /* Assure que le texte est lisible, pas trop fin */
+/* --- 2. CONFIGURATION GRAND ÉCRAN (PC) --- */
+@media only screen and (min-width: 62.5em) { /* Au-dessus de 1000px */
+    .entreprise-description {
+        /* On remet la marge à gauche pour l'aligner sous le logo ou le décaler */
+        /* On utilise auto à droite pour le "pousser" vers la gauche */
+        margin: 100px auto 30px 45rem; 
+        
+        text-align: left; /* Aligné à gauche sur PC */
+        max-width: 55%;   /* On limite la largeur pour éviter les lignes trop longues */
+        font-size: 2rem;
+        line-height: 2;
+    }
 }
+
   /*Conteneur flex pour disposer les blocs côte à côte*/
   #entreprise .main-container  {
   display: flex;
@@ -1359,7 +1564,7 @@ body.modal-open .section-visible {
       @media only screen and (max-width: 37.5em) {
         .project-details__links-btn:last-child {
           margin: 0; } }
-
+        }
 /* Animation de départ (Hero) */
 .hero-start-animation {
     opacity: 0;
@@ -1371,133 +1576,103 @@ body.modal-open .section-visible {
     opacity: 1;
     transform: translateY(0);
 }
+
+
+/* ==========================================================================
+   NOUVEAU HEADER UNIFIÉ (Remplace lignes 76 à 180)
+   ========================================================================== */
+
 .header {
   position: fixed;
   width: 100%;
   z-index: 1000;
-  background: #000;
   background: #fff;
-  box-shadow: 0 10px 100px rgba(0, 0, 0, 0.1); }
-    /* Styles pour le bloc entier (Nom + Prénom) */
-  .header__logo {
-    font-size: 2.8rem; 
-    font-weight: 900; 
-    letter-spacing: 2px; 
-    color: #333; /* Couleur sombre par défaut */
-    text-transform: uppercase;
-  }
+  box-shadow: 0 10px 100px rgba(0, 0, 0, 0.1);
+  top: 0;
+  left: 0;
+}
 
-  /* Styles pour le prénom seulement */
-  .header__logo-name {
-    color: #D51066; /* La couleur de votre thème pour l'accentuation */
-    /* Vous pouvez ajouter d'autres styles ici si vous le souhaitez */
+.header__content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 5rem;
+  height: 8rem;
+}
+
+.header__logo {
+  font-size: 2.2rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  color: #333;
+  white-space: nowrap;
+}
+.header__logo-name { color: #D51066; }
+
+/* --- GESTION DES MENUS --- */
+
+/* 1. Sur PC (plus de 1100px) */
+.header__links {
+  display: flex;
+  list-style: none;
+}
+.header__link {
+  padding: 1rem 2rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #333;
+  text-decoration: none;
+}
+.header__main-ham-menu-cont {
+  display: none; /* Cache le hamburger sur PC */
+}
+
+
+
+/* 3. Style du menu déroulant (Small Menu) */
+.header__sm-menu {
+  position: absolute;
+  top: 8rem;
+  left: 0;
+  width: 100%;
+  background: #fff;
+  z-index: 999;
+  max-height: 0;
+  overflow: hidden;
+  visibility: hidden;
+  transition: all 0.3s;
+  box-shadow: 0 10px 10px rgba(0,0,0,0.1);
+}
+
+.header__sm-menu--active {
+  max-height: 100vh;
+  visibility: visible;
+}
+
+.header__sm-menu-link a {
+  display: block;
+  padding: 2rem 3rem;
+  font-size: 1.6rem;
+  color: #333;
+  text-decoration: none;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-align: right;
+  border-top: 1px solid #eee;
+}
+
+/* Ajustement ultime pour tout petits écrans*/
+@media only screen and (max-width: 30em) {
+  .header__logo { font-size: 1.6rem; }
+}
+@media only screen and (max-width: 30em) {
+  .header__logo { 
+     font-size: 5rem !important; 
+     background-color: red !important;
   }
-  .header__content {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1rem 5rem; }
-    @media only screen and (max-width: 56.25em) {
-      .header__content {
-        padding: 0 2rem; } }
-  .header__logo-container {
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-    color: #333;
-    transition: color .3s; }
-    .header__logo-container:hover {
-      color: #D51066; }
-  .header__logo-img-cont {
-    width: 5rem;
-    height: 5rem;
-    border-radius: 50px;
-    overflow: hidden;
-    margin-right: 1.5rem;
-    background: #D51066; }
-    @media only screen and (max-width: 56.25em) {
-      .header__logo-img-cont {
-        width: 4.5rem;
-        height: 4.5rem;
-        margin-right: 1.2rem; } }
-  .header__logo-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-    display: block; }
-  .header__logo-sub {
-    font-size: 1.8rem;
-    text-transform: uppercase;
-    font-weight: 700;
-    letter-spacing: 1px; }
-  .header__links {
-    display: flex; }
-    @media only screen and (max-width: 37.5em) {
-      .header__links {
-        display: none; } }
-  .header__link {
-    padding: 2.2rem 3rem;
-    display: inline-block;
-    font-size: 1.6rem;
-    color: #333;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-weight: 700;
-    transition: color .3s; }
-    .header__link:hover {
-      color: #D51066; }
-    @media only screen and (max-width: 56.25em) {
-      .header__link {
-        padding: 3rem 1.8rem;
-        font-size: 1.5rem; } }
-  .header__main-ham-menu-cont {
-    display: none;
-    width: 3rem;
-    padding: 2.2rem 0; }
-    @media only screen and (max-width: 37.5em) {
-      .header__main-ham-menu-cont {
-        display: block; } }
-  .header__main-ham-menu {
-    width: 100%; }
-  .header__main-ham-menu-close {
-    width: 100%; }
-  .header__sm-menu {
-    background: #fff;
-    position: absolute;
-    width: 100%;
-    top: 100%;
-    visibility: hidden;
-    opacity: 0;
-    transition: all .3s;
-    box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.1);
-    -webkit-box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.1);
-    -moz-box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.1); }
-    .header__sm-menu--active {
-      visibility: hidden;
-      opacity: 0; }
-      @media only screen and (max-width: 37.5em) {
-        .header__sm-menu--active {
-          visibility: visible;
-          opacity: 1; } }
-  .header__sm-menu-link a {
-    display: block;
-    text-decoration: none;
-    padding: 2.5rem 3rem;
-    font-size: 1.6rem;
-    color: #333;
-    text-align: right;
-    /* border-bottom: 1px solid #eee; */
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    transition: color .3s; }
-    .header__sm-menu-link a:hover {
-      color: #D51066; }
-  .header__sm-menu-link:first-child a {
-    border-top: 1px solid #eee; }
-  .header__sm-menu-link-last {
-    border-bottom: 0; }
+} 
+
 
 .main-footer {
   background: #000;
@@ -1733,6 +1908,7 @@ body.modal-open .section-visible {
     gap: 15px; /* Ajoute un espace entre les logos */
     margin-top: 15px;
 }
+
 .mouse {
   width: 25px;
   height: 40px;
@@ -1764,151 +1940,132 @@ body.modal-open .section-visible {
     opacity: 0;
     top: 27px; } }
 
-/* ============================================== */
-/* === 1. Structure Flexbox (Double Colonne) === */
-/* ============================================== */
-
-/* Conteneur des deux timelines côte à côte */
-.timelines-wrapper {
-  width: 100%; 
-  max-width: 100%;
-  display: flex;
-  flex-wrap: wrap;       /* Permet de passer à la ligne sur mobile */
-  gap: 1rem;             /* Espacement entre Pro et Scolaire */
-  margin-top: 5rem;
-  justify-content: space-between; 
+/* =======================================================
+   STRUCTURE GLOBALE (PC & TABLETTE)
+   ======================================================= */
+body .timelines-wrapper {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 4% !important;
+    margin-top: 4rem !important;
 }
 
-/* Styles communs pour chaque bloc de timeline (Pro et Scolaire) */
-.timeline-block {
-  flex: 1 1 49%;         /* Chaque bloc prend 45% de la largeur du wrapper */
-  min-width: 300px;
-  padding: 20px;
-  background-color: #fafafa; /* Couleur de fond pour le bloc */
-  border-radius: 10px;
-  max-width: none;
+body .timeline-block {
+    flex: 1 1 48% !important; /* Force le côte à côte */
+    min-width: 320px !important;
 }
 
-@media (max-width: 800px) {
-  .timeline-block {
-    flex: 1 1 100%;       
-    max-width: 100%;
-  }
+/* 1. La ligne rose (bien espacée du titre) */
+body .timeline {
+    position: relative !important;
+    padding-top: 20px !important;
 }
 
-.timeline-block .about__content-title {
-  text-align: center;
+body .timeline::after {
+    content: "" !important;
+    position: absolute !important;
+    top: 20px !important; 
+    bottom: 0 !important;
+    left: 20px !important;
+    width: 4px !important;
+    background: #D51066 !important;
+    z-index: 1 !important;
 }
 
-/* Conteneur de la timeline (à l'intérieur du bloc) */
-.timeline {
-  position: relative;
-  width: 100%;
-  margin: 0;
-  padding: 40px 0;
+/* 2. Les blocs d'expérience (Cartes) */
+body .element.gauche, 
+body .element.droite {
+    width: calc(100% - 75px) !important;
+    margin: 0 0 35px 65px !important;
+    padding: 25px !important;
+    background: #ffffff !important;
+    border-radius: 12px !important;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08) !important;
+    position: relative !important;
+    left: 0 !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
 }
 
-
-/* ============================================== */
-/* === 2. Ligne Centrale et Éléments === */
-/* ============================================== */
-
-/* Ligne centrale (positionnée au milieu de chaque colonne) */
-.timeline::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 50%; /* Ligne au centre de la colonne (50%) */
-  transform: translateX(-50%); /* Décalage pour centrer la ligne */
-  width: 4px;
-  background: #D51066;
-  z-index: 1;
+body #parcours .element i.timeline-icon {
+    position: absolute !important;
+    left: -36px !important; /* Ton réglage de position */
+    top: 25px !important;
+    
+    /* Taille du cercle extérieur */
+    width: 32px !important;
+    height: 32px !important;
+    min-width: 32px !important;
+    min-height: 32px !important;
+    
+    background-color: #fff !important;
+    border: 4px solid #D51066 !important;
+    border-radius: 50% !important; /* Force le cercle parfait */
+    
+    /* Centrage parfait du point au milieu */
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    
+    z-index: 10 !important;
+    transform: none !important;
+    box-sizing: border-box !important; /* Important pour que la bordure ne déforme pas le rond */
 }
 
-/* Style de chaque élément (Bloc d'expérience ou de formation) */
-.element {
-  position: relative;
-  width: 49%; /* La moitié de la colonne, ajustée pour laisser l'espace au centre */
-  padding: 20px 30px;
-  background: #fff;
-  color: #333; 
-  border :none;
-  /* border: 1px solid #eee; */
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-  margin-top: 20px;
-  margin-bottom: 20px;
-  z-index: 5; 
-  
-  /* Transition pour l'animation d'apparition */
-  transition: opacity 0.8s ease, transform 0.8s ease;
+/* Le point au centre (on utilise le caractère Unicode pour plus de stabilité) */
+body #parcours .element i.timeline-icon::before {
+    content: "\f111" !important; /* Point plein FontAwesome */
+    font-family: "Font Awesome 6 Free" !important;
+    font-weight: 900 !important;
+    color: #D51066 !important;
+    
+    /* On réduit la taille du point au centre pour qu'il soit comme sur ta photo 1 */
+    font-size: 0.8rem !important; 
+    display: block !important;
+    line-height: 1 !important;
 }
-/* Améliorer la lisibilité du texte dans le bloc */
-.element p, .element ul {
-    font-size: 1.5rem; /* Augmenter légèrement la taille de la police */
-    line-height: 1.6;  /* Améliorer l'espacement entre les lignes */
-    color: #333;      /* S'assurer que le texte est bien sombre */
+/* 4. TAILLE DU TEXTE (Agrandie) */
+body .element p {
+    font-size: 1.6rem !important;
+    line-height: 1.6 !important;
+    margin-bottom: 10px !important;
 }
 
-/* Rendre les titres dans les blocs plus visibles (Optionnel) */
-.element p:first-child {
-    font-weight: bold;
-    color: #000;
-    margin-bottom: 0.3rem;
-}
-/* Alignement des éléments à GAUCHE de la ligne centrale */
-.element.gauche {
-  margin-right: auto; /* Pousse l'élément à gauche */
-  margin-left: 0; 
+body .element p:first-child {
+    font-size: 1.8rem !important;
+    font-weight: bold !important;
+    color: #000 !important;
 }
 
-/* Alignement des éléments à DROITE de la ligne centrale */
-.element.droite {
-  margin-left: auto; /* Pousse l'élément à droite */
-  margin-right: 0;
+body .list-timeline li {
+    font-size: 1.5rem !important;
+    margin-bottom: 8px !important;
 }
 
+/* =======================================================
+   ADAPTATION MOBILE (Écrans < 900px)
+   ======================================================= */
+@media only screen and (max-width: 56.25em) {
+    body .timelines-wrapper {
+        display: block !important; /* Empile les blocs Pro et Scolaire */
+    }
 
-/* ============================================== */
-/* === 3. Icônes sur la Ligne Centrale === */
-/* ============================================== */
+    body .timeline-block {
+        width: 100% !important;
+        margin-bottom: 4rem !important;
+    }
 
-.timeline-icon {
-  position: absolute !important;
-  z-index: 10;
-  top: 50%;
-   transform: translateY(-50%);
+    body .element.gauche, 
+    body .element.droite {
+        width: calc(100% - 60px) !important; /* Un peu plus large sur mobile */
+        margin-left: 55px !important;
+    }
 
- /* Style des points : Blanc avec bordure rose */
-   background-color: #fff; 
-   color: #D51066;  
-   width: 32px !important; 
-   height: 32px !important;
-   border: 4px solid #D51066; 
-   border-radius: 50%; 
-    /* Conserver Flexbox pour centrer l'icône interne */
-   display: flex !important; 
-   align-items: center !important; 
-   justify-content: center !important;
- /* Correction de la taille du point interne (fa-solid fa-circle) */
-   font-size: 0.9rem !important;
+    body .element .timeline-icon {
+        left: -48px !important; /* Ré-ajustement léger pour mobile */
+    }
 }
-
-/* Positionnement de l'icône pour les éléments GAUCHE (Alignement sur la ligne centrale) */
-.element.gauche .timeline-icon {
-    right: -48px !important; 
-    left: auto !important;
-}
-
-/* Positionnement de l'icône pour les éléments DROITE (Alignement sur la ligne centrale) */
-.element.droite .timeline-icon {
-
-    left: -48px !important;  
-    right: auto !important;
-}
-
-
 /* ============================================== */
 /* === 4. Styles d'Animation (Déclencheur JS) === */
 /* ============================================== */
@@ -2081,7 +2238,7 @@ body.modal-open .section-visible {
         border-radius: 50%; /* Devient un cercle */
     }
 }
-/* Ajoutez les préfixes si l'animation ne fonctionne pas sur certains navigateurs */
+/* --- Correction de l'animation (Accolade fermée ici) --- */
 @-webkit-keyframes animate {
     0% {
         -webkit-transform: translateY(0) rotate(0deg);
@@ -2093,4 +2250,56 @@ body.modal-open .section-visible {
         opacity: 0;
         border-radius: 50%;
     }
+} 
+
+/* =======================================================
+   CORRECTION ULTIME : LOGOS COMPÉTENCES MOBILE
+   (À placer tout en bas du fichier CSS)
+   ======================================================= */
+
+@media only screen and (max-width: 600px) {
+    /* 1. On force la grille à ne JAMAIS faire une seule colonne */
+    .about__content-skills {
+        display: grid !important;
+        /* Ici on force 3 colonnes sur mobile standard, 2 sur très petit */
+        grid-template-columns: repeat(3, 1fr) !important; 
+        gap: 10px !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    /* 2. On réduit drastiquement la taille des cartes */
+    .skills__skill {
+        height: 85px !important; /* Hauteur réduite */
+        width: 100% !important;
+        padding: 5px !important;
+        margin: 0 !important;
+    }
+
+    /* 3. On réduit les logos qui sont "ÉNORMES" */
+    .skills__skill img {
+        width: 25px !important;  /* Taille fixe pour le logo */
+        height: 25px !important;
+        max-width: 25px !important;
+        max-height: 25px !important;
+        filter: none !important; /* On enlève le gris sur mobile pour plus de clarté */
+        margin-bottom: 2px !important;
+    }
+
+    /* 4. On ajuste le texte */
+    .skills__skill span {
+        font-size: 1rem !important; /* Texte plus petit */
+        margin-top: 0 !important;
+        line-height: 1.1 !important;
+    }
 }
+
+/* 5. Sécurité pour les téléphones les plus fins (iPhone SE, etc.) */
+@media only screen and (max-width: 380px) {
+    .about__content-skills {
+        grid-template-columns: repeat(2, 1fr) !important; /* 2 colonnes seulement */
+    }
+}
+
+
+
