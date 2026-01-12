@@ -319,6 +319,9 @@
 
     <section id="competence" class="about sec-pad section-hidden">
     <div class="main-container">
+      <h2 class="heading heading-sec heading-sec__mb-bg">
+          <span class="heading-sec__main">Compétences</span>
+        </h2>
         <div class="skills">
             
             <div class="skills__groups-container">
@@ -459,10 +462,19 @@
                         </figure>
                         <figure class="gallery__item">
                             <img 
-                                src="./assets/png/interfacehfsql.png" 
+                                src="./assets/png/hfsql.png" 
                                 alt="Capture d'écran de l'éditeur d'états pour la création de factures." 
                                 class="gallery__img" 
-                                onclick="openModal('./assets/png/interfacehfsql.png', 'Interface HFSQL: Maîtrise de la génération de documents légaux.')"
+                                onclick="openModal('./assets/png/hfsql.png', 'Interface HFSQL: Maîtrise de la génération de documents légaux.')"
+                            >
+                            <figcaption class="gallery__caption">Envrionnement HFSQL</figcaption>
+                        </figure>
+                        <figure class="gallery__item">
+                            <img 
+                                src="./assets/png/HFSQL2.png" 
+                                alt="Capture d'écran de l'éditeur d'états pour la création de factures." 
+                                class="gallery__img" 
+                                onclick="openModal('./assets/png/HFSQL2.png', 'Interface HFSQL: Maîtrise de la génération de documents légaux.')"
                             >
                             <figcaption class="gallery__caption">Envrionnement HFSQL</figcaption>
                         </figure>
@@ -472,6 +484,15 @@
                                 alt="Capture d'écran de la documentation officielle PC SOFT (WINDEV) utilisée pour la veille." 
                                 class="gallery__img" 
                                 onclick="openModal('./assets/png/pcsoft.png', 'Ressources Officielle: Utilisation de la documentation PC SOFT pour l\'apprentissage.')"
+                            >
+                            <figcaption class="gallery__caption">Documentation PC SOFT</figcaption>
+                        </figure>
+                         <figure class="gallery__item">
+                            <img 
+                                src="./assets/png/docpcsoftprojet.png" 
+                                alt="Capture d'écran de la documentation officielle PC SOFT (WINDEV) utilisée pour la veille." 
+                                class="gallery__img" 
+                                onclick="openModal('./assets/png/docpcsoftprojet.png', 'Ressources Officielle: Utilisation de la documentation PC SOFT pour l\'apprentissage.')"
                             >
                             <figcaption class="gallery__caption">Documentation PC SOFT</figcaption>
                         </figure>
@@ -603,6 +624,8 @@
     </footer>
     <div id="myModal" class="modal" onclick="closeModal()">
       <span class="modal__close">&times;</span>
+          <a class="modal__prev" onclick="changeImage(-1, event)">&#10094;</a>
+          <a class="modal__next" onclick="changeImage(1, event)">&#10095;</a>
       <div class="modal__wrapper">
           <img class="modal__content" id="modalImage">
           <div id="caption" class="modal__caption"></div>

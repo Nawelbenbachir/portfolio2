@@ -6,37 +6,75 @@ var modal = document.getElementById("myModal");
 var modalImg = document.getElementById("modalImage");
 var captionText = document.getElementById("caption");
 
-function openModal(imageSrc, captionText) {
+
+let lastScrollPosition = 0;
+let currentImageIndex = 0;
+let allImages = []; 
+
+document.addEventListener("DOMContentLoaded", () => {
+    const imgElements = document.querySelectorAll(".gallery__img");
     
-    // 1. Ouvrir le modal
-    modal.classList.add("is-open");
-    document.body.classList.add("modal-open");
-    
-    modalImg.src = imageSrc;
-    captionText.innerHTML = captionText;
+    imgElements.forEach((img, index) => {
+        const figure = img.closest('figure');
+        const caption = figure ? figure.querySelector('figcaption').innerText : "";
+        allImages.push({ src: img.src, caption: caption });
+        
+        // On remplace l'ancien onclick par le nouveau
+        img.onclick = (e) => {
+            e.preventDefault();
+            openModal(index);
+        };
+    });
+});
+function openModal(index) {
+    lastScrollPosition = window.scrollY;
+    currentImageIndex = index;
 
-    // 2. CORRECTION CRUCIALE : Forcer le modal à se positionner au début du viewport
-    modal.scrollTop = 0; 
-
-    // Et on vérifie que le BODY n'est pas décalé (même si ça ne devrait pas être nécessaire)
-    document.body.style.top = "0"; 
-}
-
-
-function closeModal() {
-    document.body.classList.remove("modal-open");
-    modal.classList.remove("is-open");
-    
-    // Si nous avons utilisé la correction body.style.top, il faut la réinitialiser au body
-    // document.body.style.top = "";
-}
-// Fermer si l'utilisateur clique sur le fond sombre du modal
-window.onclick = function(event) {
     const modal = document.getElementById("myModal");
-    if (event.target === modal) {
-        closeModal();
+    modal.style.display = "block";
+    updateModalContent();
+
+    document.body.style.overflow = "hidden";
+}
+function closeModal() {
+    document.getElementById("myModal").style.display = "none";
+    document.body.style.overflow = "auto";
+    window.scrollTo(0, lastScrollPosition);
+}
+
+function updateModalContent() {
+    const modalImg = document.getElementById("modalImage");
+    const caption = document.getElementById("caption");
+    
+    if (allImages[currentImageIndex]) {
+        modalImg.src = allImages[currentImageIndex].src;
+        caption.innerHTML = allImages[currentImageIndex].caption;
     }
 }
+
+function changeImage(step, event) {
+    // Empêche la fermeture du modal lors du clic sur la flèche
+    if (event) event.stopPropagation();
+    
+    currentImageIndex += step;
+    
+    if (currentImageIndex >= allImages.length) currentImageIndex = 0;
+    if (currentImageIndex < 0) currentImageIndex = allImages.length - 1;
+    
+    updateModalContent();
+}
+
+
+
+// Navigation au clavier
+document.addEventListener('keydown', function(event) {
+    const modal = document.getElementById("myModal");
+    if (modal.style.display === "block") {
+        if (event.key === "Escape") closeModal();
+        if (event.key === "ArrowRight") changeImage(1);
+        if (event.key === "ArrowLeft") changeImage(-1);
+    }
+});
 
 // --- Fonction de Révélation Spécifique (Captures/Outils) ---
 // Cette fonction est appelée par l'Observer secondaire.
@@ -51,7 +89,15 @@ const revealVisual = function (entries, observer) {
     observer.unobserve(entry.target);
 };
 
-
+// Fermer le modal avec la touche Échap
+document.addEventListener('keydown', function(event) {
+    if (event.key === "Escape") {
+        const modal = document.getElementById("myModal");
+        if (modal.style.display === "block") {
+            closeModal();
+        }
+    }
+});
 // =======================================================
 // 2. LOGIQUE PRINCIPALE AU CHARGEMENT DU DOCUMENT
 // =======================================================

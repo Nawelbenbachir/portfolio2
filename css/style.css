@@ -1220,6 +1220,39 @@ background: #f7f7f7;
 .contact__btn.section-hidden-contact {
     transition-delay: 0.6s; /* Augmenté */
 }
+
+/* =======================================================
+   RECALIBRAGE DU CONTACT POUR MOBILE
+   ======================================================= */
+
+@media only screen and (max-width: 600px) {
+    
+    /* 1. On réduit le padding interne qui étouffait le contenu */
+    .contact__form-container {
+        padding: 1.5rem !important; /* On divise par 2 le padding de 3rem */
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    /* 2. On ajoute une marge de sécurité à la section globale */
+    .contact {
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+        box-sizing: border-box !important;
+    }
+
+    /* 3. On s'assure que les champs ne débordent pas */
+    .contact__form-input {
+        padding: 1.5rem !important; /* Un peu moins haut pour gagner de la place */
+        font-size: 1.4rem !important;
+    }
+
+    /* 4. On ajuste le texte d'introduction (souvent dans .main-container) */
+    .main-container {
+        padding: 0 10px !important;
+    }
+}
+
 .project-cs-hero {
   color: #080808;
    background: transparent; 
@@ -1446,6 +1479,30 @@ body.modal-open .section-visible {
     color: #D51066;
     text-decoration: none;
     cursor: pointer;
+}
+/* Style des flèches */
+.modal__prev, .modal__next {
+    cursor: pointer;
+    position: fixed;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -50px;
+    color: white;
+    font-weight: bold;
+    font-size: 40px;
+    transition: 0.6s ease;
+    user-select: none;
+    text-decoration: none;
+    z-index: 10001;
+}
+
+.modal__prev { left: 20px; }
+.modal__next { right: 20px; }
+
+.modal__prev:hover, .modal__next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #D51066; /* Ta couleur rose */
 }
 @media (min-width: 768px) { /* Appliqué seulement sur les écrans de taille moyenne et grande */
     .about__content {
