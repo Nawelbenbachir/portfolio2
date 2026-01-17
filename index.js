@@ -150,33 +150,31 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const sectionObserver = new IntersectionObserver(revealSection, {
         root: null,
-        threshold: 0.15,
+        threshold: 0.05,
     });
 
-    // 🛑 LOGIQUE CORRIGÉE : Révéler immédiatement si la section est déjà à l'écran
-    allSections.forEach(function (section) {
-        // Vérifie si la section est dans le viewport (sa position Y est inférieure à la hauteur de la fenêtre)
-        if (section.getBoundingClientRect().top < window.innerHeight) {
-            
-            // Révèle immédiatement (même logique que revealSection sans unobserve)
-            section.classList.remove('section-hidden');
-            section.classList.add('section-visible');
-            
-            // Si c'est la section #veille, on lance sa logique enfant immédiatement.
-            if (section.id === 'veille') {
-                const visualContainer = section.querySelector('.about__visual-container');
-                if (visualContainer) {
-                    // Simule l'effet du revealSection pour l'Observer enfant de la veille
-                    visualContainer.classList.remove('section-hidden-visual'); 
-                    visualContainer.classList.add('section-visible-visual');
-                }
+   // Remplace ton bloc allSections.forEach par celui-ci :
+allSections.forEach(function (section) {
+    // Sécurité supplémentaire : Si on est sur mobile, on affiche tout de suite
+    // On utilise 1000px pour être large (tablettes incluses)
+    if (window.innerWidth < 1000) { 
+        console.log("Mode mobile détecté pour :", section.id);
+        section.classList.remove('section-hidden');
+        section.classList.add('section-visible');
+        
+        // On force aussi l'affichage si c'est la section veille
+        if (section.id === 'veille') {
+            const visual = section.querySelector('.about__visual-container');
+            if (visual) {
+                visual.classList.remove('section-hidden-visual');
+                visual.classList.add('section-visible-visual');
             }
-            
-        } else {
-            // Sinon, on lance l'observation habituelle.
-            sectionObserver.observe(section);
         }
-    });
+    } else {
+        // Sur PC, on laisse l'observer faire son travail
+        sectionObserver.observe(section);
+    }
+});
     // ----------------------------------------------------
     
     // ----------------------------------------------------

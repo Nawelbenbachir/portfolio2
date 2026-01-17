@@ -400,13 +400,12 @@ textarea {
     max-width: 2100px; 
 }
 .main-container.entreprise {
-    display: flex;
-    flex-direction: column; 
-    gap: 20px;
-    margin-top: 30px; 
-    max-width: 1200px; /* Limite la largeur pour centrer */
-    margin-left: auto;
-    margin-right: auto;
+   display: flex;
+    flex-direction: column;
+    gap: 30px;
+    width: 90%;          /* Utilise 90% de l'espace disponible */
+    max-width: 1100px;   /* Mais ne dépasse jamais 1100px */
+    margin: 40px auto;
 }
 /* Ciblage spécifique du main-container dans la section Veille */
 /* #veille .main-container.section-hidden {
@@ -656,19 +655,7 @@ background: #f7f7f7;
     line-height: 1.6;
 }
 
-/* --- 2. CONFIGURATION GRAND ÉCRAN (PC) --- */
-@media only screen and (min-width: 62.5em) { /* Au-dessus de 1000px */
-    .entreprise-description {
-        /* On remet la marge à gauche pour l'aligner sous le logo ou le décaler */
-        /* On utilise auto à droite pour le "pousser" vers la gauche */
-        margin: 100px auto 30px 45rem; 
-        
-        text-align: left; /* Aligné à gauche sur PC */
-        max-width: 55%;   /* On limite la largeur pour éviter les lignes trop longues */
-        font-size: 2rem;
-        line-height: 2;
-    }
-}
+
 
   /*Conteneur flex pour disposer les blocs côte à côte*/
   #entreprise .main-container  {
@@ -840,6 +827,48 @@ background: #f7f7f7;
     flex: 1 1 100%;
   }
 }
+/* --- 1. MOBILE (Priorité) --- */
+.entreprise__item-bandeau {
+    display: flex;
+    flex-direction: column; /* Empilement vertical obligatoire sur téléphone */
+    align-items: center;
+    gap: 15px;
+    padding: 10px;
+    width: 100%; /* S'assure de ne pas dépasser */
+}
+
+.entreprise__logo-container {
+    width: auto;      /* Laisse le container s'adapter */
+    max-width: 120px; /* Réduit un peu le logo sur mobile */
+    flex-shrink: 1;   /* Autorise le logo à rétrécir si besoin */
+}
+
+/* --- 2. TABLETTE / PETIT ÉCRAN --- */
+@media only screen and (min-width: 48em) { /* Env 768px */
+    .entreprise__item-bandeau {
+        flex-direction: row; /* Remet côte à côte */
+        align-items: flex-start;
+        text-align: left;
+    }
+}
+
+/* --- 3. GRAND ÉCRAN (PC) --- */
+@media only screen and (min-width: 62.5em) {
+    .entreprise-description {
+      margin: 80px auto 40px auto; 
+        
+      text-align: center; /* Ou 'left' si tu préfères l'aligner sous le logo */
+      max-width: 800px;   /* On limite la largeur pour la lisibilité */
+      font-size: 2rem;
+      line-height: 1.8;
+    }
+    /* Aligner les bandeaux (Apicomtat / Eurocap) */
+    .entreprise__item-bandeau {
+        max-width: 1000px;  /* Largeur max du bloc pour éviter qu'il s'étale trop */
+        margin: 0 auto;     /* Centre le bloc entier dans la page */
+        justify-content: center;
+    }
+}
 
 
  .about {
@@ -938,7 +967,7 @@ background: #f7f7f7;
 }
 
 .section-banner__img {
-    max-width: 800px; /* Taille ajustée pour le logo principal */
+    max-width: 100%; /* Taille ajustée pour le logo principal */
     height: auto;
     
     /* Effet visuel : Ombre portée subtile pour le détacher */
@@ -1511,22 +1540,50 @@ body.modal-open .section-visible {
         gap: 40px;
     }
     
-    /* Conteneur Flex pour aligner la Galerie et les Outils */
-    .about__visual-container {
-        display: flex;
-        flex-wrap: wrap; /* Permet de revenir à la ligne si l'écran est trop petit */
-        gap: 30px;
-        align-items: center; /* Aligner les deux blocs en haut */
+   
+    .project-details__gallery-cont, 
+    .project-details__tools-used {
+        max-width: 100% !important; /* On annule le 65% et le 35% */
+        flex: none !important;      /* On annule le comportement flex */
     }
-
-    /* La galerie prend environ 60-70% de l'espace */
-    /* .project-details__gallery-cont {
-        flex: 2; 
-        min-width: 400px;
-    } */
 }
-.project-details__tools-used .about__content-title {
-    text-align: center;
+.about__visual-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Aligne les enfants au début (à gauche) */
+    width: 100%;
+}
+
+.project-details__gallery-cont, 
+.project-details__tools-used {
+    width: 100%;             /* Force le bloc à prendre toute la largeur */
+    text-align: left;        /* Aligne le texte/titres à gauche */
+    margin-left: 0;          /* Supprime les marges automatiques si présentes */
+}
+
+/* On s'assure que la galerie elle-même n'est pas centrée */
+.project-details__gallery {
+    justify-content: flex-start !important; 
+}
+/* On cible le conteneur des logos dans la section veille */
+.about__visual-container .skills {
+    justify-content: flex-start !important;
+    display: flex;
+    flex-wrap: wrap;       /* Permet de revenir à la ligne si besoin */ 
+    gap: 20px;             /* Espace entre les deux logos */
+    margin: 20px 0;        /* Espace au-dessus/en-dessous */
+    width: 100%;
+}
+
+/* On s'assure que chaque logo individuel n'a pas de marge automatique */
+.about__visual-container .skills__skill {
+    flex-direction: column;
+    align-items: center;    /* Aligne verticalement le logo et le texte */
+    justify-content: flex-start;  /* Aligne le contenu vers la gauche du bloc */
+    height: auto;           /* Enlève la hauteur fixe de 120px pour plus de souplesse */
+    width: fit-content;     /* Le bloc s'adapte à la largeur du logo + texte */
+    padding: 10px 20px;
+    gap: 15px;
 }
 /* Animation d'ouverture */
 @keyframes zoom {
@@ -1726,7 +1783,6 @@ body.modal-open .section-visible {
 @media only screen and (max-width: 30em) {
   .header__logo { 
      font-size: 5rem !important; 
-     background-color: red !important;
   }
 } 
 
@@ -2358,5 +2414,27 @@ body .list-timeline li {
     }
 }
 
+/* Si le JS met trop de temps ou plante, on affiche quand même sur mobile */
+@media (max-width: 900px) {
+    .section-hidden {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: none !important;
+    }
+}
+/* Animation douce au chargement de la page (sans JS) */
+.project-details {
+    animation: fadeInPage 0.8s ease-out forwards;
+}
 
+@keyframes fadeInPage {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
