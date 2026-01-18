@@ -14,17 +14,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit;
     }
 
-    // 3. Configuration de l'envoi
+    
     $recipient = "benbachirnawel@gmail.com"; 
     $subject = "Nouveau message de contact de " . $name;
-    
-    // Contenu de l'email
+
+    // On utilise un expediteur fixe (souvent imposé par l'hébergeur)
+    // Si tu n'as pas de domaine, mets une adresse bidon comme contact@tonsite.fr
+    $from_email = "contact@nawelbenbachir.fr"; 
+
     $email_content = "Nom: $name\n";
     $email_content .= "Email: $email\n\n";
     $email_content .= "Message:\n$message\n";
 
-    // En-têtes de l'email (pour l'expéditeur et le format)
-    $email_headers = "From: " . $name . " <" . $email . ">";
+    // Headers corrigés
+    $email_headers = "From: PortFolio Nawel <" . $from_email . ">\r\n";
+    $email_headers .= "Reply-To: " . $email . "\r\n"; // Permet de répondre directement à l'internaute
+    $email_headers .= "X-Mailer: PHP/" . phpversion();
 
     // 4. Envoi de l'email
     if (mail($recipient, $subject, $email_content, $email_headers)) {

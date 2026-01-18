@@ -525,7 +525,7 @@
         <div class="contact__form-container">
           
             <div class="contact__form-field section-hidden-contact">
-              <form action="send_email.php" method="POST" class="contact__form">
+              <form action="https://formspree.io/f/xwvvvynr" method="POST" class="contact__form">
               <label class="contact__form-label" for="name">Nom</label>
               <input
                 required
@@ -559,6 +559,8 @@
                 id="message"
               ></textarea>
             </div>
+            <input type="hidden" name="_next" value="https://nawel.ifcslam2024.fr/index.html?success=true#contact" />
+            <input type="hidden" name="_captcha" value="false" />
             <button type="submit" class="btn btn--theme contact__btn section-hidden-contact">
               Envoyer
             </button>
