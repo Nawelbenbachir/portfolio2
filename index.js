@@ -306,3 +306,19 @@ headerSmallMenuLinks.forEach(link => {
         }
     });
 });
+const toggleBtn = document.getElementById('theme-toggle');
+const htmlElement = document.documentElement;
+
+// Charger le thème sauvegardé
+const savedTheme = localStorage.getItem('theme') || 'light';
+htmlElement.setAttribute('data-theme', savedTheme);
+
+toggleBtn.addEventListener('click', () => {
+    const currentTheme = htmlElement.getAttribute('data-theme');
+    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+    
+    // Appliquer le thème
+    htmlElement.setAttribute('data-theme', newTheme);
+    // Sauvegarder le choix
+    localStorage.setItem('theme', newTheme);
+});
