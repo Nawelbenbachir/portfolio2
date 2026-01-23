@@ -383,6 +383,7 @@ textarea {
 .heading-sec__main {
   display: block;
   font-size: 4rem;
+  color:var(--text-main);
   text-transform: uppercase;
   letter-spacing: 1px;
   letter-spacing: 3px;
@@ -444,6 +445,7 @@ textarea {
   max-width: 120rem;
   margin: auto;
   width: 100%;
+  background:var(--bg-main);
    }
 #parcours .main-container {
     max-width: 2100px; 
@@ -455,6 +457,7 @@ textarea {
     width: 90%;          /* Utilise 90% de l'espace disponible */
     max-width: 1100px;   /* Mais ne dépasse jamais 1100px */
     margin: 40px auto;
+    
 }
 /* Ciblage spécifique du main-container dans la section Veille */
 /* #veille .main-container.section-hidden {
@@ -526,7 +529,9 @@ textarea {
 }
 
 .sec-pad {
-  padding: 12rem 0; }
+  padding: 12rem 0; 
+  background:var(--bg-main);
+   }
   @media only screen and (max-width: 56.25em) {
     .sec-pad {
       padding: 8rem 0; } }
@@ -692,6 +697,17 @@ background: var(--bg-secondary);
         font-size: 1.8rem;
     }
 }
+[data-theme="dark"] #entreprise,
+[data-theme="dark"] .section-banner,
+[data-theme="dark"] .entreprise-description {
+    background-color: var(--bg-main);
+    color: var(--text-main);
+}
+
+/* Les textes dans les bandeaux d'entreprise */
+[data-theme="dark"] .entreprise__content-details-para {
+    color: var(--text-sub);
+}
 
 .entreprise-description {
     /* --- 1. CONFIGURATION MOBILE (Par défaut) --- */
@@ -699,7 +715,7 @@ background: var(--bg-secondary);
     margin: 50px auto 30px auto; 
     text-align: center; /* Centré sur mobile pour l'équilibre */
     padding: 0 15px;
-    color: #555;
+    color: var(--text-sub);
     font-size: 1.8rem;
     line-height: 1.6;
 }
@@ -719,6 +735,7 @@ background: var(--bg-secondary);
     align-items: center; /* Centrage vertical du logo et du contenu */
     gap: 30px; /* Espace entre le logo et le bandeau */
     padding: 10px 0; 
+    
     
 }
 
@@ -777,9 +794,9 @@ background: var(--bg-secondary);
 .entreprise__content {
     flex-grow: 1; /* Le bandeau prend tout l'espace restant */
     /* Style neutre */
-    background-color: var(--bg-main); /* Fond blanc */
+    background-color: var(--bg-secondary); /* Fond blanc */
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Ombre subtile */
-    color: #555;
+    color: var(--text-main); 
     padding: 20px;
     border-radius: 8px;
     /* Effet Hover et Transition */
@@ -790,7 +807,7 @@ background: var(--bg-secondary);
     /* Taille actuelle (probablement 1rem ou moins) */
     font-size: 1.5rem; 
     line-height: 1.6; /* Assurer un bon espacement pour la lecture */
-    color: #444; /* Rendre le texte bien visible */
+    color: var(--text-main); /* Rendre le texte bien visible */
     margin-bottom: 10px; /* Ajout d'un espacement entre les paragraphes si nécessaire */
 }
 
@@ -921,7 +938,7 @@ background: var(--bg-secondary);
 
 
  .about {
-  background: var(--bg-third); }
+  background: var(--bg-secondary); }
   .about__content {
     display: grid;
     grid-template-columns: 1fr; 
@@ -942,7 +959,7 @@ background: var(--bg-secondary);
     /* Taille de police standard pour le corps de texte. Ajustez selon votre design. */
     font-size: 1.8rem; 
     line-height: 1.6; /* Améliore la lisibilité des longs textes */ 
-    color:gray;
+    color: var(--text-sub);
     /*color: var(--clr-dark-2);  Utilisez la couleur de texte principale de votre thème */
     margin-bottom: 2rem;
 }
@@ -975,6 +992,7 @@ background: var(--bg-secondary);
   font-weight: 700;
   font-size: 2.8rem;
   margin-bottom: 2rem;
+  color:var(--text-main);
 } */
 /* 
 @media only screen and (max-width: 37.5em) {
@@ -1035,6 +1053,14 @@ background: var(--bg-secondary);
     opacity: 1;
     transform: translateY(0);
 }
+.projects {
+  background-color: var(--bg-main);
+  transition: background-color 0.3s ease;
+}
+
+[data-theme="dark"] .projects {
+  background-color: var(--bg-main); 
+}
 .projects__grid-container {
     display: grid;
     /* 3 colonnes sur desktop, passage automatique à 1 colonne sur mobile */
@@ -1086,7 +1112,7 @@ background: var(--bg-secondary);
                 
     transform: translateY(-8px); 
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-    border-color: #D51066;
+    border-color:var(--primary-color);
     
     /* L'ombre n'a pas besoin de l'annulation de transition-delay, mais elle est là pour l'effet */
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15); 
@@ -1119,12 +1145,12 @@ background: var(--bg-secondary);
     font-size: 2.2rem;
     font-weight: 700;
     margin-bottom: 10px;
-    color: #333;
+    color: var(--text-main);
 }
 
 .project__card-desc {
     font-size: 1.5rem;
-    color: #666;
+    color: var(--text-sub);
     margin-bottom: 25px;
     min-height: 50px; /* Pour éviter le saut de mise en page si les descriptions sont de longueurs légèrement différentes */
 }
@@ -1332,8 +1358,8 @@ background: var(--bg-secondary);
 }
 
 .project-cs-hero {
-  color: var(--text-main);
-   background: transparent; 
+  color: var(--bg-main);
+  background: var(--bg-secondary); 
  /* On peut aussi utiliser 'background-color: white;' si le body n'a pas le fond */
 
  /* On garde les autres propriétés qui gèrent la mise en page */
@@ -1405,7 +1431,7 @@ background: var(--bg-secondary);
 }
 .project-cs-hero__cta .btn--theme-inv:hover {
    background: var(--primary-color);
-    color: var(--bg-main);
+    color: var(--bg-secondary);
     border: 2px solid var(--primary-color); 
 
     /* FORCER LE SOULÈVEMENT VISIBLE */
@@ -1465,7 +1491,7 @@ background: var(--bg-secondary);
     padding: 10px;
     text-align: center;
     font-size: 1.4rem;
-    color: #555;
+    color: var(--text-sub);
     background: var(--bg-main);
     font-weight: 600;
 }
@@ -1906,7 +1932,7 @@ body.modal-open .section-visible {
 .skills__group-title {
     font-size: 2.2rem;
     font-weight: 700;
-    color: #333;
+    color: var(--text-main);
     text-align: left;
     margin-bottom: 20px;
     padding-left: 10px;
@@ -1949,12 +1975,28 @@ body.modal-open .section-visible {
 #veille .skills__skill img {
     height: 3rem; /* Exemple : 30px de hauteur pour les logos */
     width: auto;
+    
+
+}
+/* --- LOGIQUE DARK MODE POUR LES LOGOS --- */
+[data-theme="dark"] .skills__skill img {
+    filter: grayscale(100%) invert(1) brightness(2);
+}
+
+/* --- GESTION DU HOVER --- */
+/* En Light Mode au survol : on enlève tout */
+.skills__skill:hover img {
+    filter: none; 
+}
+[data-theme="dark"] .skills__skill:hover img {
+    filter: invert(1) brightness(2); 
 }
 .skills__skill {
     padding: 10px 15px; 
     border: 1px solid #ddd;
     border-radius: 8px;
     height: 120px;
+    color: var(--text-sub);
     background: var(--bg-main);
     /* border: 3px solid transparent;  */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
@@ -1975,7 +2017,7 @@ body.modal-open .section-visible {
     margin-top: 0.5rem;
     font-size: 1.5rem;
     font-weight: 600;
-    color: #333;
+    color: var(--text-sub);
     transition: color 0.1s ease-out; 
 }
 
