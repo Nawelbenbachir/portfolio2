@@ -41,7 +41,7 @@ $breakpoint arguement choices:
   align-items: center;
   justify-content: center;
   padding: 0 10px;
-  color: #333; 
+  color: var(--text-main); 
 }
 
 /* En mode sombre, l'icône doit devenir blanche ou claire */
@@ -121,7 +121,7 @@ $breakpoint arguement choices:
         text-transform: uppercase !important;
         letter-spacing: 2px !important;
         white-space: nowrap !important;
-        color: #333 !important;
+        color: var(--text-main) !important;
     }
     .header__logo-name {
         color: #D51066 !important;
@@ -150,7 +150,7 @@ $breakpoint arguement choices:
         padding: 2.5rem 3rem !important;
         text-align: right !important;
         font-size: 1.6rem !important;
-        color: #333 !important;
+        color: var(--text-main) !important;
         text-transform: uppercase !important;
         font-weight: 700 !important;
         border-top: 1px solid #eee !important;
@@ -245,12 +245,21 @@ $breakpoint arguement choices:
         transform: none !important;
     }
 
-    /* On s'assure que le petit point au centre est visible */
-    body #parcours .element i.timeline-icon::before {
-        content: "\f111" !important;
-        font-family: "Font Awesome 6 Free" !important;
-        font-weight: 900 !important;
-    }
+/* On neutralise tout contenu textuel ou icône FontAwesome */
+body #parcours .element i.timeline-icon {
+    content: none !important;
+    font-size: 0 !important;
+    line-height: 0 !important;
+    color: transparent !important;
+}
+
+/* On force la disparition des pseudo-éléments */
+body #parcours .element i.timeline-icon::before,
+body #parcours .element i.timeline-icon::after {
+    display: none !important;
+    content: "" !important;
+    visibility: hidden !important;
+}
 }
 
 
@@ -445,11 +454,18 @@ textarea {
   max-width: 120rem;
   margin: auto;
   width: 100%;
-  background:var(--bg-main);
+  background:var(--bg-secondary);
    }
+#contact .main-container {
+    background: var(--bg-main);
+}
 #parcours .main-container {
     max-width: 2100px; 
 }
+#projects .main-container {
+    background:var(--bg-main);
+}
+
 .main-container.entreprise {
    display: flex;
     flex-direction: column;
@@ -457,6 +473,7 @@ textarea {
     width: 90%;          /* Utilise 90% de l'espace disponible */
     max-width: 1100px;   /* Mais ne dépasse jamais 1100px */
     margin: 40px auto;
+    background: var(--bg-main);
     
 }
 /* Ciblage spécifique du main-container dans la section Veille */
@@ -472,7 +489,7 @@ textarea {
 } */
 .btn {
   background: var(--bg-secondary);
-  color: #333;
+  color: var(--text-main);
   text-transform: uppercase;
   letter-spacing: 2px;
   /* display: inline-block; */
@@ -562,7 +579,7 @@ textarea {
   /* Augmentation légère du contraste du dégradé */
   /* background: linear-gradient(135deg, #eeeeee, #ffffff);  */
   /* background:  #e3e3e3; */
-background: var(--bg-secondary);
+  background: var(--bg-main);
   background-size: 200%; 
   
   /* Ajout des deux versions de l'animation pour la compatibilité */
@@ -660,7 +677,7 @@ background: var(--bg-secondary);
 }
     .home-hero__greeting {
     font-size: 3rem; /* Une taille visible mais plus petite que le titre */
-    color: #444444; /* Couleur très foncée */
+    color: var(--text-main); /* Couleur très foncée */
     text-align: center;
     margin-bottom: 1rem; /* Espace au-dessus du titre principal */
     font-weight: 400; /* Plus léger que le titre */
@@ -676,7 +693,7 @@ background: var(--bg-secondary);
     font-size: 2.8rem; 
     
     /* On ajuste la couleur pour qu'elle contraste bien avec l'arrière-plan */
-    color: #444444;; 
+    color: var(--text-main); 
     
     /* Épaisseur de la police plus légère pour un corps de texte */
     font-weight: 500; 
@@ -993,7 +1010,7 @@ background: var(--bg-secondary);
   font-size: 2.8rem;
   margin-bottom: 2rem;
   color:var(--text-main);
-} */
+} 
 /* 
 @media only screen and (max-width: 37.5em) {
   .about__content-title {
@@ -1221,6 +1238,7 @@ background: var(--bg-secondary);
 
   /* Ajustement pour le conteneur du formulaire pour le placer au-dessus des bulles */
   .contact__form-container {
+    background: var(--bg-main);
       position: relative;
       z-index: 2; /* Plus haut que les bulles (z-index: 0) */
   }
@@ -1793,7 +1811,7 @@ body.modal-open .section-visible {
   font-size: 2.2rem;
   font-weight: 900;
   text-transform: uppercase;
-  color: #333;
+  color: var(--text-main);
   white-space: nowrap;
 }
 .header__logo-name { color: #D51066; }
@@ -1810,7 +1828,7 @@ body.modal-open .section-visible {
   font-size: 1.5rem;
   font-weight: 700;
   text-transform: uppercase;
-  color: #333;
+  color: var(--text-main);
   text-decoration: none;
 }
 .header__main-ham-menu-cont {
@@ -1843,7 +1861,7 @@ body.modal-open .section-visible {
   display: block;
   padding: 2rem 3rem;
   font-size: 1.6rem;
-  color: #333;
+  color: var(--text-main);
   text-decoration: none;
   font-weight: 700;
   text-transform: uppercase;
@@ -2116,19 +2134,19 @@ body.modal-open .section-visible {
 .mouse {
   width: 25px;
   height: 40px;
-  border: 2px solid #eee;
+  border: 2px solid var(--text-main);
   border-radius: 60px;
   position: relative;
   overflow: hidden; }
   .mouse::before {
-    content: '';
+    content: "";
     width: 5px;
     height: 5px;
     position: absolute;
     top: 7px;
     left: 50%;
     transform: translateX(-50%);
-    background-color: var(--bg-secondary);
+    background-color: var(--text-main);
     border-radius: 50%;
     opacity: 1;
     animation: wheel 1.3s infinite;
@@ -2147,6 +2165,13 @@ body.modal-open .section-visible {
 /* =======================================================
    STRUCTURE GLOBALE (PC & TABLETTE)
    ======================================================= */
+
+.description-experience{
+    font-size: 1.6rem !important;
+    line-height: 1.6 !important;
+    margin-bottom: 10px !important;
+    color: var(--text-sub) !important;
+}
 body .timelines-wrapper {
     display: flex !important;
     flex-wrap: wrap !important;
@@ -2194,7 +2219,7 @@ body .element.droite {
 
 body #parcours .element i.timeline-icon {
     position: absolute !important;
-    left: -36px !important; /* Ton réglage de position */
+    left: -40px !important; /* Ton réglage de position */
     top: 25px !important;
     
     /* Taille du cercle extérieur */
@@ -2217,9 +2242,9 @@ body #parcours .element i.timeline-icon {
     box-sizing: border-box !important; /* Important pour que la bordure ne déforme pas le rond */
 }
 
-/* Le point au centre (on utilise le caractère Unicode pour plus de stabilité) */
+ /* Le point au centre (on utilise le caractère Unicode pour plus de stabilité) */
 body #parcours .element i.timeline-icon::before {
-    content: "\f111" !important; /* Point plein FontAwesome */
+    content: "" !important; /* Point plein FontAwesome */
     font-family: "Font Awesome 6 Free" !important;
     font-weight: 900 !important;
     color: #D51066 !important;
@@ -2228,7 +2253,7 @@ body #parcours .element i.timeline-icon::before {
     font-size: 0.8rem !important; 
     display: block !important;
     line-height: 1 !important;
-}
+} 
 /* 4. TAILLE DU TEXTE (Agrandie) */
 body .element p {
     font-size: 1.6rem !important;
@@ -2245,6 +2270,7 @@ body .element p:first-child {
 body .list-timeline li {
     font-size: 1.5rem !important;
     margin-bottom: 8px !important;
+    color: var(--text-sub) !important;
 }
 
 /* =======================================================

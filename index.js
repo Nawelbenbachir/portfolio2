@@ -306,19 +306,36 @@ headerSmallMenuLinks.forEach(link => {
         }
     });
 });
+// --- LOGIQUE DARK MODE ---
 const toggleBtn = document.getElementById('theme-toggle');
+const sunIcon = document.getElementById('sun-icon');
+const moonIcon = document.getElementById('moon-icon');
 const htmlElement = document.documentElement;
 
-// Charger le thème sauvegardé
+// Fonction pour mettre à jour l'icône visuelle
+function updateIcons(theme) {
+    if (theme === 'dark') {
+        sunIcon.style.display = 'block';
+        moonIcon.style.display = 'none';
+    } else {
+        sunIcon.style.display = 'none';
+        moonIcon.style.display = 'block';
+    }
+}
+
+// 1. Charger le thème sauvegardé au démarrage
 const savedTheme = localStorage.getItem('theme') || 'light';
 htmlElement.setAttribute('data-theme', savedTheme);
+updateIcons(savedTheme);
 
+// 2. Écouter le clic sur le bouton
 toggleBtn.addEventListener('click', () => {
     const currentTheme = htmlElement.getAttribute('data-theme');
     const newTheme = currentTheme === 'light' ? 'dark' : 'light';
     
-    // Appliquer le thème
     htmlElement.setAttribute('data-theme', newTheme);
-    // Sauvegarder le choix
     localStorage.setItem('theme', newTheme);
+    
+    // Mettre à jour l'icône après le clic
+    updateIcons(newTheme);
 });
