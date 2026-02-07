@@ -17,87 +17,108 @@
     />
 </head>
 <body>
-    <header class="header">
-        <div class="header__content">
-            <span class="header__logo">
-                <span class="header__logo-name">Nawel</span> Benbachir
-            </span>
-            <div class="header__main">
-                <ul class="header__links">
-                    <li class="header__link-wrapper">
-                        <a href="./index.html" class="header__link"> Accueil </a>
-                    </li>
-                    <li class="header__link-wrapper">
-                        <a href="./index.html#parcours" class="header__link"> Parcours </a>
-                    </li>
-                    <li class="header__link-wrapper">
-                        <a href="./index.html#entreprise" class="header__link">Entreprise </a>
-                    </li>
-                    <li class="header__link-wrapper">
-                        <a href="./index.html#competence" class="header__link"> Compétences </a>
-                    </li>
-                    <li class="header__link-wrapper">
-                        <a href="./index.html#projects" class="header__link"> Projets </a>
-                    </li>
-                    <li class="header__link-wrapper">
-                        <a href="./index.html#veille" class="header__link "> Veille </a>
-                    </li>
-                    <li class="header__link-wrapper">
-                        <a href="./index.html#contact" class="header__link"> Contact </a>
-                    </li>
-                </ul>
-                <div class="header__main-ham-menu-cont">
-                    <img
-                        src="./assets/svg/ham-menu.svg"
-                        alt="hamburger menu"
-                        class="header__main-ham-menu"
-                    />
-                    <img
-                        src="./assets/svg/ham-menu-close.svg"
-                        alt="hamburger menu close"
-                        class="header__main-ham-menu-close d-none"
-                    />
-                </div>
-            </div>
+<header class="header">
+      <div class="header__content">
+        <span class="header__logo">
+          <span class="header__logo-name">Nawel</span> Benbachir
+        </span>
+        <div class="header__main">
+          <ul class="header__links">
+            <li class="header__link-wrapper">
+            <button id="theme-toggle" class="theme-toggle" aria-label="Changer le mode de couleur">
+                <svg id="sun-icon" class="theme-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="5"></circle>
+                  <line x1="12" y1="1" x2="12" y2="3"></line>
+                  <line x1="12" y1="21" x2="12" y2="23"></line>
+                  <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                  <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                  <line x1="1" y1="12" x2="3" y2="12"></line>
+                  <line x1="21" y1="12" x2="23" y2="12"></line>
+                  <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                  <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                </svg>
+                <svg id="moon-icon" class="theme-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" >
+                  <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                </svg>
+              </button>
+              </li>
+                        <li class="header__link-wrapper">
+              <a href="./index.html" class="header__link"> Accueil </a>
+            </li>
+            <li class="header__link-wrapper">
+              <a href="#parcours" class="header__link"> Parcours </a>
+            </li>
+             <li class="header__link-wrapper">
+              <a href="#entreprise" class="header__link">Entreprise </a>
+            </li>
+             <li class="header__link-wrapper">
+              <a href="#competence" class="header__link"> Compétences </a>
+            </li>
+            <li class="header__link-wrapper">
+              <a href="#projects" class="header__link"> Projets </a>
+            </li>
+             <li class="header__link-wrapper">
+              <a href="#veille" class="header__link "> Veille </a>
+            </li>
+            <li class="header__link-wrapper">
+              <a href="#contact" class="header__link"> Contact </a>
+            </li>
+            
+            </ul>
+          <div class="header__main-ham-menu-cont">
+            <img
+              src="./assets/svg/ham-menu.svg"
+              alt="hamburger menu"
+              class="header__main-ham-menu"
+              id="ham-open"
+            />
+            <img
+              src="./assets/svg/ham-menu-close.svg"
+              alt="hamburger menu close"
+              class="header__main-ham-menu-close d-none"
+              id="ham-close"
+            />
+          </div>
         </div>
-        <div class="header__sm-menu">
-            <div class="header__sm-menu-content">
-                <ul class="header__sm-menu-links">
-                    <li class="header__sm-menu-link">
-                        <a href="./index.html">Accueil </a>
-                    </li>
-                    <li class="header__sm-menu-link">
-                        <a href="./index.html#parcours"> Parcours </a>
-                    </li>
-                    <li class="header__sm-menu-link">
-                        <a href="./index.html#entreprise">Entreprise </a>
-                    </li>
-                    <li class="header__sm-menu-link">
-                        <a href="./index.html#competence"> Compétences </a>
-                    </li>
-                    <li class="header__sm-menu-link">
-                        <a href="./index.html#projects"> Projets </a>
-                    </li>
-                    <li class="header__sm-menu-link">
-                        <a href="./index.html#veille"> Veille </a>
-                    </li>
-                    <li class="header__sm-menu-link">
-                        <a href="./index.html#contact"> Contact </a>
-                    </li>
-                </ul>
-            </div>
-            <div class="home-hero__socials">
-                <div class="home-hero__social">
-                    <a href="https://github.com/Nawelbenbachir" class="home-hero__social-icon-link">
-                        <img
-                            src="./assets/svg/github.svg"
-                            alt="icon"
-                            class="home-hero__social-icon"
-                        />
-                    </a>
-                </div>
-            </div>
+      </div>
+      <div class="header__sm-menu">
+
+        <div class="header__sm-menu-content">
+          <ul class="header__sm-menu-links">
+            <li class="header__sm-menu-link">
+              <a href="./index.html">Accueil </a>
+            </li>
+             <li class="header__sm-menu-link">
+              <a href="#parcours"> Parcours </a>
+            </li>
+             <li class="header__sm-menu-link">
+              <a href="#entreprise">Entreprise </a>
+            </li>
+             <li class="header__sm-menu-link">
+              <a href="#competence"> Compétences </a>
+            </li>
+            <li class="header__sm-menu-link">
+              <a href="#projects"> Projets </a>
+            </li>
+             <li class="header__sm-menu-link">
+              <a href="#veille"> Veille </a>
+            </li>
+            <li class="header__sm-menu-link">
+              <a href="#contact"> Contact </a>
+            </li>
+          </ul>
         </div>
+        <div class="home-hero__socials">
+        <div class="home-hero__social">
+          <a href="#" class="home-hero__social-icon-link">
+            <img
+              src="./assets/png/linkedin-ico.png"
+              alt="icon"
+              class="home-hero__social-icon"
+            />
+          </a>
+        </div>
+      </div>
     </header>
 
     <section class="project-cs-hero dynamicBg">
@@ -109,23 +130,21 @@
                 </p>
             </div>
         </div>
-        <div class="circles project-assets">
-            <li style="--i:10; --delay:0s;"><img src="./assets/png/facture (1).png" alt="Facture" class="asset-logo"></li>
-            <li style="--i:10; --delay:1s;"><img src="./assets/png/factureflotte.png" alt="Facture" class="asset-logo"></li>
-            <li style="--i:10; --delay:2s;"><img src="./assets/png/factureflotte.png" alt="Facture" class="asset-logo"></li>
-            <li style="--i:10; --delay:3s;"><img src="./assets/png/parametres.png" alt="Parametre" class="asset-logo"></li>
-            
-            <li style="--i:10; --delay:4s;"><img src="./assets/png/cube.png" alt="SProduit" class="asset-logo"></li>
-            <li style="--i:10; --delay:5s;"><img src="./assets/png/facture (1).png" alt="Facture" class="asset-logo"></li>
-            
-            <li style="--i:10; --delay:6s;"><img src="./assets/png/parametres.png" alt="Parametre" class="asset-logo"></li>
-            
-            <li style="--i:10; --delay:7s;"><img src="./assets/png/cube.png" alt="SProduit" class="asset-logo"></li>
-            <li style="--i:10; --delay:8s;"><img src="./assets/png/facture (1).png" alt="Facture" class="asset-logo"></li>
-        </div>
+        <div class="circles">
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+      </div>
     </section>
 
-    <section class="project-details " >
+    <section class="project-details project-details--alt " >
         <div class="main-container">
             <div class="project-details__content">
                 
@@ -146,8 +165,11 @@
 
                     </div>
                 </div>
+            </div>
+        </section>
            
-                
+                <section class="project-details">
+                     <div class="main-container">
                 <div class="project-details__desc">
                     <h3 class="project-details__content-title">Contexte et Objectifs</h3>
                     <p class="project-details__desc-para">
@@ -187,7 +209,10 @@
                         <div class="skills__skill"><img src="assets/png/hfsql-350x100.png" alt="Logo HFSQL"><span>HFSQL</span></div>
                     </div>
                 </div>
-                
+                </div>
+                </section>
+             <section class="project-details project-details--alt">
+                <div class="main-container">
                 <div class="project-details__gallery-cont">
                     <h3 class="project-details__content-title">Aperçu du Logiciel WinGestion</h3>
                     <div class="project-details__gallery">
@@ -332,9 +357,12 @@
                             <img src="./assets/png/StatCategorie.png" alt="Statistique des catégories par période ou exercice " class="gallery__img" onclick="openModal('./assets/png/StatCategorie.png', 'Statistiques relatives aux données de la société.')">
                             <figcaption class="gallery__caption">Statistiques catégories par période/exercice</figcaption>
                         </figure>
-</div> </div> </div> </div> </section>
+                        </div> 
+                        </div> 
+                        </div> 
+            </section>
 
-<footer class="main-footer">
+<footer class="main-footer footer-black">
       <div class="main-container">
         <div class="main-footer__upper">
           <div class="main-footer__row main-footer__row-1">

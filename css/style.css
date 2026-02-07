@@ -32,17 +32,18 @@ $breakpoint arguement choices:
   --white: #1a1a1a;         /* Pour les éléments qui étaient blancs */
 }
 
-/* Style du bouton */
 .theme-toggle {
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0 10px;
-  color: var(--text-main); 
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0; 
+    margin-right: 1.5rem; /* Petit espace avant le mot ACCUEIL */
+    order: 1; /* Force le bouton à être en premier si besoin */
 }
+
 
 /* En mode sombre, l'icône doit devenir blanche ou claire */
 [data-theme="dark"] .theme-toggle {
@@ -64,6 +65,33 @@ $breakpoint arguement choices:
 /* =======================================================
    CORRECTIF FINAL ULTIME - À METTRE TOUT EN BAS
    ======================================================= */
+.header__main {
+    display: flex;
+    align-items: center; /* Aligne verticalement le bouton et les liens */
+    gap: 1rem; /* Espace entre le bouton et le début de la liste */
+}
+.header__links {
+    display: flex; /* Garde tes liens en ligne */
+    align-items: center;
+    order: 2;
+}
+
+/* --- RESPONSIVE MOBILE --- */
+@media only screen and (max-width: 37.5em) {
+    .header__links {
+        display: none; /* Cache la liste sur mobile */
+    }
+    
+    .theme-toggle {
+        display: flex !important; /* Force l'affichage du bouton même sur mobile */
+        margin-right: 2rem; /* Espace par rapport au menu hamburger */
+    }
+
+    .header__main {
+        justify-content: flex-end; /* Aligne bouton + hamburger à droite */
+        width: auto;
+    }
+}
 
 @media only screen and (max-width: 68.75em) { 
     /* 1. On cible avec body et les deux classes pour être le plus lourd possible */
@@ -96,6 +124,7 @@ $breakpoint arguement choices:
     /* 1. On cache les liens desktop */
     .header__links {
         display: none !important;
+
     }
 
     /* 2. On affiche le hamburger */
@@ -156,6 +185,37 @@ $breakpoint arguement choices:
         border-top: 1px solid #eee !important;
         text-decoration: none !important;
     }
+    .header__main {
+    display: flex !important;
+    flex-direction: row !important; /* Force la ligne */
+    align-items: center !important;
+    gap: 2rem !important; /* Espace entre le menu et la lune */
+}
+
+/* Le menu hamburger doit être en premier (à gauche de la lune) */
+.header__main-ham-menu-cont {
+    order: 1 !important;
+}
+[data-theme="dark"] .header__main-ham-menu,
+[data-theme="dark"] #ham-open,
+[data-theme="dark"] #ham-close {
+    /* Force le blanc pur et augmente l'éclat */
+    filter: invert(1) brightness(100%) !important;
+}
+/* Le bouton de thème doit être en deuxième (à droite du hamburger) */
+.theme-toggle {
+    order: 1!important;
+    display: flex !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    line-height: 0 !important;
+}
+
+/* Ajustement de la taille de l'icône pour qu'elle ne soit pas plus grosse que le menu */
+.theme-icon {
+    width: 2.8rem !important;
+    height: 2.8rem !important;
+}
 }
 
 /* --- 2. ÉTAT DESKTOP (PC) --- */
@@ -461,6 +521,37 @@ textarea {
   width: 100%;
   background:var(--bg-secondary);
    }
+section.project-details .main-container,
+section.project-details .main-container__project {
+    background: transparent !important; /* Force la transparence */
+    background-color: transparent !important;
+    box-shadow: none !important;
+}
+/* On cible spécifiquement la liste des skills dans les détails du projet */
+.project-details .skills {
+    justify-content: flex-start !important; /* Force l'alignement au début (gauche) */
+    gap: 2rem; /* Espace entre les icônes */
+    margin-left: 0;
+    padding-left: 0;
+}
+
+/* On s'assure que le titre au-dessus est aussi bien calé à gauche */
+.project-details__tools-used {
+    text-align: left;
+    width: 100%;
+}
+.project-details {
+    width: 100%;
+    background-color: var(--bg-main); /* Noir par défaut */
+    padding: 8rem 0;
+}
+
+/* La section qui doit être grise sur toute la largeur */
+.project-details--alt {
+    background-color: var(--bg-secondary) !important;
+}
+
+
 #contact .main-container {
     background: var(--bg-main);
 }
@@ -470,6 +561,7 @@ textarea {
 #projects .main-container {
     background:var(--bg-main);
 }
+
 
 
 .main-container.entreprise {
@@ -540,13 +632,13 @@ textarea {
     color: #fff; }
   .btn--theme-inv {
     color: var(--primary-color);
-    background: var(--bg-main);
+    background: var(--bg-secondary);
     border: 2px solid var(--primary-color);
     box-shadow: none;
     padding: 1.5rem 5rem; } 
   .btn--theme-inv:hover {
     background: var(--primary-color); /* Couleur de fond rose (#D51066) */
-    color: var(--text-sub);        /* Couleur du texte blanc */
+    color: var(--white);        /* Couleur du texte blanc */
     border: 2px solid var(--primary-color); /* La bordure devient invisible contre le fond */
     /* Garder l'effet de soulèvement général (transform) qui est sur .btn:hover */
 }
@@ -569,7 +661,7 @@ textarea {
     .text-primary {
       font-size: 2rem; } }
 .text-primary-profile{
-  color: #0e0000;
+  color: var(--text-main);
   font-size: 2.2rem;
   text-align: center;
   width: 100%;
@@ -1104,8 +1196,9 @@ textarea {
     margin-bottom: 5rem;
     padding-top: 2rem;
     padding-bottom: 5rem;
-    border-top: 1px solid #ddd;
-    border-bottom: 1px solid #ddd;  
+    border-top: 1px solid var(--bg-main);
+    border-bottom: 1px solid var(--bg-main);  
+    background-color: var(--bg-secondary);
 }
 
 .project-details__resources-cta {
@@ -1390,7 +1483,7 @@ textarea {
 
 .project-cs-hero {
   color: var(--bg-main);
-  background: var(--bg-secondary); 
+  background: var(--bg-main); 
  /* On peut aussi utiliser 'background-color: white;' si le body n'a pas le fond */
 
  /* On garde les autres propriétés qui gèrent la mise en page */
@@ -1427,12 +1520,13 @@ textarea {
    }
 
 .project-details__content {
-  padding: 8rem 0;
-  max-width: 90rem;
-  margin: auto; }
+  width: 100%;
+  max-width: 100%;
+  margin: 0; }
   .project-details__content-title {
     font-weight: 700;
     font-size: 2.8rem;
+    color:var(--text-main);
     margin-bottom: 3rem; }
     @media only screen and (max-width: 37.5em) {
       .project-details__content-title {
@@ -1490,7 +1584,7 @@ textarea {
 .project-details__gallery {
     display: grid;
     /* Crée une grille de 3 ou 4 colonnes, ajustables */
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     /* grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); */
     gap: 20px; /* Espace entre les vignettes */
     margin-top: 30px;
@@ -1712,22 +1806,23 @@ body.modal-open .section-visible {
 
 .project-details__content-main {
   width: 100%;
-  max-width: 70rem;
+  max-width: 100%;
   margin: auto; }
 
 .project-details__desc {
-  margin: 0 0 7rem 0; }
+  margin: 0; /* Supprime les marges qui pourraient centrer le bloc */
+    width: 100%;
+    text-align: left; }
   .project-details__desc-para {
     font-size: 2rem;
     line-height: 1.7;
-    color: grey;
+    color: var(--text-sub);
+    
     margin-bottom: 2rem; }
 /* Styles pour les listes de points clés dans la description du projet */
 .project-details__list {
-    /* Augmente la taille de la police pour une meilleure lisibilité. 
-       Utilisez la taille de votre texte principal (souvent 1.8rem ou 2rem). */
     font-size: 1.8rem; 
-    color: grey;
+    color: var(--text-sub); /* Utilisez la couleur de texte principale de votre thème */
     
     /* Ajouter un espace au-dessus et en dessous de la liste */
     margin-top: 1.5rem;
@@ -1741,7 +1836,7 @@ body.modal-open .section-visible {
     /* Espace entre les éléments de la liste */
     margin-bottom: 1rem;
     /* Assure que la couleur reste foncée et lisible */
-    color: var(--clr-dark-2); /* Utilisez la variable de couleur sombre de votre thème */
+    color: var(--text-sub); /* Utilisez la variable de couleur sombre de votre thème */
     line-height: 1.5; /* Améliore la lisibilité du texte long */
 }
 @media (min-width: 768px) {
@@ -1767,7 +1862,7 @@ body.modal-open .section-visible {
     background: rgba(153, 153, 153, 0.2);
     border-radius: 5px;
     font-weight: 600;
-    color: #777; }
+    color: var(--text-main); }
 
 .project-details__links {
   margin: 0 0; }
@@ -1892,7 +1987,6 @@ body.modal-open .section-visible {
   }
 } 
 
-
 .main-footer {
   background: var(--bg-secondary);
   color: var(--text-main); }
@@ -1948,6 +2042,24 @@ body.modal-open .section-visible {
     @media only screen and (max-width: 56.25em) {
       .main-footer__lower {
         padding: 3.5rem 0; } }
+
+/* On cible la classe que tu as ajoutée au footer */
+.main-footer.footer-black {
+    background-color: var(--bg-main) !important;
+    background: var(--bg-main) !important;
+}
+
+/* IMPORTANT : On force tous les enfants à être transparents */
+/* pour que le noir du footer soit visible derrière eux */
+.main-footer.footer-black .main-container,
+.main-footer.footer-black .main-container__project,
+.main-footer.footer-black .main-footer__upper {
+    background-color: transparent !important;
+    background: transparent !important;
+    border: none !important;
+}
+.main-footer.footer-black { background: var(--bg-main) !important; }
+
 
 /* =======================================================
    4. MISE EN PAGE des GROUPES de COMPÉTENCES
@@ -2563,6 +2675,7 @@ body .list-timeline li {
 /* Animation douce au chargement de la page (sans JS) */
 .project-details {
     animation: fadeInPage 0.8s ease-out forwards;
+    background-color:var(--bg-main);
 }
 
 @keyframes fadeInPage {

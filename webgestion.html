@@ -25,78 +25,100 @@
         <div class="header__main">
           <ul class="header__links">
             <li class="header__link-wrapper">
+            <button id="theme-toggle" class="theme-toggle" aria-label="Changer le mode de couleur">
+                <svg id="sun-icon" class="theme-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="5"></circle>
+                  <line x1="12" y1="1" x2="12" y2="3"></line>
+                  <line x1="12" y1="21" x2="12" y2="23"></line>
+                  <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                  <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                  <line x1="1" y1="12" x2="3" y2="12"></line>
+                  <line x1="21" y1="12" x2="23" y2="12"></line>
+                  <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                  <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                </svg>
+                <svg id="moon-icon" class="theme-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" >
+                  <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                </svg>
+              </button>
+              </li>
+                        <li class="header__link-wrapper">
               <a href="./index.html" class="header__link"> Accueil </a>
             </li>
             <li class="header__link-wrapper">
-              <a href="./index.html#parcours" class="header__link"> Parcours </a>
+              <a href="#parcours" class="header__link"> Parcours </a>
+            </li>
+             <li class="header__link-wrapper">
+              <a href="#entreprise" class="header__link">Entreprise </a>
+            </li>
+             <li class="header__link-wrapper">
+              <a href="#competence" class="header__link"> Compétences </a>
             </li>
             <li class="header__link-wrapper">
-              <a href="./index.html#entreprise" class="header__link">Entreprise </a>
+              <a href="#projects" class="header__link"> Projets </a>
+            </li>
+             <li class="header__link-wrapper">
+              <a href="#veille" class="header__link "> Veille </a>
             </li>
             <li class="header__link-wrapper">
-              <a href="./index.html#competence" class="header__link"> Compétences </a>
+              <a href="#contact" class="header__link"> Contact </a>
             </li>
-            <li class="header__link-wrapper">
-              <a href="./index.html#projects" class="header__link"> Projets </a>
-            </li>
-            <li class="header__link-wrapper">
-              <a href="./index.html#veille" class="header__link "> Veille </a>
-            </li>
-            <li class="header__link-wrapper">
-              <a href="./index.html#contact" class="header__link"> Contact </a>
-            </li>
-          </ul>
+            
+            </ul>
           <div class="header__main-ham-menu-cont">
             <img
               src="./assets/svg/ham-menu.svg"
               alt="hamburger menu"
               class="header__main-ham-menu"
+              id="ham-open"
             />
             <img
               src="./assets/svg/ham-menu-close.svg"
               alt="hamburger menu close"
               class="header__main-ham-menu-close d-none"
+              id="ham-close"
             />
           </div>
         </div>
       </div>
       <div class="header__sm-menu">
+
         <div class="header__sm-menu-content">
           <ul class="header__sm-menu-links">
             <li class="header__sm-menu-link">
               <a href="./index.html">Accueil </a>
             </li>
-            <li class="header__sm-menu-link">
-              <a href="./index.html#parcours"> Parcours </a>
+             <li class="header__sm-menu-link">
+              <a href="#parcours"> Parcours </a>
+            </li>
+             <li class="header__sm-menu-link">
+              <a href="#entreprise">Entreprise </a>
+            </li>
+             <li class="header__sm-menu-link">
+              <a href="#competence"> Compétences </a>
             </li>
             <li class="header__sm-menu-link">
-              <a href="./index.html#entreprise">Entreprise </a>
+              <a href="#projects"> Projets </a>
+            </li>
+             <li class="header__sm-menu-link">
+              <a href="#veille"> Veille </a>
             </li>
             <li class="header__sm-menu-link">
-              <a href="./index.html#competence"> Compétences </a>
-            </li>
-            <li class="header__sm-menu-link">
-              <a href="./index.html#projects"> Projets </a>
-            </li>
-            <li class="header__sm-menu-link">
-              <a href="./index.html#veille"> Veille </a>
-            </li>
-            <li class="header__sm-menu-link">
-              <a href="./index.html#contact"> Contact </a>
+              <a href="#contact"> Contact </a>
             </li>
           </ul>
         </div>
         <div class="home-hero__socials">
-          <div class="home-hero__social">
-            <a href="https://github.com/Nawelbenbachir" class="home-hero__social-icon-link">
-              <img
-                src="./assets/svg/github.svg"
-                alt="icon"
-                class="home-hero__social-icon"
-              />
-            </a>
-          </div>
+        <div class="home-hero__social">
+          <a href="#" class="home-hero__social-icon-link">
+            <img
+              src="./assets/png/linkedin-ico.png"
+              alt="icon"
+              class="home-hero__social-icon"
+            />
+          </a>
         </div>
+        
       </div>
     </header>
 
@@ -113,70 +135,61 @@
         </div>
       </div>
       
-      <div class="circles project-assets">
-        <li style="--i:10; --delay:0s;"><img src="./assets/png/facture (1).png" alt="Facture" class="asset-logo"></li>
-        <li style="--i:10; --delay:1s;"><img src="./assets/png/factureflotte.png" alt="Facture" class="asset-logo"></li>
-          <li style="--i:10; --delay:2s;"><img src="./assets/png/factureflotte.png" alt="Facture" class="asset-logo"></li>
-        <li style="--i:10; --delay:3s;"><img src="./assets/png/parametres.png" alt="Parametre" class="asset-logo"></li>
-        
-        <li style="--i:10; --delay:4s;"><img src="./assets/png/cube.png" alt="SProduit" class="asset-logo"></li>
-        <li style="--i:10; --delay:5s;"><img src="./assets/png/facture (1).png" alt="Facture" class="asset-logo"></li>
-        
-        <li style="--i:10; --delay:6s;"><img src="./assets/png/parametres.png" alt="Parametre" class="asset-logo"></li>
-        
-        <li style="--i:10; --delay:7s;"><img src="./assets/png/cube.png" alt="SProduit" class="asset-logo"></li>
-        <li style="--i:10; --delay:8s;"><img src="./assets/png/facture (1).png" alt="Facture" class="asset-logo"></li>
-    </div>
+      <div class="circles">
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+      </div>
     </section>
 
-       <section class="project-details ">
+          <section class="project-details project-details--alt">
+              <div class="main-container">
+                  <div class="project-details__content">
+                      <div class="project-details__resources">
+                          <h3 class="project-details__content-title">Ressources & Documentation</h3>
+                          <p class="project-details__desc-para">
+                              Ces documents ont servi de base et de référence pour le développement de l'application WebGestion.
+                          </p>
+                          <div class="project-details__resources-cta">
+                              <a href="assets/Cahier des Charges WebGestion.pdf" class="btn btn--theme" target="_blank">Cahier des Charges</a>
+                              <a href="assets/MLDweb.pdf" class="btn btn--theme-inv" target="_blank">MLD (Modèle Logique de Données)</a>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </section>
+            <section class="project-details">
     <div class="main-container">
         <div class="project-details__content">
-               
-                  <div class="project-details__resources">
-                <h3 class="project-details__content-title">Ressources & Documentation</h3>
-                <p class="project-details__desc-para">
-                    Ces documents ont servi de base et de référence pour le développement de l'application WebGestion.
-                </p>
-                <div class="project-details__resources-cta">
-
-                    <a href="assets/Cahier des Charges WebGestion.pdf" class="btn btn--theme" target="_blank">
-                        Cahier des Charges
-                    </a>
-
-                    <a href="assets/MLDweb.pdf" class="btn btn--theme-inv" target="_blank">
-                        MLD (Modèle Logique de Données)
-                    </a>
-
-                    </div>
-            </div>
             <div class="project-details__desc">
                 <h3 class="project-details__content-title">Contexte et Objectifs</h3>
                 <p class="project-details__desc-para">
                     Suite à la mise en place de WinGestion (logiciel de bureau), le besoin de proposer une solution moderne, accessible en ligne (SaaS) et plus facilement maintenable a été identifié. La migration vers une architecture web (Laravel) permet de cibler une base d'utilisateurs plus large (artisans, PME, auto-entrepreneurs) recherchant une solution "zéro installation".
-                </p>
-                <p class="project-details__desc-para">
-                    L'objectif principal était de conserver les fonctionnalités clés de gestion des documents (devis, factures, avoirs) tout en optimisant l'expérience utilisateur pour le web (ergonomie, réactivité) et en préparant le terrain pour l'intégration future des API de plateformes de dématérialisation et permettant la visualisation des documents sur smartphone.
-                </p>
 
+L'objectif principal était de conserver les fonctionnalités clés de gestion des documents (devis, factures, avoirs) tout en optimisant l'expérience utilisateur pour le web (ergonomie, réactivité) et en préparant le terrain pour l'intégration future des API de plateformes de dématérialisation et permettant la visualisation des documents sur smartphone.
+                </p>
+                
                 <h3 class="project-details__content-title">Mise en place et Architecture</h3>
                 <p class="project-details__desc-para">
                     Le développement a été réalisé à l'aide du framework Laravel. L'architecture utilisée est le modèle MVC (Modèle-Vue-Contrôleur), standard de Laravel, assurant une séparation claire des préoccupations (logique métier, affichage, gestion des données).
                 </p>
-                  <div class="project-details__desc">
-    <h3 class="project-details__content-title">Mise en place et Architecture</h3>
-    <p class="project-details__desc-para">Les points clés de la mise en place :</p>
-    
-    <ul class="project-details__list">
-        <li>Authentification & Sécurité :Utilisation de l'outil d'authentification de Laravel (fortement sécurisé).</li>
-        <li>Base de Données : Migration des données existantes (clients, produits) vers une base MySQL via l'ORM Eloquent de Laravel.</li>
-        <li>Interface Utilisateur : Conception d'un tableau de bord moderne et responsive (mobile-friendly) pour la gestion des documents.</li>
-        <li>Génération de PDF : Utilisation d'une librairie Laravel pour la génération dynamique et normalisée des factures et devis en PDF.</li>
-    </ul>
-
-    </div>
-
-            <div class="project-details__tools-used">
+                
+                <ul class="project-details__list">
+                    <li>Authentification & Sécurité : Utilisation de l'outil d'authentification de Laravel.</li>
+                    <li>Base de Données : Migration vers MySQL via l'ORM Eloquent.</li>
+                    <li>Interface Utilisateur : Création d'une interface responsive avec Blade et Tailwind CSS.</li>
+                    <li>Fonctionnalités Clés : Gestion des clients, produits, factures, devis, et paramètres de compte.</li>
+                    <li>Génération de PDF : Utilisation d'une librairie Laravel pour la génération dynamique et normalisée des factures et devis en PDF.</li>
+                </ul>
+            </div>
+             <div class="project-details__tools-used">
                 <h3 class="project-details__content-title">Outils & Technologies</h3>
                 <div class="skills">
                     <div class="skills__skill"><img src="assets/svg/laravel.svg" alt="Laravel"><span>Laravel</span></div>
@@ -186,6 +199,15 @@
                     <div class="skills__skill"><img src="assets/svg/javascript.svg" alt="JavaScript"><span>JavaScript</span></div>
                 </div>
             </div>
+        </div>
+    </div>
+</section>
+        
+
+    <section class="project-details project-details--alt">
+    <div class="main-container">
+        <div class="project-details__content">
+           
       
              <div class="project-details__gallery-cont">
                 <h3 class="project-details__content-title">Aperçu du Logiciel WebGestion</h3>
@@ -221,12 +243,10 @@
         </div>
     </div>
           
-            </div>
-    </div>
 </section>
 
 
-    <footer class="main-footer">
+<footer class="main-footer footer-black">
       <div class="main-container">
         <div class="main-footer__upper">
           <div class="main-footer__row main-footer__row-1">
@@ -266,6 +286,7 @@
         </div> -->
       </div>
     </footer>
+    
      <div id="myModal" class="modal" onclick="closeModal()">
                     <span class="modal__close">&times;</span>
                         <a class="modal__prev" onclick="changeImage(-1, event)">&#10094;</a>
