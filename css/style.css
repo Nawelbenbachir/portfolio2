@@ -33,6 +33,8 @@ $breakpoint arguement choices:
 }
 
 .theme-toggle {
+    -webkit-tap-highlight-color: transparent; /* Supprime le flash bleu au clic sur iPhone */
+    color: var(--text-main) !important;
     background: transparent;
     border: none;
     cursor: pointer;
@@ -54,8 +56,12 @@ $breakpoint arguement choices:
   width: 2.2rem; /* Ajuste selon la taille de tes liens de menu */
   height: 2.2rem;
   transition: transform 0.3s ease;
+  stroke: currentColor !important; /* Force le trait à prendre la couleur du texte */
+  fill: none;
 }
-
+#sun-icon, #moon-icon {
+    stop-color: var(--text-main) !important;
+}
 /* Pour le menu mobile (petit écran) */
 @media only screen and (max-width: 37.5em) {
   .header__links .theme-toggle {
@@ -2125,10 +2131,7 @@ body.modal-open .section-visible {
     
 
 }
-/* --- LOGIQUE DARK MODE POUR LES LOGOS --- */
-[data-theme="dark"] .skills__skill img {
-    filter: grayscale(100%) invert(1) brightness(2);
-}
+
 
 /* --- GESTION DU HOVER --- */
 /* En Light Mode au survol : on enlève tout */
@@ -2688,4 +2691,15 @@ body .list-timeline li {
         transform: translateY(0);
     }
 }
-
+[data-theme="dark"] .skills__skill img,
+[data-theme="dark"] .header__main-ham-menu {
+    /* 1. Préfixe obligatoire pour Safari sur iPhone */
+    -webkit-filter: grayscale(100%) invert(1) brightness(2) !important;
+    
+    /* 2. Filtre standard pour les autres navigateurs */
+    filter: grayscale(100%) invert(1) brightness(2) !important;
+    
+    /* 3. Astuce pour forcer Safari à recalculer le rendu visuel */
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+}
