@@ -408,126 +408,150 @@
         <h2 class="heading heading-sec heading-sec__mb-med">
             <span class="heading-sec__main">Veille Technologique & Assimilation d'Environnement</span>
             <span class="heading-sec__sub">
-                Maîtrise autonome de l'écosystème PC Soft (WinDev/HFSQL) et anticipation des besoins métier du logiciel WinGestion.
+                Une veille menée en deux temps : maîtrise autonome de l'écosystème PC Soft (WinDev/HFSQL) lors de la prise en main du projet, puis étude de la norme Factur-X BASIC dans le cadre de l'implémentation de la facturation électronique.
             </span>
         </h2>
         
         <div class="about__content">
             <div class="about__content-main">
-                
-                <h3 class="about__content-title">Stratégie d'Apprentissage et d'Autonomie</h3>
-                <p class="about__content-details">
-                    Mon arrivée dans l'entreprise s'est faite sans connaissance préalable de l'environnement WinDev. Ma première tâche, cruciale, a été de réaliser une veille d'assimilation intensive pour comprendre rapidement l'architecture du logiciel WinGestion. Cette veille a été vitale pour passer rapidement de l'état de novice à celui de contributeur autonome sur le WLangage, la conception d'IHM et la gestion des données HFSQL. Mon objectif était de comprendre les bonnes pratiques pour garantir la maintenabilité du code.
-                </p>
 
-                <h3 class="about__content-title">Implémentation et Validation des Fonctionnalités Clés</h3>
+                <!-- PHASE 1 -->
+                <h3 class="about__content-title">Phase 1 — Assimilation de l'environnement WinDev / HFSQL</h3>
                 <p class="about__content-details">
-                    La veille a été directement appliquée sur les fonctionnalités que j'ai dû développer. Je me suis concentré sur la maîtrise des composants qui étaient des priorités pour l'entreprise :
+                    Mon arrivée dans l'entreprise s'est faite sans connaissance préalable de l'environnement WinDev. Ma première tâche a donc été de réaliser une veille d'assimilation intensive pour comprendre rapidement l'architecture du logiciel existant (WinFacture, puis WinGestion) et être en mesure d'y contribuer de façon autonome. L'objectif était de maîtriser le WLangage, la conception d'IHM et la gestion des données HFSQL, tout en respectant les bonnes pratiques de maintenabilité du code.
                 </p>
                 <ul class="project-details__list">
                     <li>Génération de Documents (États) : Maîtrise de l'éditeur d'états de WinDev pour créer des modèles de factures dynamiques, incluant la gestion des mentions légales et des mises en page spécifiques requises par le client.</li>
                     <li>Architecture du Projet : Apprentissage des conventions de nommage et de la structuration des fenêtres et des traitements dans l'environnement WinDev, essentielle pour l'intégration de mon code à l'application existante.</li>
                     <li>Gestion des Transactions HFSQL : Compréhension des mécanismes de verrouillage et de transaction de la base de données intégrée pour assurer l'intégrité des données financières (factures, paiements).</li>
                 </ul>
-                
-                <h3 class="about__content-title">Veille Réglementaire : Préparation pour la Facturation Électronique</h3>
+
+                <!-- PHASE 2 -->
+                <h3 class="about__content-title">Phase 2 — Veille sur la norme Factur-X BASIC</h3>
                 <p class="about__content-details">
-                    En parallèle de la prise en main de l'outil, j'ai effectué une veille réglementaire sur l'échéance de la facturation électronique obligatoire en 2026. Cette démarche a permis d'identifier les contraintes majeures qui impacteront directement l'évolution de WinGestion :
+                    Dans un second temps, l'ajout de la fonctionnalité d'export au format Factur-X BASIC m'a conduit à effectuer une veille spécifique sur cette norme, afin d'identifier précisément les exigences techniques et réglementaires à respecter pour produire un fichier valide.
                 </p>
                 <ul class="project-details__list">
-                    <li>Traçabilité des Données :Nécessité d'assurer une journalisation et une immutabilité des factures conformes aux futures plateformes de dématérialisation.</li>
-                    <li>Sécurité des Échanges :Anticipation des besoins en connectivité API sécurisée (que ce soit pour l'envoi ou la réception de factures électroniques).</li>
+                    <li>Contexte réglementaire : La norme Factur-X s'inscrit dans la réforme de la facturation électronique obligatoire (2026-2027) en France. Elle repose sur le standard franco-allemand ZUGFeRD et la norme européenne EN 16931, et impose un format hybride combinant un PDF/A-3 lisible par l'humain et un fichier XML structuré lisible par les logiciels.</li>
+                    <li>Profil BASIC : Parmi les différents profils disponibles (MINIMUM, BASIC WL, BASIC, EN 16931, EXTENDED), le profil BASIC a été retenu comme niveau d'entrée suffisant pour les besoins de WinGestion. Cette veille a permis d'identifier les champs obligatoires du profil : informations vendeur/acheteur, numéro de facture, date, lignes de détail, montants HT/TVA/TTC.</li>
+                    <li>Contraintes d'implémentation : Étude des règles de génération du XML conforme (namespace CrossIndustryInvoice, encodage UTF-8, structure des balises) et des exigences du PDF/A-3 (incorporation du fichier XML comme pièce jointe embarquée avec le bon profil ICC).</li>
+                    <li>Périmètre fonctionnel : Suite à cette veille, l'export Factur-X BASIC a été réservé aux clients de type « Entreprise », seuls concernés par la réforme de facturation interentreprises (B2B).</li>
                 </ul>
+
                 <p class="about__content-details">
-                    Cette double veille (technique et réglementaire) m'a permis d'agir immédiatement sur les priorités de développement, tout en préparant la documentation nécessaire pour les futures évolutions.
+                    Cette veille menée en deux phases distinctes illustre une démarche d'apprentissage continue, adaptée aux besoins du projet : d'abord s'approprier l'environnement de développement, puis approfondir les normes métier au fur et à mesure des nouvelles fonctionnalités à implémenter.
                 </p>
 
             </div> 
        
-            <div class="about__visual-container ">
-                     <div class="project-details__tools-used">
-                    <h3 class="about__content-title">Outils Clés</h3>
+            <div class="about__visual-container">
+                <div class="project-details__tools-used">
+                    <h3 class="about__content-title">Outils & Ressources</h3>
                     <div class="skills">
-                        <div class="skills__skill"><img src="assets/png/logo-pcsoft.png" alt="Logo PCSoft"><span> Documentation PCSOFT</span></div>
-                        <div class="skills__skill"><img src="assets/svg/feedly.svg" alt="Logo Feedly"><span>Feedly </span></div>
+                        <div class="skills__skill"><img src="assets/png/logo-pcsoft.png" alt="Logo PCSoft"><span>Documentation PCSOFT</span></div>
+                        <div class="skills__skill"><img src="assets/svg/feedly.svg" alt="Logo Feedly"><span>Feedly</span></div>
+                        <div class="skills__skill"><img src="assets/png/facturx.png" alt="Logo Factur-X"><span>Spec. Factur-X BASIC</span></div>
                     </div>
                 </div>
+
                 <div class="project-details__gallery-cont">
-                    <h3 class="about__content-title">Ressources & Preuves d'Apprentissage</h3>
+                    <h3 class="about__content-title">Ressources & Preuves</h3>
                     <div class="project-details__gallery gallery-veille">
                         
+                        <!-- WinDev -->
                         <figure class="gallery__item">
                             <img 
                                 src="./assets/png/WINDEV.png" 
                                 alt="Capture d'écran de l'environnement de développement WinDev." 
                                 class="gallery__img" 
-                                onclick="openModal('./assets/png/WINDEV.png', 'Interface WinDev: Preuve de familiarité avec l\'outil de développement.')"
+                                onclick="openModal('./assets/png/WINDEV.png', 'Interface WinDev : preuve de familiarité avec l\'outil de développement.')"
                             >
                             <figcaption class="gallery__caption">Environnement WinDev</figcaption>
                         </figure>
                         <figure class="gallery__item">
                             <img 
                                 src="./assets/png/ProcedureWindev.png" 
-                                alt="Capture d'écran de l'environnement de développement WinDev." 
+                                alt="Capture d'écran d'une procédure WinDev." 
                                 class="gallery__img" 
-                                onclick="openModal('./assets/png/ProcedureWindev.png', 'Interface WinDev: Preuve de familiarité avec l\'outil de développement.')"
+                                onclick="openModal('./assets/png/ProcedureWindev.png', 'Procédure WinDev : structuration du code WLangage.')"
                             >
-                            <figcaption class="gallery__caption">Environnement WinDev</figcaption>
+                            <figcaption class="gallery__caption">Procédure WinDev</figcaption>
                         </figure>
-                            <figure class="gallery__item">
+                        <figure class="gallery__item">
                             <img 
                                 src="./assets/png/Apercufenetre.png" 
-                                alt="Capture d'écran de l'environnement de développement WinDev." 
+                                alt="Aperçu d'une fenêtre WinDev." 
                                 class="gallery__img" 
-                                onclick="openModal('./assets/png/Apercufenetre.png', 'Interface WinDev: Preuve de familiarité avec l\'outil de développement.')"
+                                onclick="openModal('./assets/png/Apercufenetre.png', 'Aperçu fenêtre WinDev : conception d\'IHM.')"
                             >
-                            <figcaption class="gallery__caption">Environnement WinDev</figcaption>
+                            <figcaption class="gallery__caption">Aperçu fenêtre WinDev</figcaption>
                         </figure>
                         <figure class="gallery__item">
                             <img 
                                 src="./assets/png/hfsql.png" 
-                                alt="Capture d'écran de l'éditeur d'états pour la création de factures." 
+                                alt="Capture d'écran de l'environnement HFSQL." 
                                 class="gallery__img" 
-                                onclick="openModal('./assets/png/hfsql.png', 'Interface HFSQL: Maîtrise de la génération de documents légaux.')"
+                                onclick="openModal('./assets/png/hfsql.png', 'Environnement HFSQL : gestion de la base de données intégrée.')"
                             >
-                            <figcaption class="gallery__caption">Envrionnement HFSQL</figcaption>
+                            <figcaption class="gallery__caption">Environnement HFSQL</figcaption>
                         </figure>
                         <figure class="gallery__item">
                             <img 
                                 src="./assets/png/HFSQL2.png" 
-                                alt="Capture d'écran de l'éditeur d'états pour la création de factures." 
+                                alt="Capture d'écran HFSQL." 
                                 class="gallery__img" 
-                                onclick="openModal('./assets/png/HFSQL2.png', 'Interface HFSQL: Maîtrise de la génération de documents légaux.')"
+                                onclick="openModal('./assets/png/HFSQL2.png', 'HFSQL : structure des tables financières.')"
                             >
-                            <figcaption class="gallery__caption">Envrionnement HFSQL</figcaption>
+                            <figcaption class="gallery__caption">Structure HFSQL</figcaption>
                         </figure>
                         <figure class="gallery__item">
                             <img 
                                 src="./assets/png/pcsoft.png" 
-                                alt="Capture d'écran de la documentation officielle PC SOFT (WINDEV) utilisée pour la veille." 
+                                alt="Documentation PC SOFT." 
                                 class="gallery__img" 
-                                onclick="openModal('./assets/png/pcsoft.png', 'Ressources Officielle: Utilisation de la documentation PC SOFT pour l\'apprentissage.')"
+                                onclick="openModal('./assets/png/pcsoft.png', 'Documentation PC SOFT : ressource principale d\'apprentissage WinDev.')"
                             >
                             <figcaption class="gallery__caption">Documentation PC SOFT</figcaption>
                         </figure>
-                         <figure class="gallery__item">
+                        <figure class="gallery__item">
                             <img 
                                 src="./assets/png/docpcsoftprojet.png" 
-                                alt="Capture d'écran de la documentation officielle PC SOFT (WINDEV) utilisée pour la veille." 
+                                alt="Documentation PC SOFT projet." 
                                 class="gallery__img" 
-                                onclick="openModal('./assets/png/docpcsoftprojet.png', 'Ressources Officielle: Utilisation de la documentation PC SOFT pour l\'apprentissage.')"
+                                onclick="openModal('./assets/png/docpcsoftprojet.png', 'Documentation PC SOFT : ressources spécifiques au projet.')"
                             >
                             <figcaption class="gallery__caption">Documentation PC SOFT</figcaption>
                         </figure>
                         <figure class="gallery__item">
                             <img 
                                 src="./assets/png/feedly1.png" 
-                                alt="Capture d'écran de l'éditeur d'états pour la création de factures." 
+                                alt="Interface Feedly." 
                                 class="gallery__img" 
-                                onclick="openModal('./assets/png/feedly1.png', 'Interface Feedly: Maîtrise de la veille réglementaire.')"
+                                onclick="openModal('./assets/png/feedly1.png', 'Feedly : veille réglementaire sur la facturation électronique.')"
                             >
-                            <figcaption class="gallery__caption">Interface Feedly</figcaption>
+                            <figcaption class="gallery__caption">Veille Feedly</figcaption>
                         </figure>
+
+                        <!-- Factur-X -->
+                        <figure class="gallery__item">
+                            <img 
+                                src="./assets/png/facturx_spec.png" 
+                                alt="Extrait de la spécification Factur-X BASIC." 
+                                class="gallery__img" 
+                                onclick="openModal('./assets/png/facturx_spec.png', 'Spécification Factur-X BASIC : étude des champs obligatoires du profil.')"
+                            >
+                            <figcaption class="gallery__caption">Spec. Factur-X BASIC</figcaption>
+                        </figure>
+                        <figure class="gallery__item">
+                            <img 
+                                src="./assets/png/facturx_xml.png" 
+                                alt="Extrait du XML Factur-X généré par WinGestion." 
+                                class="gallery__img" 
+                                onclick="openModal('./assets/png/facturx_xml.png', 'XML Factur-X BASIC : fichier conforme EN 16931 embarqué dans un PDF/A-3.')"
+                            >
+                            <figcaption class="gallery__caption">XML Factur-X généré</figcaption>
+                        </figure>
+
                     </div>
                 </div>
                 

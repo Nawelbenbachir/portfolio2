@@ -1,5 +1,5 @@
 // =======================================================
-// 1. DÉCLARATION DES FONCTIONS MODALES ET VISUELLES GLOBALES
+//  DÉCLARATION DES FONCTIONS MODALES ET VISUELLES GLOBALES
 // =======================================================
 
 var modal = document.getElementById("myModal");
@@ -153,16 +153,11 @@ document.addEventListener("DOMContentLoaded", () => {
         threshold: 0.05,
     });
 
-   // Remplace ton bloc allSections.forEach par celui-ci :
-allSections.forEach(function (section) {
-    // Sécurité supplémentaire : Si on est sur mobile, on affiche tout de suite
-    // On utilise 1000px pour être large (tablettes incluses)
-    if (window.innerWidth < 1000) { 
-        console.log("Mode mobile détecté pour :", section.id);
+   allSections.forEach(function (section) {
+    if (window.innerWidth < 1000) {
         section.classList.remove('section-hidden');
         section.classList.add('section-visible');
         
-        // On force aussi l'affichage si c'est la section veille
         if (section.id === 'veille') {
             const visual = section.querySelector('.about__visual-container');
             if (visual) {
@@ -171,10 +166,24 @@ allSections.forEach(function (section) {
             }
         }
     } else {
-        // Sur PC, on laisse l'observer faire son travail
-        sectionObserver.observe(section);
+        
+        const hash = window.location.hash; 
+        if (hash && hash === '#' + section.id) {
+            section.classList.remove('section-hidden');
+            section.classList.add('section-visible');
+
+            if (section.id === 'veille') {
+                const visual = section.querySelector('.about__visual-container');
+                if (visual) {
+                    visual.classList.remove('section-hidden-visual');
+                    visual.classList.add('section-visible-visual');
+                }
+            }
+        } else {
+            sectionObserver.observe(section);
+        }
     }
-});
+    });
     // ----------------------------------------------------
     
     // ----------------------------------------------------
@@ -323,12 +332,12 @@ function updateIcons(theme) {
     }
 }
 
-// 1. Charger le thème sauvegardé au démarrage
+//  Charger le thème sauvegardé au démarrage
 const savedTheme = localStorage.getItem('theme') || 'light';
 htmlElement.setAttribute('data-theme', savedTheme);
 updateIcons(savedTheme);
 
-// 2. Écouter le clic sur le bouton
+//  Écouter le clic sur le bouton
 toggleBtn.addEventListener('click', () => {
     const currentTheme = htmlElement.getAttribute('data-theme');
     const newTheme = currentTheme === 'light' ? 'dark' : 'light';
