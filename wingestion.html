@@ -154,11 +154,11 @@
                     </p>
                     <div class="project-details__resources-cta">
 
-                        <a href="./assets/cahier des charges WinGestion.pdf" class="btn btn--theme" target="_blank">
+                        <a href="./assets/WinGestion_CDC.pdf" class="btn btn--theme" target="_blank">
                             Cahier des Charges
                         </a>
 
-                        <a href="./assets/MLDWinGestion.pdf" class="btn btn--theme-inv" target="_blank">
+                        <a href="./assets/png/MLDWinGestion.png" class="btn btn--theme-inv" target="_blank">
                             MLD (Modèle Logique de Données)
                         </a>
 
@@ -216,6 +216,10 @@
                     <h3 class="project-details__content-title">Aperçu du Logiciel WinGestion</h3>
                     <div class="project-details__gallery">
                         <figure class="gallery__item">
+                            <img src="./assets/png/Connexionwingestion.png" alt="Connexion" class="gallery__img" onclick="openModal('./assets/png/Accueil.png', 'Accueil du logiciel WinGestion')">
+                            <figcaption class="gallery__caption">Connexion</figcaption>
+                        </figure>
+                        <figure class="gallery__item">
                             <img src="./assets/png/Accueil.png" alt="Capture d'écran de l'écran d'accueil" class="gallery__img" onclick="openModal('./assets/png/Accueil.png', 'Accueil du logiciel WinGestion')">
                             <figcaption class="gallery__caption">Accueil</figcaption>
                         </figure>
@@ -241,56 +245,40 @@
                         </figure>
                         <figure class="gallery__item">
                             <img src="./assets/png/OptionsDoc.png" alt="Capture d'écran des options disponible sur la liste des documents" class="gallery__img" onclick="openModal('./assets/png/OptionsDoc.png', 'Options disponible sur la liste des documents')">
-                            <figcaption class="gallery__caption">Options des documents </figcaption>
+                            <figcaption class="gallery__caption">Gestions des documents </figcaption>
                         </figure>
                         <figure class="gallery__item">
-                            <img src="./assets/png/acomptefac.png" alt="Capture d'écran des acompte sur la facture sélectionnée" class="gallery__img" onclick="openModal('./assets/png/acomptefac.png', 'Acompte sur la facture sélectionnée')">
-                            <figcaption class="gallery__caption">Acompte(s) sur la facture sélectionnée</figcaption>
+                            <img src="./assets/png/Suividoc.png" alt="Liste des documents associé au doc sélectionné" class="gallery__img" onclick="openModal('./assets/png/suividoc.png', 'Suivi de chaque étape des documents')">
+                            <figcaption class="gallery__caption">Suivi de chaque étape des documents</figcaption>
                         </figure>
                         <figure class="gallery__item">
                             <img src="./assets/png/Chantier.png" alt="Capture d'écran de la partie chantier" class="gallery__img" onclick="openModal('./assets/png/chantier.png', 'Liste et gestion des chantier.')">
                             <figcaption class="gallery__caption">Chantier</figcaption>
                         </figure>
-                        <figure class="gallery__item">
-                            <img src="./assets/png/facture.png" alt="Formulaire de création de facture WinGestion" class="gallery__img" onclick="openModal('./assets/png/facture.png', 'Liste et gestion des factures.')">
-                            <figcaption class="gallery__caption">Gestion des Factures</figcaption>
-                        </figure>
-                         <figure class="gallery__item">
-                            <img src="./assets/png/apercufac.png" alt="Aperçu à l'impression d'une facture réglée" class="gallery__img" onclick="openModal('./assets/png/apercufac.png', 'Aperçu à l\'impression d\'une facture réglée')">
-                            <figcaption class="gallery__caption">Aperçu d'impression</figcaption>
-                        </figure>
-                        <figure class="gallery__item">
-                            <img src="./assets/png/BL.png" alt="Liste des BL WinGestion" class="gallery__img" onclick="openModal('./assets/png/BL.png', 'Liste et gestion des BL (Bons de Livraison).')">
-                            <figcaption class="gallery__caption">Gestion des Bons de Livraison (BL)</figcaption>
-                        </figure>
-                        <figure class="gallery__item">
-                            <img src="./assets/png/Devis.png" alt="Formulaire de création de devis WinGestion" class="gallery__img" onclick="openModal('./assets/png/Devis.png', 'Liste et gestion des devis.')">
-                            <figcaption class="gallery__caption">Gestion des Devis</figcaption>
-                        </figure>
                         
+                         <figure class="gallery__item">
+                            <img src="./assets/png/Apercufac.png" alt="Aperçu à l'impression d'une facture réglée" class="gallery__img" onclick="openModal('./assets/png/Apercufac.png', 'Aperçu à l\'impression d\'une facture réglée')">
+                            <figcaption class="gallery__caption">Aperçu d'impression format Factur-x BASIC</figcaption>
+                        </figure>
                         <figure class="gallery__item">
-                            <img src="./assets/png/EnteteDoc.png" alt="Capture d'écran des entete" class="gallery__img" onclick="openModal('./assets/png/EnteteDoc.png', 'Gestion des en tête des documents.')">
-                            <figcaption class="gallery__caption">En Tête des documents</figcaption>
+                            <img src="./assets/png/XML.png" alt="XML associé à la facture " class="gallery__img" onclick="openModal('./assets/png/XML.png', 'XML associé à la facture ')">
+                            <figcaption class="gallery__caption">XML associé</figcaption>
+                        </figure>
+                        <figure class="gallery__item">
+                            <img src="./assets/png/EnTeteDoc.png" alt="Capture d'écran des entete" class="gallery__img" onclick="openModal('./assets/png/EnTeteDoc.png', 'Gestion des en tête des documents.')">
+                            <figcaption class="gallery__caption">En tête des documents</figcaption>
                         </figure> 
                         <figure class="gallery__item">
-                            <img src="./assets/png/OptionsLigne.png" alt="Capture d'écran des options des lignes" class="gallery__img" onclick="openModal('./assets/png/OptionsLigne.png', 'Gestion des lignes des documents.')">
+                            <img src="./assets/png/Optionsligne.png" alt="Capture d'écran des options des lignes" class="gallery__img" onclick="openModal('./assets/png/Optionsligne.png', 'Gestion des lignes des documents.')">
                             <figcaption class="gallery__caption">Options sur les lignes des documents</figcaption>
                         </figure> 
                         <figure class="gallery__item">
-                            <img src="./assets/png/Produit (1).png" alt="Gestion des clients WinGestion" class="gallery__img" onclick="openModal('./assets/png/Produit (1).png', 'Liste et gestion des fiches produits.')">
+                            <img src="./assets/png/Produit.png" alt="Gestion des produits" class="gallery__img" onclick="openModal('./assets/png/Produit.png', 'Liste et gestion des fiches produits.')">
                             <figcaption class="gallery__caption">Gestion des Produits</figcaption>
-                        </figure>
-                        <figure class="gallery__item">
-                            <img src="./assets/png/AjoutProduit.png" alt="Ajout d'un produit" class="gallery__img" onclick="openModal('./assets/png/AjoutProduit.png', 'Formulaire pour ajouter des produits.')">
-                            <figcaption class="gallery__caption">Ajout des Produits</figcaption>
                         </figure>
                         <figure class="gallery__item">
                             <img src="./assets/png/Stock.png" alt="Consulter le stock" class="gallery__img" onclick="openModal('./assets/png/Stock.png', 'Gestion du stock pour les produits.')">
                             <figcaption class="gallery__caption">Stock des Produits</figcaption>
-                        </figure>
-                         <figure class="gallery__item">
-                            <img src="./assets/png/ApproStock.png" alt="Approvisionner/Retirer du stock" class="gallery__img" onclick="openModal('./assets/png/ApproStock.png', 'Approvisionner/Retirer du stock')">
-                            <figcaption class="gallery__caption">Approvisionner/Retirer du stock</figcaption>
                         </figure>
                         <figure class="gallery__item">
                             <img src="./assets/png/Stock2.png" alt="Valeur stock " class="gallery__img" onclick="openModal('./assets/png/Stock2.png', 'Valeur du stock par produit/catégorie')">
@@ -302,60 +290,28 @@
                         </figure>
                         <figure class="gallery__item">
                             <img src="./assets/png/CptaReg.png" alt="Liste des règlements a exporter " class="gallery__img" onclick="openModal('./assets/png/CptaReg.png', 'Liste des règlements à exporter en compta.')">
-                            <figcaption class="gallery__caption">Gestion Comptable règlements</figcaption>
+                            <figcaption class="gallery__caption">Gestion Comptable règlements/ventes</figcaption>
                         </figure>
                         <figure class="gallery__item">
-                            <img src="./assets/png/CptaVente.png" alt="Liste des ventes a exporter " class="gallery__img" onclick="openModal('./assets/png/CptaVente.png', 'Liste des ventes à exporter en compta.')">
-                            <figcaption class="gallery__caption">Gestion Comptable ventes</figcaption>
+                            <img src="./assets/png/CSV.png" alt="CSV généré " class="gallery__img" onclick="openModal('./assets/png/CSV.png', 'Liste des règlements à exporter en compta.')">
+                            <figcaption class="gallery__caption">CSV généré</figcaption>
                         </figure>
                         <figure class="gallery__item">
-                            <img src="./assets/png/Param1.png" alt="Paramètre société " class="gallery__img" onclick="openModal('./assets/png/Param1.png', 'Gestion des sociétés et de leur informations.')">
-                            <figcaption class="gallery__caption">Gestion paramètres de la société</figcaption>
-                        </figure>
-                        <figure class="gallery__item">
-                            <img src="./assets/png/Param2.png" alt="Paramètre société " class="gallery__img" onclick="openModal('./assets/png/Param2.png', 'Gestion des taux de TVA.')">
-                            <figcaption class="gallery__caption">Gestion des taux de TVA</figcaption>
-                        </figure>
-                        <figure class="gallery__item">
-                            <img src="./assets/png/paramreg.png" alt="Paramètre société " class="gallery__img" onclick="openModal('./assets/png/paramreg.png', 'Gestion des modes de règlement.')">
-                            <figcaption class="gallery__caption">Gestion des modes de règlement</figcaption>
-                        </figure>
-                        <figure class="gallery__item">
-                            <img src="./assets/png/Param4.png" alt="Paramètre société " class="gallery__img" onclick="openModal('./assets/png/Param4.png', 'Gestion des répertoires relatifs aux types de document et aux exports comptables.')">
-                            <figcaption class="gallery__caption">Gestion des répertoires</figcaption>
-                        </figure>
-                        <figure class="gallery__item">
-                            <img src="./assets/png/Param5.png" alt="Paramètre société " class="gallery__img" onclick="openModal('./assets/png/Param5.png', 'Gestion des options facultatives sécurisées.')">
-                            <figcaption class="gallery__caption">Gestion des options disponibles</figcaption>
-                        </figure>
-                        <figure class="gallery__item">
-                            <img src="./assets/png/Param6.png" alt="Paramètre société " class="gallery__img" onclick="openModal('./assets/png/Param6.png', 'Gestion des utilisateurs et de leurs droits.')">
-                            <figcaption class="gallery__caption">Gestion des utilisateurs</figcaption>
-                        </figure>
-                        <figure class="gallery__item">
-                            <img src="./assets/png/Param7.png" alt="Paramètre société " class="gallery__img" onclick="openModal('./assets/png/Param7.png', 'Gestion du format des documents et de leur numérotation.')">
-                            <figcaption class="gallery__caption">Formatage des documents</figcaption>
-                        </figure>
+                            <img src="./assets/png/Param1.png" alt="Divers Paramètres" class="gallery__img" onclick="openModal('./assets/png/Param1.png', 'Gestion des sociétés et de leur informations.')">
+                            <figcaption class="gallery__caption">Gestion des paramètres</figcaption>
+                        </figure>     
                         <figure class="gallery__item">
                             <img src="./assets/png/StatVente.png" alt="Statistique des ventes par période ou exercice " class="gallery__img" onclick="openModal('./assets/png/StatVente.png', 'Statistiques relatives aux données de la société.')">
                             <figcaption class="gallery__caption">Statistiques de vente par période/exercice</figcaption>
                         </figure>
                             <figure class="gallery__item">
-                            <img src="./assets/png/StatClientChantiers.png" alt="Statistique des clients par période ou exercice " class="gallery__img" onclick="openModal('./assets/png/StatClientChantiers.png', 'Statistiques relatives aux données de la société.')">
-                            <figcaption class="gallery__caption">Statistiques clients par période/exercice</figcaption>
+                            <img src="./assets/png/StatClientChantiers.png" alt="Statistique des clients/chantiers par période ou exercice " class="gallery__img" onclick="openModal('./assets/png/StatClientChantiers.png', 'Statistiques relatives aux données de la société.')">
+                            <figcaption class="gallery__caption">Statistiques clients/chantiers par période/exercice</figcaption>
                         </figure>
                             <figure class="gallery__item">
-                            <img src="./assets/png/StatChantiers.png" alt="Statistique des chantiers par période ou exercice " class="gallery__img" onclick="openModal('./assets/png/StatChantiers.png', 'Statistiques relatives aux données de la société.')">
-                            <figcaption class="gallery__caption">Statistiques chantiers par période/exercice</figcaption>
-                        </figure>
-                            <figure class="gallery__item">
-                            <img src="./assets/png/StatProduit.png" alt="Statistique des produits par période ou exercice " class="gallery__img" onclick="openModal('./assets/png/StatProduit.png', 'Statistiques relatives aux données de la société.')">
-                            <figcaption class="gallery__caption">Statistiques produits par période/exercice</figcaption>
-                        </figure>
-                            <figure class="gallery__item">
-                            <img src="./assets/png/StatCategorie.png" alt="Statistique des catégories par période ou exercice " class="gallery__img" onclick="openModal('./assets/png/StatCategorie.png', 'Statistiques relatives aux données de la société.')">
-                            <figcaption class="gallery__caption">Statistiques catégories par période/exercice</figcaption>
-                        </figure>
+                            <img src="./assets/png/StatProduit.png" alt="Statistique des produits/catégories par période ou exercice " class="gallery__img" onclick="openModal('./assets/png/StatProduit.png', 'Statistiques relatives aux données de la société.')">
+                            <figcaption class="gallery__caption">Statistiques produits/catégories par période/exercice</figcaption>
+                        
                         </div> 
                         </div> 
                         </div> 

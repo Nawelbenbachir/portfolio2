@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const caption = figure ? figure.querySelector('figcaption').innerText : "";
         allImages.push({ src: img.src, caption: caption });
         
-        // On remplace l'ancien onclick par le nouveau
+        
         img.onclick = (e) => {
             e.preventDefault();
             openModal(index);
@@ -119,7 +119,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const [entry] = entries;
         if (!entry.isIntersecting) return;
         
-        // 1. Révélation de la section parente
+        //  Révélation de la section parente
         entry.target.classList.remove('section-hidden');
         entry.target.classList.add('section-visible');
         
