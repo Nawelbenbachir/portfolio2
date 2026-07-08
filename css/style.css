@@ -19,7 +19,7 @@ $breakpoint arguement choices:
   --text-sub: #555555;
   --heading-main: #111111;
   --white: #ffffff;
-  --primary-color: #d51066; 
+  --primary-color: #B86B6F; 
 }
 
 /* Mode Sombre (les couleurs qui vont s'appliquer) */
@@ -157,7 +157,7 @@ $breakpoint arguement choices:
         color: var(--text-main) !important;
     }
     .header__logo-name {
-        color: #D51066 !important;
+        color: #B86B6F!important;
     }
 
     
@@ -428,7 +428,7 @@ textarea {
     /* PROPRIÉTÉS CLÉS POUR LE DÉGRADÉ SUR TEXTE */
     
     /*  Définir le dégradé comme arrière-plan */
-    background-image: linear-gradient(90deg, #A80048, #D51066, #ff87b7);
+    background-image: linear-gradient(160deg, #B86B6F 0%, #8E4A4E 50%, #EAA98E 100%); 
     
     /*  Cacher l'arrière-plan */
     -webkit-background-clip: text;
@@ -1729,7 +1729,7 @@ body.modal-open .section-visible {
 
 .modal__close:hover,
 .modal__close:focus {
-    color: #D51066;
+    color: #B86B6F;
     text-decoration: none;
     cursor: pointer;
 }
@@ -1946,7 +1946,7 @@ body.modal-open .section-visible {
   color: var(--text-main);
   white-space: nowrap;
 }
-.header__logo-name { color: #D51066; }
+.header__logo-name { color: #B86B6F; }
 
 /* --- GESTION DES MENUS --- */
 
@@ -2204,12 +2204,12 @@ body.modal-open .section-visible {
 .skills__skill:hover {
     transition-delay: 0s;
     transform: translateY(-5px)!important; 
-    border-color: #D51066; 
+    border-color: #B86B6F; 
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15); 
 }
 
 .skills__skill:hover span {
-    color: #D51066; 
+    color: #B86B6F; 
 }
 
 .skills__skill:hover img {
@@ -2397,7 +2397,7 @@ body #parcours .element i.timeline-icon::before {
     content: "" !important; /* Point plein FontAwesome */
     font-family: "Font Awesome 6 Free" !important;
     font-weight: 900 !important;
-    color: #D51066 !important;
+    color: #B86B6F !important;
     
     /* On réduit la taille du point au centre pour qu'il soit comme sur ta photo 1 */
     font-size: 0.8rem !important; 
@@ -2521,7 +2521,7 @@ body .list-timeline li {
     list-style:circle;
     
    
-    background: rgba(213, 16, 102, 0.15); /* Rose avec une transparence légère */
+    background: rgba(184, 107, 111, 0.15); /* Rose avec une transparence légère */
     
     /* Animation: L'effet de flottement */
     animation: animate 25s linear infinite; 
@@ -2529,7 +2529,7 @@ body .list-timeline li {
 }
 /* En Dark Mode, on peut augmenter un peu l'opacité pour qu'elles ressortent */
 [data-theme="dark"] .circles li {
-    background: rgba(213, 16, 102, 0.4); 
+    background: rgba(184, 107, 111, 0.4); 
 }
 .circles li:nth-child(1){
     left: 25%;
