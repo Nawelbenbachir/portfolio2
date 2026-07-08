@@ -32,6 +32,13 @@
               class="home-hero__social-icon"
             />
           </a>
+          <a href="https://github.com/Nawelbenbachir" class="home-hero__social-icon-link">
+            <img
+              src="./assets/png/linkedin-ico.png"
+              alt="icon"
+              class="home-hero__social-icon"
+            />
+          </a>
         </div>
         </span> -->
         <div class="header__main">
@@ -393,36 +400,36 @@
 <section id="veille" class="about sec-pad section-hidden"> 
     <div class="main-container"> 
         <h2 class="heading heading-sec heading-sec__mb-med">
-            <span class="heading-sec__main">Veille Technologique & Assimilation d'Environnement</span>
+            <span class="heading-sec__main">Veille & Intégration technique</span>
             <span class="heading-sec__sub">
-                Une veille menée en deux temps : maîtrise autonome de l'écosystème PC Soft (WinDev/HFSQL) lors de la prise en main du projet, puis étude de la norme Factur-X BASIC dans le cadre de l'implémentation de la facturation électronique.
+                Objectif : démontrer ma capacité à m'adapter rapidement à de nouvelles technologies et à répondre à des problématiques métiers réelles.
             </span>
         </h2>
         
         <div class="about__content">
             <div class="about__content-main">
 
-                <!-- PHASE 1 -->
-                <h3 class="about__content-title">Phase 1 — Assimilation de l'environnement WinDev / HFSQL</h3>
+                
+                <h3 class="about__content-title">Prise en main autonome de l'envirionnement WinDev/HFSQL</h3>
                 <p class="about__content-details">
-                    Mon arrivée dans l'entreprise s'est faite sans connaissance préalable de l'environnement WinDev. Ma première tâche a donc été de réaliser une veille d'assimilation intensive pour comprendre rapidement l'architecture du logiciel existant (WinFacture, puis WinGestion) et être en mesure d'y contribuer de façon autonome. L'objectif était de maîtriser le WLangage, la conception d'IHM et la gestion des données HFSQL, tout en respectant les bonnes pratiques de maintenabilité du code.
+                    N'ayant pas étudié cet environnement durant mon parcours initial, j'ai réalisé un travail de recherche et d'assimilation intensif pour devenir rapidement opérationnelle sur le logiciel de l'entreprise (WinFacture devenu WinGestion)
                 </p>
                 <ul class="project-details__list">
-                    <li>Génération de Documents (États) : Maîtrise de l'éditeur d'états de WinDev pour créer des modèles de factures dynamiques, incluant la gestion des mentions légales et des mises en page spécifiques requises par le client.</li>
-                    <li>Architecture du Projet : Apprentissage des conventions de nommage et de la structuration des fenêtres et des traitements dans l'environnement WinDev, essentielle pour l'intégration de mon code à l'application existante.</li>
-                    <li>Gestion des Transactions HFSQL : Compréhension des mécanismes de verrouillage et de transaction de la base de données intégrée pour assurer l'intégrité des données financières (factures, paiements).</li>
+                    <li>Conception IHM & Etats : Développement de modèles de factures et de documents dynamiques adaptés aux futurs utilisateurs cibles (artisans, TPE/PME).</li>
+                    <li>Architecture des données : Configuration du SGBD HFSQL, écriture de requêtes SQL intégrées et structuration de la base de données pour soutenir les fonctionnalités du futur logiciel.</li>
+                    <li>Maintenabilité : Analyse du code existant et application de conventions de nommage rigoureuses pour assurer la continuité des futurs développements.</li>
                 </ul>
 
-                <!-- PHASE 2 -->
-                <h3 class="about__content-title">Phase 2 — Veille sur la norme Factur-X BASIC</h3>
+                
+                <h3 class="about__content-title">Anticipation réglementaire : Intégration de la norme Factur-X</h3>
                 <p class="about__content-details">
-                    Dans un second temps, l'ajout de la fonctionnalité d'export au format Factur-X BASIC m'a conduit à effectuer une veille spécifique sur cette norme, afin d'identifier précisément les exigences techniques et réglementaires à respecter pour produire un fichier valide.
+                   Afin de donner un avantage concurrentiel à ce nouveau logiciel face à la réforme de la facturation électonique obligatoire en France, j'ai ajouté l'intégration technique du format de données hybride Factur-X (profil BASIC).
                 </p>
                 <ul class="project-details__list">
-                    <li>Contexte réglementaire : La norme Factur-X s'inscrit dans la réforme de la facturation électronique obligatoire (2026-2027) en France. Elle repose sur le standard franco-allemand ZUGFeRD et la norme européenne EN 16931, et impose un format hybride combinant un PDF/A-3 lisible par l'humain et un fichier XML structuré lisible par les logiciels.</li>
-                    <li>Profil BASIC : Parmi les différents profils disponibles (MINIMUM, BASIC WL, BASIC, EN 16931, EXTENDED), le profil BASIC a été retenu comme niveau d'entrée suffisant pour les besoins de WinGestion. Cette veille a permis d'identifier les champs obligatoires du profil : informations vendeur/acheteur, numéro de facture, date, lignes de détail, montants HT/TVA/TTC.</li>
-                    <li>Contraintes d'implémentation : Étude des règles de génération du XML conforme (namespace CrossIndustryInvoice, encodage UTF-8, structure des balises) et des exigences du PDF/A-3 (incorporation du fichier XML comme pièce jointe embarquée avec le bon profil ICC).</li>
-                    <li>Périmètre fonctionnel : Suite à cette veille, l'export Factur-X BASIC a été réservé aux clients de type « Entreprise », seuls concernés par la réforme de facturation interentreprises (B2B).</li>
+                    <li>Analyse des spécifications : Etude des exigences de la norme européenne EN16931 pour cartographier les donénes obligatoires à structurer dans le système.</li>
+                    <li>Intégration de composant : Etude, configuration et implémenation du composant métier officiel développé par PC SOFT pour générer la structure Factur-X au sein de l'application.</li>
+              
+                    <li>Validation technique : Utilisation des outils de test de la FNFE-MPE pour valider la conformité de schémas et de l'encodage (UTF-8), garantissant la viablitié technique du module pour les futures phases de déploiement.</li>
                 </ul>
 
                 
@@ -440,93 +447,13 @@
 
                 <div class="project-details__gallery-cont">
                     <h3 class="about__content-title">Preuves</h3>
+
+                    <button class="carousel-btn prev" aria-label="Précédent">&#10094</button>
+                    <button class="carousel-btn next" aria-label="Suivant">&#10095</button>
                     <div class="project-details__gallery gallery-veille">
                         
-                        <!-- WinDev -->
-                        <figure class="gallery__item">
-                            <img 
-                                src="./assets/png/WINDEV.png" 
-                                alt="Capture d'écran de l'environnement de développement WinDev." 
-                                class="gallery__img" 
-                                onclick="openModal('./assets/png/WINDEV.png', 'Interface WinDev : preuve de familiarité avec l\'outil de développement.')"
-                            >
-                            <figcaption class="gallery__caption">Environnement WinDev</figcaption>
-                        </figure>
-                        <figure class="gallery__item">
-                            <img 
-                                src="./assets/png/ProcedureWindev.png" 
-                                alt="Capture d'écran d'une procédure WinDev." 
-                                class="gallery__img" 
-                                onclick="openModal('./assets/png/ProcedureWindev.png', 'Procédure WinDev : structuration du code WLangage.')"
-                            >
-                            <figcaption class="gallery__caption">Procédure WinDev</figcaption>
-                        </figure>
-                        <figure class="gallery__item">
-                            <img 
-                                src="./assets/png/Apercufenetre.png" 
-                                alt="Aperçu d'une fenêtre WinDev." 
-                                class="gallery__img" 
-                                onclick="openModal('./assets/png/Apercufenetre.png', 'Aperçu fenêtre WinDev : conception d\'IHM.')"
-                            >
-                            <figcaption class="gallery__caption">Aperçu fenêtre WinDev</figcaption>
-                        </figure>
-                        <figure class="gallery__item">
-                            <img 
-                                src="./assets/png/hfsql.png" 
-                                alt="Capture d'écran de l'environnement HFSQL." 
-                                class="gallery__img" 
-                                onclick="openModal('./assets/png/hfsql.png', 'Environnement HFSQL : gestion de la base de données intégrée.')"
-                            >
-                            <figcaption class="gallery__caption">Environnement HFSQL</figcaption>
-                        </figure>
-                        <figure class="gallery__item">
-                            <img 
-                                src="./assets/png/HFSQL2.png" 
-                                alt="Capture d'écran HFSQL." 
-                                class="gallery__img" 
-                                onclick="openModal('./assets/png/HFSQL2.png', 'HFSQL : structure des tables financières.')"
-                            >
-                            <figcaption class="gallery__caption">Structure HFSQL</figcaption>
-                        </figure>
-                        <figure class="gallery__item">
-                            <img 
-                                src="./assets/png/pcsoft.png" 
-                                alt="Documentation PC SOFT." 
-                                class="gallery__img" 
-                                onclick="openModal('./assets/png/pcsoft.png', 'Documentation PC SOFT : ressource principale d\'apprentissage WinDev.')"
-                            >
-                            <figcaption class="gallery__caption">Documentation PC SOFT</figcaption>
-                        </figure>
-                        <figure class="gallery__item">
-                            <img 
-                                src="./assets/png/docpcsoftprojet.png" 
-                                alt="Documentation PC SOFT projet." 
-                                class="gallery__img" 
-                                onclick="openModal('./assets/png/docpcsoftprojet.png', 'Documentation PC SOFT : ressources spécifiques au projet.')"
-                            >
-                            <figcaption class="gallery__caption">Documentation PC SOFT</figcaption>
-                        </figure>
-                        <figure class="gallery__item">
-                            <img 
-                                src="./assets/png/feedly1.png" 
-                                alt="Interface Feedly." 
-                                class="gallery__img" 
-                                onclick="openModal('./assets/png/feedly1.png', 'Feedly : veille réglementaire sur la facturation électronique.')"
-                            >
-                            <figcaption class="gallery__caption">Veille Feedly</figcaption>
-                        </figure>
-
                         <!-- Factur-X -->
-                        <figure class="gallery__item">
-                            <img 
-                                src="./assets/png/facturX2.png" 
-                                alt="Extrait de la spécification Factur-X BASIC." 
-                                class="gallery__img" 
-                                onclick="openModal('./assets/png/facturX2.png', 'Spécification Factur-X BASIC : étude des champs obligatoires du profil.')"
-                            >
-                            <figcaption class="gallery__caption">Spec. Factur-X BASIC</figcaption>
-                        </figure>
-                        <figure class="gallery__item">
+                         <figure class="gallery__item">
                             <img 
                                 src="./assets/png/XML.png" 
                                 alt="Extrait du XML Factur-X généré par WinGestion." 
@@ -534,6 +461,15 @@
                                 onclick="openModal('./assets/png/XML.png', 'XML Factur-X BASIC : fichier conforme EN 16931 embarqué dans un PDF/A-3.')"
                             >
                             <figcaption class="gallery__caption">XML Factur-X généré</figcaption>
+                        </figure>
+                        <figure class="gallery__item">
+                            <img 
+                                src="./assets/png/fnfe_validation.png" 
+                                alt="Extrait de la spécification Factur-X BASIC." 
+                                class="gallery__img" 
+                                onclick="openModal('./assets/png/facturX2.png', 'Spécification Factur-X BASIC : étude des champs obligatoires du profil.')"
+                            >
+                            <figcaption class="gallery__caption">Test sur FNFE</figcaption>
                         </figure>
 
                     </div>
@@ -622,13 +558,13 @@
             <h2 class="heading heading-sm main-footer__heading-sm">
               <span>Réseaux sociaux</span>
             </h2>
-             <!-- <a target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/nawel-benbachir-a99296254/">
+             <a target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/nawel-benbachir-a99296254/">
                 <img
                   class="main-footer__icon"
                   src="./assets/png/linkedin-ico.png"
                   alt="icon"
                 />
-              </a> -->
+              </a>
               <a target="_blank" rel="noreferrer" href="https://github.com/Nawelbenbachir">
                 <img
                   class="main-footer__icon"
@@ -640,13 +576,6 @@
           </div>
         </div>
 
-        <!-- If you give me some credit or shoutout here by linking to my website, then it will be a big thing for me and will help me a lot :) -->
-        <!-- <div class="main-footer__lower">
-          &copy; Copyright 2025. Made by
-          <a rel="noreferrer" target="_blank" href="https://rammaheshwari.com"
-            >Ram Maheshwari</a
-          >
-        </div> -->
       </div>
     </footer>
     <div id="myModal" class="modal" onclick="closeModal()">

@@ -68,16 +68,14 @@ $breakpoint arguement choices:
     margin-top: 1rem; /* Espace en mode mobile si nécessaire */
   }
 }
-/* =======================================================
-   CORRECTIF FINAL ULTIME - À METTRE TOUT EN BAS
-   ======================================================= */
+
 .header__main {
     display: flex;
     align-items: center; /* Aligne verticalement le bouton et les liens */
     gap: 1rem; /* Espace entre le bouton et le début de la liste */
 }
 .header__links {
-    display: flex; /* Garde tes liens en ligne */
+    display: flex; 
     align-items: center;
     order: 2;
 }
@@ -100,9 +98,9 @@ $breakpoint arguement choices:
 }
 
 @media only screen and (max-width: 68.75em) { 
-    /* 1. On cible avec body et les deux classes pour être le plus lourd possible */
+    
     body .header__content .header__links {
-        display: none !important; /* CACHE LES LIENS DESKTOP */
+        display: none !important; 
     }
 
     /* 2. On affiche le bouton mobile */
@@ -110,7 +108,7 @@ $breakpoint arguement choices:
         display: block !important;
     }
 
-    /* 3. On force l'alignement pour éviter l'empilement vertical */
+    /* On force l'alignement pour éviter l'empilement vertical */
     body .header__content {
         display: flex !important;
         flex-direction: row !important;
@@ -119,26 +117,26 @@ $breakpoint arguement choices:
         flex-wrap: nowrap !important;
     }
 
-    /* 4. On s'assure que le logo ne prend pas trop de place */
+    /*  On s'assure que le logo ne prend pas trop de place */
     body .header__logo {
         font-size: 1.6rem !important;
         white-space: nowrap !important;
     }
 }
-/* --- CONFIGURATION NAVIGATION MOBILE (Placé au début) --- */
+
 @media only screen and (max-width: 65em) { 
-    /* 1. On cache les liens desktop */
+
     .header__links {
         display: none !important;
 
     }
 
-    /* 2. On affiche le hamburger */
+    /*  On affiche le hamburger */
     .header__main-ham-menu-cont {
         display: block !important;
     }
 
-    /* 3. Force le Header sur une ligne */
+    /* Force le Header sur une ligne */
     .header__content {
         display: flex !important;
         flex-direction: row !important;
@@ -148,7 +146,7 @@ $breakpoint arguement choices:
         height: 8rem !important; /* Hauteur identique à la version PC */
     }
 
-    /* 4. RETOUR À LA POLICE D'ORIGINE */
+    
     .header__logo {
         font-size: 1.8rem !important; /* Ajusté pour tenir sur mobile */
         font-family: "Source Sans Pro", sans-serif !important;
@@ -162,7 +160,7 @@ $breakpoint arguement choices:
         color: #D51066 !important;
     }
 
-    /* 5. STYLE DU MENU DÉROULANT (Comme ta 3ème capture) */
+    
     .header__sm-menu {
         display: none !important; 
         position: absolute !important;
@@ -198,7 +196,7 @@ $breakpoint arguement choices:
     gap: 2rem !important; /* Espace entre le menu et la lune */
 }
 
-/* Le menu hamburger doit être en premier (à gauche de la lune) */
+
 .header__main-ham-menu-cont {
     order: 1 !important;
 }
@@ -208,7 +206,7 @@ $breakpoint arguement choices:
     /* Force le blanc pur et augmente l'éclat */
     filter: invert(1) brightness(100%) !important;
 }
-/* Le bouton de thème doit être en deuxième (à droite du hamburger) */
+
 .theme-toggle {
     order: 1!important;
     display: flex !important;
@@ -224,7 +222,7 @@ $breakpoint arguement choices:
 }
 }
 
-/* --- 2. ÉTAT DESKTOP (PC) --- */
+/* ---  ÉTAT DESKTOP (PC) --- */
 @media only screen and (min-width: 65.01em) {
     .header__links {
         display: flex !important;
@@ -237,19 +235,17 @@ $breakpoint arguement choices:
     }
 }
 
-/* 5. Sécurité pour le menu mobile s'il reste invisible */
+/* Sécurité pour le menu mobile s'il reste invisible */
 .header__sm-menu--active {
     display: block !important;
     visibility: visible !important;
     opacity: 1 !important;
     max-height: 100vh !important;
 }
-/* =======================================================
-   VERSION FINALE PARCOURS : TRAIT + PUCES IDENTIQUES PC
-   ======================================================= */
+
 @media only screen and (max-width: 56.25em) {
 
-    /* 1. On force le conteneur de la ligne */
+    /*  On force le conteneur de la ligne */
     body #parcours .timeline {
         position: relative !important;
         display: block !important;
@@ -257,7 +253,7 @@ $breakpoint arguement choices:
         margin-left: 10px !important;
     }
 
-    /* 2. LE TRAIT ROSE (Timeline line) */
+    /*  LE TRAIT ROSE (Timeline line) */
     body #parcours .timeline::after {
         content: "" !important;
         position: absolute !important;
@@ -271,7 +267,7 @@ $breakpoint arguement choices:
         transform: none !important;
     }
 
-    /* 3. LES BLOCS DE TEXTE (.element) */
+    /*  LES BLOCS DE TEXTE (.element) */
     body #parcours .element {
         width: 100% !important;
         margin: 0 0 30px 0 !important; /* Plus besoin de grosse marge gauche */
@@ -285,7 +281,7 @@ $breakpoint arguement choices:
         width: calc(100% - 40px) !important;
     }
 
-    /* 4. LES PUCES (Exactement comme sur PC) */
+    /*  LES PUCES (Exactement comme sur PC) */
     body #parcours .element i.timeline-icon {
         position: absolute !important;
         /* Calcul pour centrer la puce de 32px sur le trait à 20px */
@@ -427,7 +423,7 @@ textarea {
     /* text-transform: uppercase; */
     letter-spacing: 3px;
     text-align: center;
-    font-weight: 800; /* Assurez-vous que la police est assez épaisse pour voir le dégradé */
+    font-weight: 800; 
     
     /* PROPRIÉTÉS CLÉS POUR LE DÉGRADÉ SUR TEXTE */
     
@@ -541,7 +537,7 @@ section.project-details .main-container__project {
     padding-left: 0;
 }
 
-/* On s'assure que le titre au-dessus est aussi bien calé à gauche */
+
 .project-details__tools-used {
     text-align: left;
     width: 100%;
@@ -580,17 +576,7 @@ section.project-details .main-container__project {
     background: var(--bg-main);
     
 }
-/* Ciblage spécifique du main-container dans la section Veille */
-/* #veille .main-container.section-hidden {
-    opacity: 0;
-    transform: translateY(8vh);
-    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-}
 
-#veille .main-container.section-visible {
-    opacity: 1;
-    transform: translateY(0);
-} */
 .btn {
   background: var(--bg-secondary);
   color: var(--text-main);
@@ -768,7 +754,7 @@ section.project-details .main-container__project {
    display: flex; /* <-- APPLIQUÉ sur le conteneur (le parent) */
    justify-content: center;
    gap: 2rem; /* Espace entre les boutons */
-    /* Assurez-vous que les boutons ne s'étirent pas à l'intérieur */
+  
     align-items: center;
 }
 
@@ -832,7 +818,7 @@ section.project-details .main-container__project {
 }
 
 .entreprise-description {
-    /* --- 1. CONFIGURATION MOBILE (Par défaut) --- */
+    /* CONFIGURATION MOBILE (Par défaut) --- */
     width: 90%;
     margin: 50px auto 30px auto; 
     text-align: center; /* Centré sur mobile pour l'équilibre */
@@ -861,7 +847,7 @@ section.project-details .main-container__project {
     
 }
 
-/* --- 2.3. Style du Conteneur du Logo (Gauche) --- */
+/* ---  Style du Conteneur du Logo (Gauche) --- */
 .entreprise__logo-container {
     flex-shrink: 0; /* Empêche le logo de se réduire */
     width: 150px; /* Taille pour l'alignement */
@@ -912,7 +898,7 @@ section.project-details .main-container__project {
 .section-visible .entreprise__item-bandeau:nth-child(2) {
     transition-delay: 0.2s; /* Commence 0.2s après le premier */
 }
-/* --- 2.4. Style du Bandeau de Contenu (Droite) --- */
+/* --- Style du Bandeau de Contenu (Droite) --- */
 .entreprise__content {
     flex-grow: 1; /* Le bandeau prend tout l'espace restant */
     /* Style neutre */
@@ -963,13 +949,13 @@ section.project-details .main-container__project {
 /* Cible: 2e enfant (.entreprise__edi-bandeau) */
 .section-hidden .entreprise__edi-bandeau {
     opacity: 0;
-    /* On change le sélecteur, mais l'effet de glissement vers le haut reste approprié */
+   
     transform: translateY(-20px); 
 }
 
 /* Masquer et décaler le troisième bandeau (EUROCAP) */
 /* Cible: 3e enfant (.entreprise__item-bandeau) */
-.section-hidden .entreprise__item-bandeau:nth-child(3) { /* <--- CORRECTION ICI : était :nth-child(2) */
+.section-hidden .entreprise__item-bandeau:nth-child(3) { 
     opacity: 0;
     transform: translateX(100px);
 }
@@ -988,8 +974,8 @@ section.project-details .main-container__project {
 
 /* Apparition du bandeau EUROCAP (3e enfant) */
 /* Cible: 3e enfant (.entreprise__item-bandeau) */
-.section-visible .entreprise__item-bandeau:nth-child(3) { /* <--- CORRECTION ICI : était :nth-child(2) */
-    transition-delay: 0.3s; /* Nouveau délai pour apparaître après EDI (0.1s) */
+.section-visible .entreprise__item-bandeau:nth-child(3) { 
+    transition-delay: 0.3s; 
 }
 /* Optionnel : Titre pour le bloc EDI */
 .heading-sec__sub-title {
@@ -1015,7 +1001,7 @@ section.project-details .main-container__project {
     flex: 1 1 100%;
   }
 }
-/* --- 1. MOBILE (Priorité) --- */
+/* --- MOBILE (Priorité) --- */
 .entreprise__item-bandeau {
     display: flex;
     flex-direction: column; /* Empilement vertical obligatoire sur téléphone */
@@ -1031,7 +1017,7 @@ section.project-details .main-container__project {
     flex-shrink: 1;   /* Autorise le logo à rétrécir si besoin */
 }
 
-/* --- 2. TABLETTE / PETIT ÉCRAN --- */
+/* ---  TABLETTE / PETIT ÉCRAN --- */
 @media only screen and (min-width: 48em) { /* Env 768px */
     .entreprise__item-bandeau {
         flex-direction: row; /* Remet côte à côte */
@@ -1040,12 +1026,12 @@ section.project-details .main-container__project {
     }
 }
 
-/* --- 3. GRAND ÉCRAN (PC) --- */
+/* ---  GRAND ÉCRAN (PC) --- */
 @media only screen and (min-width: 62.5em) {
     .entreprise-description {
       margin: 80px auto 40px auto; 
         
-      text-align: center; /* Ou 'left' si tu préfères l'aligner sous le logo */
+      text-align: center; 
       max-width: 800px;   /* On limite la largeur pour la lisibilité */
       font-size: 2rem;
       line-height: 1.8;
@@ -1288,13 +1274,13 @@ section.project-details .main-container__project {
    SCROLL REVEAL (Apparition des Cartes)
    ------------------------------------------------------- */
 
-/* 1. États initiaux (Masqués) */
+/* États initiaux (Masqués) */
 .section-hidden .project__card {
     opacity: 0;
     transform: translateY(30px); 
 }
 
-/* 2. États visibles et Décalage */
+/* États visibles et Décalage */
 .section-visible .project__card {
     opacity: 1;
     transform: translateY(0);
@@ -1338,7 +1324,7 @@ section.project-details .main-container__project {
     /* Fond simple pour voir les bulles (similaire à home-hero) */
     background: var(--bg-main); 
     
-    /* Assurez-vous que la section couvre au moins un écran si le contenu est court */
+    
     min-height: 100vh;
     
     /* Le 'position: relative' est crucial pour positionner les bulles (enfants absolus) */
@@ -1461,27 +1447,27 @@ section.project-details .main-container__project {
 
 @media only screen and (max-width: 600px) {
     
-    /* 1. On réduit le padding interne qui étouffait le contenu */
+   
     .contact__form-container {
         padding: 1.5rem !important; /* On divise par 2 le padding de 3rem */
         width: 100% !important;
         box-sizing: border-box !important;
     }
 
-    /* 2. On ajoute une marge de sécurité à la section globale */
+    /*On ajoute une marge de sécurité à la section globale */
     .contact {
         padding-left: 15px !important;
         padding-right: 15px !important;
         box-sizing: border-box !important;
     }
 
-    /* 3. On s'assure que les champs ne débordent pas */
+    /* On s'assure que les champs ne débordent pas */
     .contact__form-input {
-        padding: 1.5rem !important; /* Un peu moins haut pour gagner de la place */
+        padding: 1.5rem !important; 
         font-size: 1.4rem !important;
     }
 
-    /* 4. On ajuste le texte d'introduction (souvent dans .main-container) */
+    /*  On ajuste le texte d'introduction (souvent dans .main-container) */
     .main-container {
         padding: 0 10px !important;
     }
@@ -1490,8 +1476,7 @@ section.project-details .main-container__project {
 .project-cs-hero {
   color: var(--bg-main);
   background: var(--bg-main); 
- /* On peut aussi utiliser 'background-color: white;' si le body n'a pas le fond */
-
+ 
  /* On garde les autres propriétés qui gèrent la mise en page */
    background-size: cover;
   background-position: center;
@@ -1565,11 +1550,10 @@ section.project-details .main-container__project {
     color: var(--bg-secondary);
     border: 2px solid var(--primary-color); 
 
-    /* FORCER LE SOULÈVEMENT VISIBLE */
-    /* Utilisez des valeurs extrêmes pour le test : -10px de soulèvement et léger grossissement */
+   
     transform: translateY(-10px) scale(1.05); 
     
-    /* Rendre l'ombre très visible pour le test */
+    
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
@@ -1579,24 +1563,34 @@ section.project-details .main-container__project {
     box-shadow: 0 3px 10px rgba(213, 16, 102, 0.3);
 }
 /* ---------------------------------------------------- */
-/* 2. Styles de la Galerie d'Images */
+/*  Styles de la Galerie d'Images */
 /* ---------------------------------------------------- */
 .project-details__gallery-cont {
-    padding: 8rem 0; /* Espacement du conteneur principal */
+    padding: 4rem 0; /* Espacement du conteneur principal */
     max-width: 90rem;
-    /* margin: auto; */
+    position :relative;
+    overflow: hidden; 
+    /* empêche les images de déborder sur le site */
 }
 
 .project-details__gallery {
-    display: grid;
-    /* Crée une grille de 3 ou 4 colonnes, ajustables */
-    grid-template-columns: repeat(4, 1fr);
-    /* grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); */
+    display: flex;
+    overflow-x: auto; 
+    /* permet de défilement horizontal */
+    scroll-behavior: smooth;
+    scroll-snap-type:x mandatory;
+    /* pr que l'image se cale au centre */
     gap: 20px; /* Espace entre les vignettes */
     margin-top: 30px;
 }
 
+.project-details__gallery::-webkit-scrollbar {
+    display: none; 
+    /* cache la bar sur chrome/safari */
+}   
 .gallery__item {
+    flex :0 0 100%;
+    scroll-snap-align: start;
     cursor: pointer;
     overflow: hidden;
     border-radius: 8px;
@@ -1613,23 +1607,47 @@ section.project-details .main-container__project {
 
 .gallery__img {
     width: 100%;
-    height: 150px; /* Hauteur fixe pour les vignettes */
-    object-fit: cover; /* Assure que l'image couvre la zone sans déformation */
+    height: 400px; /* Hauteur fixe pour les vignettes */
+    object-fit: contain; /* Assure que l'image couvre la zone sans déformation */
+    background-color: var(--bg-main);
     display: block;
 }
 
 .gallery__caption {
-    padding: 10px;
+    padding: 15px;
     text-align: center;
     font-size: 1.4rem;
     color: var(--text-sub);
     background: var(--bg-main);
     font-weight: 600;
 }
+.carousel-btn{
+    position : absolute;
+    top :50%;
+    transform: translateY(-50%);
+    background-color:var(--bg-main);
+    color: var(--primary-color);
+    border :none;
+    font-size :24px;
+    padding: 12px;
+    cursor:pointer;
+    z-index:5;
+    border-radius:50%;
+    transition: background-color 0.3s;
+}
 
+.carousel-btn:hover{
+    background-color:var(--bg-secondary);
+}
 
+.carousel-btn.prev{
+    left:10px;
+}
+.carousel-btn.next{
+    right:10px;
+}
 /* ---------------------------------------------------- */
-/* 3. Styles du Modal (Fenêtre Pop-up) */
+/* Styles du Modal (Fenêtre Pop-up) */
 /* ---------------------------------------------------- */
 .modal.is-open {
     display: flex; 
@@ -1655,7 +1673,7 @@ body.modal-open .section-visible {
     /* justify-content: center; 
     align-items: center;  */
     
-    z-index: 2000; /* Assurez-vous qu'il est au-dessus de tout */
+    z-index: 2000; 
     background-color: rgba(0,0,0,0.9);
 }
 #modalImage {

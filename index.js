@@ -5,6 +5,10 @@
 var modal = document.getElementById("myModal");
 var modalImg = document.getElementById("modalImage");
 var captionText = document.getElementById("caption");
+var carousel = document.querySelector(".gallery-veille")
+var btnPrev= document.querySelector(".carousel-btn.prev")
+var btnNext= document.querySelector(".carousel-btn.next")
+
 
 
 let lastScrollPosition = 0;
@@ -99,7 +103,7 @@ document.addEventListener('keydown', function(event) {
     }
 });
 // =======================================================
-// 2. LOGIQUE PRINCIPALE AU CHARGEMENT DU DOCUMENT
+// LOGIQUE PRINCIPALE AU CHARGEMENT DU DOCUMENT
 // =======================================================
 document.addEventListener("DOMContentLoaded", () => {
     
@@ -114,18 +118,18 @@ document.addEventListener("DOMContentLoaded", () => {
     // ----------------------------------------------------
     const allSections = document.querySelectorAll('.section-hidden');
     
-    // Modifie la fonction principale pour lancer l'Observer enfant après révélation
+    
     const revealSection = function (entries, observer) {
         const [entry] = entries;
         if (!entry.isIntersecting) return;
         
-        //  Révélation de la section parente
+        
         entry.target.classList.remove('section-hidden');
         entry.target.classList.add('section-visible');
         
         observer.unobserve(entry.target);
 
-        // 2. LOGIQUE DE L'OBSERVER ENFANT (Pour la section #veille uniquement)
+        //  LOGIQUE DE L'OBSERVER ENFANT (Pour la section #veille uniquement)
         if (entry.target.id === 'veille') {
             const visualContainer = entry.target.querySelector('.about__visual-container');
             
@@ -247,11 +251,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 // =======================================================
-// 3. LOGIQUE DE NAVIGATION
+// LOGIQUE DE NAVIGATION
 // (Gérer les liens d'ancres et le menu Hamburger)
 // =======================================================
 
-// --- Navigation Desktop ---
+
 const headerDesktopLinks = document.querySelectorAll('.header__link-wrapper a');
 headerDesktopLinks.forEach(link => {
     link.addEventListener('click', (e) => {
@@ -331,7 +335,12 @@ function updateIcons(theme) {
         moonIcon.style.display = 'block';
     }
 }
-
+btnNext.addEventListener("click",() =>{
+    carousel.scrollBy({left: carousel.offsetWidth,behavior:'smooth'})
+})
+btnPrev.addEventListener("click",() =>{
+    carousel.scrollBy({left:-carousel.offsetWidth,behavior:'smooth'})
+})
 //  Charger le thème sauvegardé au démarrage
 const savedTheme = localStorage.getItem('theme') || 'light';
 htmlElement.setAttribute('data-theme', savedTheme);
@@ -348,3 +357,4 @@ toggleBtn.addEventListener('click', () => {
     // Mettre à jour l'icône après le clic
     updateIcons(newTheme);
 });
+
