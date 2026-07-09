@@ -20,6 +20,7 @@ $breakpoint arguement choices:
   --heading-main: #111111;
   --white: #ffffff;
   --primary-color: #B86B6F; 
+  --timeline-color:#D9C3C4;
 }
 
 /* Mode Sombre (les couleurs qui vont s'appliquer) */
@@ -30,6 +31,7 @@ $breakpoint arguement choices:
   --text-sub: #bbbbbb;      /* Texte secondaire gris clair */
   --heading-main: #ffffff;  /* Titres blancs */
   --white: #1a1a1a;         /* Pour les éléments qui étaient blancs */
+   --timeline-color:rgba(255,255,255,0.12);
 }
 
 .theme-toggle {
@@ -243,86 +245,7 @@ $breakpoint arguement choices:
     max-height: 100vh !important;
 }
 
-@media only screen and (max-width: 56.25em) {
 
-    /*  On force le conteneur de la ligne */
-    body #parcours .timeline {
-        position: relative !important;
-        display: block !important;
-        padding-left: 40px !important; /* Espace pour le trait */
-        margin-left: 10px !important;
-    }
-
-    /*  LE TRAIT ROSE (Timeline line) */
-    body #parcours .timeline::after {
-        content: "" !important;
-        position: absolute !important;
-        top: 0 !important;
-        bottom: 0 !important;
-        left: 20px !important; /* Aligné avec les puces */
-        width: 4px !important;
-        background-color: var(--primary-color) !important;
-        z-index: 1 !important;
-        display: block !important;
-        transform: none !important;
-    }
-
-    /*  LES BLOCS DE TEXTE (.element) */
-    body #parcours .element {
-        width: 100% !important;
-        margin: 0 0 30px 0 !important; /* Plus besoin de grosse marge gauche */
-        padding: 20px !important;
-        position: relative !important;
-        background: var(--bg-main) !important;
-        border-radius: 10px !important;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05) !important;
-        display: block !important;
-        left: 20px !important; /* Décale le bloc par rapport au trait */
-        width: calc(100% - 40px) !important;
-    }
-
-    /*  LES PUCES (Exactement comme sur PC) */
-    body #parcours .element i.timeline-icon {
-        position: absolute !important;
-        /* Calcul pour centrer la puce de 32px sur le trait à 20px */
-        /* Le trait est à -20px du bord du bloc .element */
-        left: -34px !important; 
-        top: 25px !important;
-        
-        width: 32px !important;
-        height: 32px !important;
-        min-width: 32px !important;
-        min-height: 32px !important;
-        
-        background-color: var(--bg-main) !important;
-        border: 4px solid var(--primary-color) !important;
-        border-radius: 50% !important;
-        color: var(--primary-color) !important;
-        
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-        z-index: 10 !important;
-        font-size: 0.9rem !important;
-        transform: none !important;
-    }
-
-/* On neutralise tout contenu textuel ou icône FontAwesome */
-body #parcours .element i.timeline-icon {
-    content: none !important;
-    font-size: 0 !important;
-    line-height: 0 !important;
-    color: transparent !important;
-}
-
-/* On force la disparition des pseudo-éléments */
-body #parcours .element i.timeline-icon::before,
-body #parcours .element i.timeline-icon::after {
-    display: none !important;
-    content: "" !important;
-    visibility: hidden !important;
-}
-}
 
 
 
@@ -2334,7 +2257,7 @@ body .timeline-block {
     min-width: 320px !important;
 }
 
-/* 1. La ligne rose (bien espacée du titre) */
+
 body .timeline {
     position: relative !important;
     padding-top: 20px !important;
@@ -2346,12 +2269,12 @@ body .timeline::after {
     top: 20px !important; 
     bottom: 0 !important;
     left: 20px !important;
-    width: 4px !important;
-    background: var(--primary-color) !important;
+    width: 2px !important;
+    background: var(--timeline-color) !important;
     z-index: 1 !important;
 }
 
-/* 2. Les blocs d'expérience (Cartes) */
+/*Les blocs d'expérience (Cartes) */
 body .element.gauche, 
 body .element.droite {
     width: calc(100% - 75px) !important;
@@ -2359,52 +2282,49 @@ body .element.droite {
     padding: 25px !important;
     background: var(--bg-main) !important;
     border-radius: 12px !important;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.08) !important;
+    box-shadow: 0 10px 30px var(--text-main) !important;
     position: relative !important;
     left: 0 !important;
     display: block !important;
     visibility: visible !important;
     opacity: 1 !important;
+    z-index :2;
 }
 
 body #parcours .element i.timeline-icon {
     position: absolute !important;
-    left: -40px !important; /* Ton réglage de position */
+    left: -55px !important; 
     top: 25px !important;
     
     /* Taille du cercle extérieur */
-    width: 32px !important;
-    height: 32px !important;
-    min-width: 32px !important;
-    min-height: 32px !important;
+    width: 25px !important;
+    height: 25px !important;
+   
     
-    background-color: var(--bg-main)!important;
-    border: 4px solid var(--primary-color) !important;
-    border-radius: 50% !important; /* Force le cercle parfait */
-    
-    /* Centrage parfait du point au milieu */
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    
+    background-color: var(--primary-color)!important;
+    border: 3px solid rgba(255,255,255,0.12) !important;
+    border-radius: 50% !important; 
+    box-shadow: 
+        0 2px 5px rgba(184,107,111,0.2) !important;
+    display : block !important;
     z-index: 10 !important;
     transform: none !important;
-    box-sizing: border-box !important; /* Important pour que la bordure ne déforme pas le rond */
+    box-sizing: border-box !important; 
 }
 
- /* Le point au centre (on utilise le caractère Unicode pour plus de stabilité) */
+
 body #parcours .element i.timeline-icon::before {
-    content: "" !important; /* Point plein FontAwesome */
-    font-family: "Font Awesome 6 Free" !important;
-    font-weight: 900 !important;
-    color: #B86B6F !important;
-    
-    /* On réduit la taille du point au centre pour qu'il soit comme sur ta photo 1 */
-    font-size: 0.8rem !important; 
-    display: block !important;
-    line-height: 1 !important;
+    content: "" !important; 
+    position : absolute !important;
+    display: none !important;
+    width: 10px !important;
+    height : 10px !important;
+    background: #B86B6F !important;
+    border-radius:50% !important;
 } 
-/* 4. TAILLE DU TEXTE (Agrandie) */
+body .element {
+    transition: transform 0.3s ease, border-color 0.3s ease !important;
+}
 body .element p {
     font-size: 1.6rem !important;
     line-height: 1.6 !important;
@@ -2423,32 +2343,51 @@ body .list-timeline li {
     color: var(--text-sub) !important;
 }
 
-/* =======================================================
-   ADAPTATION MOBILE (Écrans < 900px)
-   ======================================================= */
-@media only screen and (max-width: 56.25em) {
-    body .timelines-wrapper {
-        display: block !important; /* Empile les blocs Pro et Scolaire */
-    }
-
-    body .timeline-block {
-        width: 100% !important;
-        margin-bottom: 4rem !important;
-    }
-
-    body .element.gauche, 
-    body .element.droite {
-        width: calc(100% - 60px) !important; /* Un peu plus large sur mobile */
-        margin-left: 55px !important;
-    }
-
-    body .element .timeline-icon {
-        left: -48px !important; /* Ré-ajustement léger pour mobile */
-    }
+body .element:hover{
+    transform : translateX(5px) !important;
+    border-left : 3px solid #B86B6F;
 }
-/* ============================================== */
-/* === 4. Styles d'Animation (Déclencheur JS) === */
-/* ============================================== */
+@media only screen and (max-width: 56.25em) {
+
+    /*  On force le conteneur de la ligne */
+    body #parcours .timeline {
+        position: relative !important;
+        display: block !important;
+        padding-left: 40px !important; /* Espace pour le trait */
+        margin-left: 10px !important;
+    }
+
+    /*  LE TRAIT ROSE (Timeline line) */
+    body #parcours .timeline::after {
+        content: "" !important;
+        position: absolute !important;
+        top: 0 !important;
+        bottom: 0 !important;
+        left: 20px !important; /* Aligné avec les puces */
+        width: 4px !important;
+        background-color: var(--timeline-color) !important;
+        z-index: 1 !important;
+        display: block !important;
+        transform: none !important;
+    }
+
+    /*  LES BLOCS DE TEXTE (.element) */
+    body #parcours .element {
+        width: 100% !important;
+        margin: 0 0 30px 0 !important; /* Plus besoin de grosse marge gauche */
+        padding: 20px !important;
+        position: relative !important;
+        background: var(--bg-main) !important;
+        border-radius: 10px !important;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05) !important;
+        display: block !important;
+        left: 20px !important; /* Décale le bloc par rapport au trait */
+        width: calc(100% - 40px) !important;
+    }
+
+    
+}
+
 
 /* Masquer les éléments (position de DÉPART) tant que le parent est caché (section-hidden) */
 .section-hidden .timeline .element {
@@ -2499,22 +2438,22 @@ body .list-timeline li {
     width: 100%; /* Prend toute la largeur du li parent */
     height: auto; 
     /* Définit une taille maximale si l'image est trop grande */
-    max-width: 80px; /* Ajustez la taille selon l'esthétique souhaitée */
+    max-width: 80px; 
     max-height: 80px;
     filter: invert(10%) sepia(90%) saturate(7000%) hue-rotate(315deg) brightness(80%) contrast(150%);
 }
-/* 1. Conteneur des bulles */
+/*  Conteneur des bulles */
 .circles {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    overflow: hidden; /* Cache les bulles lorsqu'elles dépassent les bords */
+    overflow: hidden; 
     z-index: 0; 
 }
 
-/* 2. Style de chaque bulle (li) */
+/*  Style de chaque bulle (li) */
 .circles li {
     position: absolute;
     display: block;
@@ -2527,7 +2466,7 @@ body .list-timeline li {
     animation: animate 25s linear infinite; 
     bottom: -150px; /* Commence hors de l'écran */
 }
-/* En Dark Mode, on peut augmenter un peu l'opacité pour qu'elles ressortent */
+
 [data-theme="dark"] .circles li {
     background: rgba(184, 107, 111, 0.4); 
 }
