@@ -481,7 +481,7 @@ section.project-details .main-container__project {
     background: var(--bg-main);
 }
 #parcours .main-container {
-    max-width: 2100px; 
+    max-width: 1200px; 
 }
 #projects .main-container {
     background:var(--bg-main);
@@ -489,16 +489,7 @@ section.project-details .main-container__project {
 
 
 
-.main-container.entreprise {
-   display: flex;
-    flex-direction: column;
-    gap: 30px;
-    width: 90%;          /* Utilise 90% de l'espace disponible */
-    max-width: 1100px;   /* Mais ne dépasse jamais 1100px */
-    margin: 40px auto;
-    background: var(--bg-main);
-    
-}
+
 
 .btn {
   background: var(--bg-secondary);
@@ -728,243 +719,11 @@ section.project-details .main-container__project {
         font-size: 1.8rem;
     }
 }
-[data-theme="dark"] #entreprise,
-[data-theme="dark"] .section-banner,
-[data-theme="dark"] .entreprise-description {
+
+[data-theme="dark"] .section-banner
+ {
     background-color: var(--bg-main);
     color: var(--text-main);
-}
-
-/* Les textes dans les bandeaux d'entreprise */
-[data-theme="dark"] .entreprise__content-details-para {
-    color: var(--text-sub);
-}
-
-.entreprise-description {
-    /* CONFIGURATION MOBILE (Par défaut) --- */
-    width: 90%;
-    margin: 50px auto 30px auto; 
-    text-align: center; /* Centré sur mobile pour l'équilibre */
-    padding: 0 15px;
-    color: var(--text-sub);
-    font-size: 1.8rem;
-    line-height: 1.6;
-}
-
-
-
-  /*Conteneur flex pour disposer les blocs côte à côte*/
-  #entreprise .main-container  {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-  justify-content: space-between;
-}
-
-.entreprise__item-bandeau {
-    display: flex;
-    align-items: center; /* Centrage vertical du logo et du contenu */
-    gap: 30px; /* Espace entre le logo et le bandeau */
-    padding: 10px 0; 
-    
-    
-}
-
-/* ---  Style du Conteneur du Logo (Gauche) --- */
-.entreprise__logo-container {
-    flex-shrink: 0; /* Empêche le logo de se réduire */
-    width: 150px; /* Taille pour l'alignement */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: transform 0.3s ease-out, box-shadow 0.3s;
-   
-}
-.entreprise__logo-container:hover {
-    transform: translateY(-5px); /* Se soulève */
-    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1); /* Ajout d'une ombre */
-    cursor: pointer;
-}
-
-/* --- Effet Hover pour le Bandeau de Contenu --- */
-.entreprise__content:hover {
-    transform: translateY(-5px); /* Se soulève */
-    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15); /* Ajout d'une ombre plus marquée */
-}
-.entreprise__logo-container .section-banner__img-content {
-    max-width: 100%;
-    max-height: 100px; /* Agrandissement des logos */
-    height: auto;
-    filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.1)); /* Légère ombre pour le logo */
-}
-.section-hidden .entreprise__item-bandeau:nth-child(1) {
-    opacity: 0;
-    transform: translateX(-100px);
-}
-
-/* Masquer et décaler le deuxième bandeau (EUROCAP) */
-.section-hidden .entreprise__item-bandeau:nth-child(2) {
-    opacity: 0;
-    transform: translateX(100px);
-}
-
-
-/* --- 3.2. État Final (Visible) --- */
-.section-visible .entreprise__item-bandeau {
-    opacity: 1;
-    transform: translateX(0);
-    /* Transition de base pour tous les bandeaux */
-    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-}
-
-/* Ajout d'un décalage temporel pour le deuxième bandeau (effet de staggering) */
-.section-visible .entreprise__item-bandeau:nth-child(2) {
-    transition-delay: 0.2s; /* Commence 0.2s après le premier */
-}
-/* --- Style du Bandeau de Contenu (Droite) --- */
-.entreprise__content {
-    flex-grow: 1; /* Le bandeau prend tout l'espace restant */
-    /* Style neutre */
-    background-color: var(--bg-secondary); /* Fond blanc */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Ombre subtile */
-    color: var(--text-main); 
-    padding: 20px;
-    border-radius: 8px;
-    /* Effet Hover et Transition */
-     transition: transform 0.3s ease-out, box-shadow 0.3s;
-     font-size: 1.1rem;
-}
-.entreprise__content-details-para {
-    /* Taille actuelle (probablement 1rem ou moins) */
-    font-size: 1.5rem; 
-    line-height: 1.6; /* Assurer un bon espacement pour la lecture */
-    color: var(--text-main); /* Rendre le texte bien visible */
-    margin-bottom: 10px; /* Ajout d'un espacement entre les paragraphes si nécessaire */
-}
-
-/* --- Style Spécifique pour le Bloc EDI Centré --- */
-.entreprise__edi-bandeau {
-    /* Assure que l'élément prend 100% de la largeur du .main-container */
-    width: 100%;
-    margin: 40px 0; /* Ajoute de l'espace au-dessus et en dessous */
-}
-
-.entreprise__edi-content {
-    /* Hérite du style du .entreprise__content (ombre, padding) */
-    /* On s'assure qu'il n'y a pas de flexbox ici si ce n'est pas nécessaire */
-    max-width: 100%; /* S'assure que le contenu remplisse son parent .main-container */
-}
-
-/* Ajustement de la taille de la police pour ce bloc */
-.edi-details {
-    font-size: 1.5rem; /* Plus lisible qu'un 1.5rem géant pour un texte dense */
-    line-height: 1.7;
-    margin-top: 15px;
-}
-/* Masquer et décaler le premier bandeau (APICOMTAT) */
-/* Cible: 1er enfant (.entreprise__item-bandeau) */
-.section-hidden .entreprise__item-bandeau:nth-child(1) {
-    opacity: 0;
-    transform: translateX(-100px);
-}
-
-/* Masquer le bloc EDI (MAINTENANT 2e ENFANT) */
-/* Cible: 2e enfant (.entreprise__edi-bandeau) */
-.section-hidden .entreprise__edi-bandeau {
-    opacity: 0;
-   
-    transform: translateY(-20px); 
-}
-
-/* Masquer et décaler le troisième bandeau (EUROCAP) */
-/* Cible: 3e enfant (.entreprise__item-bandeau) */
-.section-hidden .entreprise__item-bandeau:nth-child(3) { 
-    opacity: 0;
-    transform: translateX(100px);
-}
-
-
-/* --- État Final (Visible) --- */
-
-/* Apparition du bloc EDI (2e enfant) */
-/* Cible: 2e enfant (.entreprise__edi-bandeau) */
-.section-visible .entreprise__edi-bandeau {
-    opacity: 1;
-    transform: translateY(0);
-    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-    transition-delay: 0.1s; /* Apparaît après le 1er bandeau */
-}
-
-/* Apparition du bandeau EUROCAP (3e enfant) */
-/* Cible: 3e enfant (.entreprise__item-bandeau) */
-.section-visible .entreprise__item-bandeau:nth-child(3) { 
-    transition-delay: 0.3s; 
-}
-/* Optionnel : Titre pour le bloc EDI */
-.heading-sec__sub-title {
-    font-size: 1.5rem;
-    color: var(--text-main); /* Utilisez la couleur de votre choix */
-    margin-bottom: 10px;
-    font-weight: 700;
-}
-/* Logos internes */
-.section-banner__img-content {
-  max-height: 80px; /* Logos un peu plus grands */
-  margin-bottom: 2rem;
-  margin-top: 1rem;
- } 
-
- /* Responsive */
-@media (max-width: 900px) {
-  .main-container.entreprise {
-    flex-direction: column;
-  }
-
-  .entreprise__content {
-    flex: 1 1 100%;
-  }
-}
-/* --- MOBILE (Priorité) --- */
-.entreprise__item-bandeau {
-    display: flex;
-    flex-direction: column; /* Empilement vertical obligatoire sur téléphone */
-    align-items: center;
-    gap: 15px;
-    padding: 10px;
-    width: 100%; /* S'assure de ne pas dépasser */
-}
-
-.entreprise__logo-container {
-    width: auto;      /* Laisse le container s'adapter */
-    max-width: 120px; /* Réduit un peu le logo sur mobile */
-    flex-shrink: 1;   /* Autorise le logo à rétrécir si besoin */
-}
-
-/* ---  TABLETTE / PETIT ÉCRAN --- */
-@media only screen and (min-width: 48em) { /* Env 768px */
-    .entreprise__item-bandeau {
-        flex-direction: row; /* Remet côte à côte */
-        align-items: flex-start;
-        text-align: left;
-    }
-}
-
-/* ---  GRAND ÉCRAN (PC) --- */
-@media only screen and (min-width: 62.5em) {
-    .entreprise-description {
-      margin: 80px auto 40px auto; 
-        
-      text-align: center; 
-      max-width: 800px;   /* On limite la largeur pour la lisibilité */
-      font-size: 2rem;
-      line-height: 1.8;
-    }
-    /* Aligner les bandeaux (Apicomtat / Eurocap) */
-    .entreprise__item-bandeau {
-        max-width: 1000px;  /* Largeur max du bloc pour éviter qu'il s'étale trop */
-        margin: 0 auto;     /* Centre le bloc entier dans la page */
-        justify-content: center;
-    }
 }
 
 
@@ -987,11 +746,10 @@ section.project-details .main-container__project {
         .about__content-title {
           font-size: 2.4rem; } }
     .about__content-details {
-    /* Taille de police standard pour le corps de texte. Ajustez selon votre design. */
+    
     font-size: 1.8rem; 
     line-height: 1.6; /* Améliore la lisibilité des longs textes */ 
     color: var(--text-sub);
-    /*color: var(--clr-dark-2);  Utilisez la couleur de texte principale de votre thème */
     margin-bottom: 2rem;
 }
     .about__content-details-para {
@@ -1018,7 +776,7 @@ section.project-details .main-container__project {
   border-radius: 10px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
-/* Note l'espace entre l'ID et la classe + les deux tirets __ */
+
 #veille .about__content {
     background: transparent !important;
     border-radius: 0 !important;
