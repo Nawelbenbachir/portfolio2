@@ -21,6 +21,7 @@ $breakpoint arguement choices:
   --white: #ffffff;
   --primary-color: #B86B6F; 
   --timeline-color:#D9C3C4;
+  --circles-color : rgba(168,85,90,0.22)
 }
 
 /* Mode Sombre (les couleurs qui vont s'appliquer) */
@@ -31,7 +32,8 @@ $breakpoint arguement choices:
   --text-sub: #bbbbbb;      /* Texte secondaire gris clair */
   --heading-main: #ffffff;  /* Titres blancs */
   --white: #1a1a1a;         /* Pour les éléments qui étaient blancs */
-   --timeline-color:rgba(255,255,255,0.12);
+  --timeline-color:rgba(255,255,255,0.12);
+  --circles-color : rgba(184, 107, 111, 0.4)
 }
 
 .theme-toggle {
@@ -293,8 +295,18 @@ body, html {
     filter: none !important;
     perspective: none !important;
 }
+body > section {
+    margin-bottom: 6rem;
+}
+body > section:last-of-type{
+    margin-bottom:0;
+}
+.home-hero{
+    margin-bottom: 6rem;
+}
 section {
     transition: all 0.8s ease-out; 
+    background: transparent !important;
 }
 .section-hidden {
   opacity: 0;
@@ -441,7 +453,8 @@ textarea {
   letter-spacing: 1px; }
 
 .main-container {
-  max-width: 130rem;
+  padding : 20px;
+  max-width: 150rem;
   margin: auto;
   width: 100%;
   background:var(--bg-secondary);
@@ -480,12 +493,12 @@ section.project-details .main-container__project {
 #contact .main-container {
     background: var(--bg-main);
 }
-#projects .main-container {
+/* #projects .main-container {
     background:var(--bg-main);
 }
 #veille .main-container {
     background:var(--bg-secondary);
-}
+} */
 
 
 
@@ -892,7 +905,7 @@ section.project-details .main-container__project {
    CARTE DE PROJET INDIVIDUELLE
    ------------------------------------------------------- */
 .project__card {
-    background: var(--bg-secondary);
+    background: var(--bg-main);
     padding: 30px;
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
@@ -1143,7 +1156,7 @@ section.project-details .main-container__project {
     }
 
     .main-container {
-        padding: 0 10px !important;
+        padding: 0 5px !important;
        
     }
 }
@@ -1687,7 +1700,7 @@ body.modal-open .section-visible {
 } 
 
 .main-footer {
-  background: var(--bg-secondary);
+  background: var(--bg-secondary)!important;
   color: var(--text-main); }
   .main-footer__upper {
     display: flex;
@@ -2194,35 +2207,29 @@ body .element:hover{
     max-height: 80px;
     filter: invert(10%) sepia(90%) saturate(7000%) hue-rotate(315deg) brightness(80%) contrast(150%);
 }
-/*  Conteneur des bulles */
-.circles {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden; 
-    z-index: 0; 
-}
+
 
 /*  Style de chaque bulle (li) */
 .circles li {
-    position: absolute;
+    position: fixed;
     display: block;
     list-style:circle;
-    /* border-radius: 100%; */
-    
-   
-    background: rgba(184, 107, 111, 0.15); /* Rose avec une transparence légère */
-    
+    background: var(--circles-color); /* Rose avec une transparence légère */
     /* Animation: L'effet de flottement */
     animation: animate 25s linear infinite; 
     bottom: -150px; /* Commence hors de l'écran */
 }
 
-[data-theme="dark"] .circles li {
-    background: rgba(184, 107, 111, 0.4); 
+.circles.circles--global{
+    position:fixed;
+    inset:0;
+    width: 100%;
+    height: 100vh;
+    z-index:0;
+    pointer-events: none;
 }
+
+
 .circles li:nth-child(1){
     left: 25%;
     width: 80px;
