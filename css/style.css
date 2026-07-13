@@ -441,7 +441,7 @@ textarea {
   letter-spacing: 1px; }
 
 .main-container {
-  max-width: 120rem;
+  max-width: 130rem;
   margin: auto;
   width: 100%;
   background:var(--bg-secondary);
@@ -480,11 +480,11 @@ section.project-details .main-container__project {
 #contact .main-container {
     background: var(--bg-main);
 }
-#parcours .main-container {
-    max-width: 1200px; 
-}
 #projects .main-container {
     background:var(--bg-main);
+}
+#veille .main-container {
+    background:var(--bg-secondary);
 }
 
 
@@ -728,7 +728,7 @@ section.project-details .main-container__project {
 
 
  .about {
-  background: var(--bg-secondary); }
+  background: var(--bg-main); }
   .about__content {
     display: grid;
     grid-template-columns: 1fr; 
@@ -1005,13 +1005,10 @@ section.project-details .main-container__project {
     /* Fond simple pour voir les bulles (similaire à home-hero) */
     background: var(--bg-main); 
     
-    
     min-height: 100vh;
     
-    /* Le 'position: relative' est crucial pour positionner les bulles (enfants absolus) */
     position: relative; 
     
-    /* S'assurer que le contenu du formulaire a un z-index plus haut */
     z-index: 1; 
   }
 
@@ -1019,7 +1016,9 @@ section.project-details .main-container__project {
   .contact__form-container {
     background: var(--bg-main);
       position: relative;
-      z-index: 2; /* Plus haut que les bulles (z-index: 0) */
+      z-index: 2; 
+      width :80%;
+      margin : 0 auto;
   }
     @media only screen and (max-width: 37.5em) {
       .contact__form-container {
@@ -1041,18 +1040,13 @@ section.project-details .main-container__project {
     color: var(--text-main);
     padding: 2rem;
     width: 100%;
+   
     border: 1px solid var(--bg-secondary);
     font-size: 1.6rem;
     letter-spacing: 0px;
     background: var(--bg-secondary);
     border-radius: 5px;
-    font-weight: 600;
-    /* Code for Modern Browsers */
-    /* Code for WebKit, Blink, Edge */
-    /* Code for Internet Explorer 10-11 */
-    /* Code for Microsoft Edge */
-    /* Code for Mozilla Firefox 4 to 18 */
-    /* Code for Mozilla Firefox 19+ */ }
+    font-weight: 600; }
     .contact__form-input::placeholder {
       color: var(--text-sub);
       font-weight: 600;
@@ -1148,9 +1142,9 @@ section.project-details .main-container__project {
         font-size: 1.4rem !important;
     }
 
-    /*  On ajuste le texte d'introduction (souvent dans .main-container) */
     .main-container {
         padding: 0 10px !important;
+       
     }
 }
 
@@ -1290,7 +1284,7 @@ section.project-details .main-container__project {
     width: 100%;
     height: 400px; /* Hauteur fixe pour les vignettes */
     object-fit: contain; /* Assure que l'image couvre la zone sans déformation */
-    background-color: var(--bg-main);
+    background-color: var(--bg-secondary);
     display: block;
 }
 
