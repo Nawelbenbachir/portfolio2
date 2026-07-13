@@ -1701,7 +1701,8 @@ body.modal-open .section-visible {
 
 .main-footer {
   background: var(--bg-secondary)!important;
-  color: var(--text-main); }
+  color: var(--text-main);
+  position : relative; }
   .main-footer__upper {
     display: flex;
     justify-content: space-between;
@@ -1761,20 +1762,13 @@ body.modal-open .section-visible {
     background: var(--bg-main) !important;
 }
 
-/* IMPORTANT : On force tous les enfants à être transparents */
-/* pour que le noir du footer soit visible derrière eux */
-.main-footer.footer-black .main-container,
-.main-footer.footer-black .main-container__project,
-.main-footer.footer-black .main-footer__upper {
-    background-color: transparent !important;
-    background: transparent !important;
-    border: none !important;
-}
+
+
 .main-footer.footer-black { background: var(--bg-main) !important; }
 
 
 /* =======================================================
-   4. MISE EN PAGE des GROUPES de COMPÉTENCES
+    MISE EN PAGE des GROUPES de COMPÉTENCES
    ======================================================= */
 
 /* Conteneur global pour espacer les groupes */
