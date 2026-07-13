@@ -2374,7 +2374,7 @@ body .element:hover{
     /*  LES BLOCS DE TEXTE (.element) */
     body #parcours .element {
         width: 100% !important;
-        margin: 0 0 30px 0 !important; /* Plus besoin de grosse marge gauche */
+        margin: 0 0 30px 0 !important; 
         padding: 20px !important;
         position: relative !important;
         background: var(--bg-main) !important;
@@ -2458,6 +2458,7 @@ body .element:hover{
     position: absolute;
     display: block;
     list-style:circle;
+    /* border-radius: 100%; */
     
    
     background: rgba(184, 107, 111, 0.15); /* Rose avec une transparence légère */
@@ -2553,7 +2554,7 @@ body .element:hover{
     0% {
         transform: translateY(0) rotate(0deg);
         opacity: 1;
-        border-radius: 0;
+        border-radius: 0%;
     }
     100% {
         transform: translateY(-1000px) rotate(720deg); /* Monte jusqu'à -1000px */
@@ -2561,7 +2562,7 @@ body .element:hover{
         border-radius: 50%; /* Devient un cercle */
     }
 }
-/* --- Correction de l'animation (Accolade fermée ici) --- */
+
 @-webkit-keyframes animate {
     0% {
         -webkit-transform: translateY(0) rotate(0deg);
@@ -2575,10 +2576,7 @@ body .element:hover{
     }
 } 
 
-/* =======================================================
-   CORRECTION ULTIME : LOGOS COMPÉTENCES MOBILE
-   (À placer tout en bas du fichier CSS)
-   ======================================================= */
+
 
 @media only screen and (max-width: 600px) {
     /* 1. On force la grille à ne JAMAIS faire une seule colonne */
