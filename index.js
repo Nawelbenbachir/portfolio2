@@ -1,6 +1,4 @@
-// =======================================================
-//  DÉCLARATION DES FONCTIONS MODALES ET VISUELLES GLOBALES
-// =======================================================
+
 
 var modal = document.getElementById("myModal");
 var modalImg = document.getElementById("modalImage");

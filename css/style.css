@@ -529,15 +529,12 @@ section.project-details .main-container__project {
    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
     z-index: 9999 !important; 
     
-    /* Garder la transition si elle n'est pas déjà sur .btn */
-    /* transition: transform 0.3s ease-out, box-shadow 0.3s; */
+    
   }
   .home-hero .btn:hover {
-    /* Utiliser transform: none; pour annuler l'effet et le réappliquer après */
-    /* Cela peut forcer le navigateur à recréer le contexte d'empilement */
+
     transform: translateY(-7px) scale(1.02) !important; 
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25); 
-    /* Rajoutez un z-index élevé */
     z-index: 9999 !important; 
 }
   .btn--bg {
@@ -556,10 +553,10 @@ section.project-details .main-container__project {
     box-shadow: none;
     padding: 1.5rem 5rem; } 
   .btn--theme-inv:hover {
-    background: var(--primary-color); /* Couleur de fond rose (#D51066) */
-    color: var(--white);        /* Couleur du texte blanc */
-    border: 2px solid var(--primary-color); /* La bordure devient invisible contre le fond */
-    /* Garder l'effet de soulèvement général (transform) qui est sur .btn:hover */
+    background: var(--primary-color); 
+    color: var(--white);     
+    border: 2px solid var(--primary-color); 
+
 }
 
 .sec-pad {
@@ -901,9 +898,7 @@ section.project-details .main-container__project {
     font-size: 1.4rem;
     font-weight: 700;
 }
-/* -------------------------------------------------------
-   CARTE DE PROJET INDIVIDUELLE
-   ------------------------------------------------------- */
+
 .project__card {
     background: var(--bg-main);
     padding: 30px;
@@ -1503,14 +1498,11 @@ body.modal-open .section-visible {
     to {transform: scale(1)}
 }
 
-/* Si votre bouton utilise la classe générique .btn--theme-inv, 
-    assurez-vous que ces styles ne s'appliquent pas à d'autres boutons 
-    que vous ne voulez pas animer. Sinon, ciblez-le plus spécifiquement :
-*/
-.project-cs-hero__cta a.btn--theme-inv {
-     transform: translateY(-1px);
-    box-shadow: 0 3px 10px rgba(213, 16, 102, 0.3)
-}
+
+/* .project-cs-hero__cta a.btn--theme-inv {
+    transform: translateY(-1px);
+    
+} */
 .project-details__showcase-img {
   flex: 1 1 45%;
   max-width: 600px; /* Pour éviter qu'elles deviennent trop grandes sur grand écran */
@@ -1595,13 +1587,13 @@ body.modal-open .section-visible {
 /* Animation de départ (Hero) */
 .hero-start-animation {
     opacity: 0;
-    transform: translateY(20px);
+    /* transform: translateY(20px); */
     transition: opacity 1s ease-out, transform 1s ease-out;
 }
 
 .hero-start-animation.visible {
     opacity: 1;
-    transform: translateY(0);
+    /* transform: translateY(0); */
 }
 
 
@@ -1767,9 +1759,7 @@ body.modal-open .section-visible {
 .main-footer.footer-black { background: var(--bg-main) !important; }
 
 
-/* =======================================================
-    MISE EN PAGE des GROUPES de COMPÉTENCES
-   ======================================================= */
+
 
 /* Conteneur global pour espacer les groupes */
 .skills__groups-container {
@@ -1816,25 +1806,22 @@ body.modal-open .section-visible {
     margin: 0 auto;
 }
 
-/* -------------------------------------------------------
-   CARTE DE COMPÉTENCE (.skills__skill)
-   ------------------------------------------------------- */
+
    /* Ciblage spécifique si la taille est trop petite dans la section Veille */
 #veille .skills__skill {
-    font-size: 1.8rem !important; /* Utilisation de !important pour s'assurer que le style est appliqué */
+    font-size: 1.8rem !important; 
 }
 
-/* Si les images dans la boîte de compétence sont trop petites, réglez leur taille ici */
+
 #veille .skills__skill img {
-    height: 3rem; /* Exemple : 30px de hauteur pour les logos */
+    height: 3rem; 
     width: auto;
     
 
 }
 
 
-/* --- GESTION DU HOVER --- */
-/* En Light Mode au survol : on enlève tout */
+
 .skills__skill:hover img {
     filter: none; 
 }
@@ -1860,9 +1847,7 @@ body.modal-open .section-visible {
     
 }
 
-/* -------------------------------------------------------
-   ÉLÉMENTS INTERNES (Texte et Image)
-   ------------------------------------------------------- */
+
 .skills__skill span {
     margin-top: 0.5rem;
     font-size: 1.5rem;
@@ -2033,7 +2018,7 @@ body .timeline::after {
     z-index: 1 !important;
 }
 
-/*Les blocs d'expérience (Cartes) */
+
 body .element.gauche, 
 body .element.droite {
     width: calc(100% - 75px) !important;
@@ -2041,7 +2026,8 @@ body .element.droite {
     padding: 25px !important;
     background: var(--bg-main) !important;
     border-radius: 12px !important;
-    box-shadow: 0 10px 30px var(--text-main) !important;
+    border : 1px solid #ddd;
+    /* box-shadow: 0 10px 30px var(--text-sub) !important; */
     position: relative !important;
     left: 0 !important;
     display: block !important;
@@ -2103,8 +2089,10 @@ body .list-timeline li {
 }
 
 body .element:hover{
+    border-color: #B86B6F; 
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15); 
     transform : translateX(5px) !important;
-    border-left : 3px solid #B86B6F;
+    /* border-left : 3px solid #B86B6F; */
 }
 @media only screen and (max-width: 56.25em) {
 
@@ -2332,17 +2320,17 @@ body .element:hover{
 
 
 @media only screen and (max-width: 600px) {
-    /* 1. On force la grille à ne JAMAIS faire une seule colonne */
+   
     .about__content-skills {
         display: grid !important;
-        /* Ici on force 3 colonnes sur mobile standard, 2 sur très petit */
+        
         grid-template-columns: repeat(3, 1fr) !important; 
         gap: 10px !important;
         width: 100% !important;
         max-width: 100% !important;
     }
 
-    /* 2. On réduit drastiquement la taille des cartes */
+   
     .skills__skill {
         height: 85px !important; /* Hauteur réduite */
         width: 100% !important;
@@ -2350,7 +2338,7 @@ body .element:hover{
         margin: 0 !important;
     }
 
-    /* 3. On réduit les logos qui sont "ÉNORMES" */
+   
     .skills__skill img {
         width: 25px !important;  /* Taille fixe pour le logo */
         height: 25px !important;
@@ -2360,7 +2348,6 @@ body .element:hover{
         margin-bottom: 2px !important;
     }
 
-    /* 4. On ajuste le texte */
     .skills__skill span {
         font-size: 1rem !important; /* Texte plus petit */
         margin-top: 0 !important;
