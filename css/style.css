@@ -11,7 +11,7 @@ $breakpoint arguement choices:
 - big-desktop
 /* --- CONFIGURATION DES COULEURS --- */
 :root {
-  /* Mode Clair (tes couleurs actuelles) */
+  
   --bg-main: #ffffff;
   --bg-secondary: #f0f0f0;
   --bg-third: #eeecec;
@@ -24,14 +24,13 @@ $breakpoint arguement choices:
   --circles-color : rgba(168,85,90,0.22)
 }
 
-/* Mode Sombre (les couleurs qui vont s'appliquer) */
 [data-theme="dark"] {
-  --bg-main: #111111;       /* Fond profond */
-  --bg-secondary: #1a1a1a;  /* Sections alternées */
-  --text-main: #eeeeee;     /* Texte presque blanc */
-  --text-sub: #bbbbbb;      /* Texte secondaire gris clair */
-  --heading-main: #ffffff;  /* Titres blancs */
-  --white: #1a1a1a;         /* Pour les éléments qui étaient blancs */
+  --bg-main: #111111;      
+  --bg-secondary: #1a1a1a;  
+  --text-main: #eeeeee;     
+  --text-sub: #bbbbbb;      
+  --heading-main: #ffffff; 
+  --white: #1a1a1a;        
   --timeline-color:rgba(255,255,255,0.12);
   --circles-color : rgba(184, 107, 111, 0.4)
 }
@@ -57,10 +56,10 @@ $breakpoint arguement choices:
 }
 
 .theme-icon {
-  width: 2.2rem; /* Ajuste selon la taille de tes liens de menu */
+  width: 2.2rem; 
   height: 2.2rem;
   transition: transform 0.3s ease;
-  stroke: currentColor !important; /* Force le trait à prendre la couleur du texte */
+  stroke: currentColor !important;
   fill: none;
 }
 #sun-icon, #moon-icon {
@@ -107,7 +106,7 @@ $breakpoint arguement choices:
         display: none !important; 
     }
 
-    /* 2. On affiche le bouton mobile */
+    /*  On affiche le bouton mobile */
     body .header__content .header__main-ham-menu-cont {
         display: block !important;
     }
